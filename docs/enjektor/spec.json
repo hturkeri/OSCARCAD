@@ -1,0 +1,1231 @@
+{
+ "meta": {
+  "kaynak": "ef502211-09-DB01-4A-E.pdf (Fluidics Instruments, Simplex atomizer 09-DB01-4A-E, 13-02-15)",
+  "birim": "mm",
+  "eksen": "r = eksenden yaricap, z = 0 altigen/flans alt yuzu (14 ve 7.5 olculeri arasindaki duzlem), +z orifise dogru",
+  "yontem": "PDF cizgileri vektor (600 dpi birim, 3:1 olcek). Koordinatlar vektor uc noktalarindan okundu; cozunurluk 1/70.866 mm = 0.014 mm",
+  "olcek_px_mm": 70.8661,
+  "eksen_x_px": {
+   "s1": 1884,
+   "s2": 1884,
+   "s3": 1867,
+   "s4": 1867
+  },
+  "z0_y_px": {
+   "s1": 4242,
+   "s2": 4242,
+   "s3": 3300,
+   "s4": 3502
+  }
+ },
+ "kalibrasyon": [
+  {
+   "olcu": "14 +-0.2 (tepe duzlugu - z0)",
+   "nominal": 14.0,
+   "olculen": 14.01
+  },
+  {
+   "olcu": "7.25 +0/-0.1 (tepe - R8 merkezi)",
+   "nominal": 7.25,
+   "olculen": 7.25
+  },
+  {
+   "olcu": "7.5 +-0.5 (z0 - govde alt yuzu)",
+   "nominal": 7.5,
+   "olculen": 7.49
+  },
+  {
+   "olcu": "20.5 max (z0 - filtre ucu siniri)",
+   "nominal": 20.5,
+   "olculen": 20.49
+  },
+  {
+   "olcu": "R8 +0/-0.2 (kubbe yayi)",
+   "nominal": 8.0,
+   "olculen": 7.98
+  },
+  {
+   "olcu": "O16 +0/-0.5 (flans)",
+   "nominal": 16.0,
+   "olculen": 15.7
+  },
+  {
+   "olcu": "16 +0/-0.25 A/F (ust gorunus)",
+   "nominal": 16.0,
+   "olculen": 15.85
+  },
+  {
+   "olcu": "9/16-24 UNEF-2A dis cap",
+   "nominal": 14.29,
+   "olculen": 14.16
+  },
+  {
+   "olcu": "3/8-40 UNS dis cap (uzatma cizgisi)",
+   "nominal": 9.525,
+   "olculen": 9.51
+  },
+  {
+   "olcu": "3/8-40 ic dis dibi (govde deligi)",
+   "nominal": 8.84,
+   "olculen": 8.84
+  },
+  {
+   "olcu": "O11.8 max (eksen isaretleri)",
+   "nominal": 11.8,
+   "olculen": 11.8
+  },
+  {
+   "olcu": "SW 3/16 (kose-kose/2 = 2.749)",
+   "nominal": 2.749,
+   "olculen": 2.75
+  }
+ ],
+ "profiller": {
+  "bas": {
+   "malzeme": "1.4005",
+   "kapali": true,
+   "aciklama": "Donel profil; altigen kesimi ayrica (A/F 15.85). H2-H3 ve H8-H9 yay, diger kenarlar dogru.",
+   "kose": [
+    {
+     "id": "H1",
+     "r": 0.18,
+     "z": 13.24,
+     "not_": "orifis girisi (girdap odasi konisi sonu)"
+    },
+    {
+     "id": "H2",
+     "r": 0.18,
+     "z": 13.52,
+     "not_": "orifis silindirik boyu sonu"
+    },
+    {
+     "id": "H3",
+     "r": 0.27,
+     "z": 13.8,
+     "not_": "cikis trompeti sonu; H2-H3 yay R0.48 merkez (0.66,13.52)"
+    },
+    {
+     "id": "H4",
+     "r": 1.91,
+     "z": 13.8,
+     "not_": "cikis havsasi tabani"
+    },
+    {
+     "id": "H5",
+     "r": 1.99,
+     "z": 13.87,
+     "not_": "havsa kose radyusu R0.08"
+    },
+    {
+     "id": "H6",
+     "r": 1.99,
+     "z": 13.96,
+     "not_": "havsa duvari"
+    },
+    {
+     "id": "H7",
+     "r": 2.05,
+     "z": 14.01,
+     "not_": "0.05 pah, tepe duzlugu"
+    },
+    {
+     "id": "H8",
+     "r": 3.17,
+     "z": 14.01,
+     "not_": "tepe duzlugu kenari; H8-H9 yay R7.98 merkez (-0.19,6.77)"
+    },
+    {
+     "id": "H9",
+     "r": 7.79,
+     "z": 7.01,
+     "not_": "kubbe sonu / altigen ust pahi baslangici"
+    },
+    {
+     "id": "H10",
+     "r": 9.14,
+     "z": 5.87,
+     "not_": "altigen kose (ust pah 40 derece konisi)"
+    },
+    {
+     "id": "H11",
+     "r": 9.14,
+     "z": 1.59,
+     "not_": "altigen kose alt"
+    },
+    {
+     "id": "H12",
+     "r": 7.85,
+     "z": 0.51,
+     "not_": "alt pah sonu = flans ust"
+    },
+    {
+     "id": "H13",
+     "r": 7.85,
+     "z": 0.0,
+     "not_": "flans alt (O15.70, conta yuzu)"
+    },
+    {
+     "id": "H14",
+     "r": 6.15,
+     "z": 0.0,
+     "not_": "boyun"
+    },
+    {
+     "id": "H15",
+     "r": 6.15,
+     "z": -1.5,
+     "not_": "boyun sonu"
+    },
+    {
+     "id": "H16",
+     "r": 7.08,
+     "z": -2.43,
+     "not_": "45 derece pah, 9/16-24 dis baslangici"
+    },
+    {
+     "id": "H17",
+     "r": 7.08,
+     "z": -6.49,
+     "not_": "dis sonu"
+    },
+    {
+     "id": "H18",
+     "r": 6.08,
+     "z": -7.49,
+     "not_": "45 derece pah"
+    },
+    {
+     "id": "H19",
+     "r": 5.19,
+     "z": -7.49,
+     "not_": "alt yuz"
+    },
+    {
+     "id": "H20",
+     "r": 4.42,
+     "z": -6.7,
+     "not_": "ic pah, delik agzi"
+    },
+    {
+     "id": "H21",
+     "r": 4.42,
+     "z": 9.41,
+     "not_": "delik O8.84 (3/8-40 ic dis dibi capi) sonu"
+    },
+    {
+     "id": "H22",
+     "r": 4.29,
+     "z": 9.48,
+     "not_": "kademe"
+    },
+    {
+     "id": "H23",
+     "r": 4.29,
+     "z": 9.93,
+     "not_": "O8.58 kisa silindir sonu = 110 derece yuva konisi baslangici"
+    },
+    {
+     "id": "H24",
+     "r": 0.76,
+     "z": 12.4,
+     "not_": "yuva konisi sonu = girdap odasi konisi (69 derece) baslangici"
+    }
+   ],
+   "yaylar": [
+    {
+     "bas": "H2",
+     "son": "H3",
+     "R": 0.48,
+     "merkez": [
+      0.66,
+      13.52
+     ]
+    },
+    {
+     "bas": "H8",
+     "son": "H9",
+     "R": 7.98,
+     "merkez": [
+      -0.19,
+      6.77
+     ],
+     "not_": "eksen merkezli yaklasim: R7.77 merkez (0,6.89), hata <0.03"
+    }
+   ]
+  },
+  "girdap_konisi": {
+   "malzeme": "1.4005",
+   "kapali": true,
+   "aciklama": "Dolu donel govde (eksen dahil). Slot(lar) ayrica kesilir.",
+   "kose": [
+    {
+     "id": "S1",
+     "r": 0.0,
+     "z": 12.66,
+     "not_": "uc duzlugu merkezi"
+    },
+    {
+     "id": "S2",
+     "r": 0.4,
+     "z": 12.66,
+     "not_": "uc duzlugu kenari O0.80"
+    },
+    {
+     "id": "S3",
+     "r": 2.79,
+     "z": 10.98,
+     "not_": "110 derece ust koni sonu (yuva temas bandi r 0.76..2.79)"
+    },
+    {
+     "id": "S4",
+     "r": 3.78,
+     "z": 9.27,
+     "not_": "60 derece alt koni sonu"
+    },
+    {
+     "id": "S5",
+     "r": 3.8,
+     "z": 9.21,
+     "not_": "etek ust kosesi"
+    },
+    {
+     "id": "S6",
+     "r": 3.8,
+     "z": 8.26,
+     "not_": "etek O7.60"
+    },
+    {
+     "id": "S7",
+     "r": 3.6,
+     "z": 8.06,
+     "not_": "R0.2 kose, alt yuz"
+    },
+    {
+     "id": "S8",
+     "r": 2.05,
+     "z": 8.06,
+     "not_": "alt yuz ic kenari"
+    },
+    {
+     "id": "S9",
+     "r": 1.85,
+     "z": 7.86,
+     "not_": "R0.2 dip radyusu, sap baslangici"
+    },
+    {
+     "id": "S10",
+     "r": 1.85,
+     "z": 4.85,
+     "not_": "sap O3.70"
+    },
+    {
+     "id": "S11",
+     "r": 1.44,
+     "z": 4.16,
+     "not_": "sap ucu pahi"
+    },
+    {
+     "id": "S12",
+     "r": 0.0,
+     "z": 4.16,
+     "not_": "sap ucu"
+    }
+   ]
+  },
+  "tutucu_vida": {
+   "malzeme": "Ms58 (CuZn39Pb3)",
+   "kapali": true,
+   "aciklama": "Donel profil (ic delik dahil); alyan yuvasi ve capraz delik ayrica.",
+   "kose": [
+    {
+     "id": "K1",
+     "r": 1.95,
+     "z": 8.06,
+     "not_": "ust yuz ic kenari (delik O3.90)"
+    },
+    {
+     "id": "K2",
+     "r": 3.74,
+     "z": 8.06,
+     "not_": "ust yuz dis kenari"
+    },
+    {
+     "id": "K3",
+     "r": 3.74,
+     "z": -0.73,
+     "not_": "govde O7.48 sonu"
+    },
+    {
+     "id": "K4",
+     "r": 4.54,
+     "z": -0.73,
+     "not_": "disli flans ust yuzu"
+    },
+    {
+     "id": "K5",
+     "r": 4.74,
+     "z": -0.95,
+     "not_": "pah, 3/8-40 dis baslangici"
+    },
+    {
+     "id": "K6",
+     "r": 4.74,
+     "z": -2.94,
+     "not_": "dis sonu"
+    },
+    {
+     "id": "K7",
+     "r": 4.54,
+     "z": -3.13,
+     "not_": "pah, alt yuz"
+    },
+    {
+     "id": "K8",
+     "r": 2.38,
+     "z": -3.13,
+     "not_": "alyan yuvasi agzi (A/F/2)"
+    },
+    {
+     "id": "K9",
+     "r": 2.38,
+     "z": -0.64,
+     "not_": "alyan yuvasi dibi"
+    },
+    {
+     "id": "K10",
+     "r": 1.95,
+     "z": -0.21,
+     "not_": "45 derece gecis, eksenel delik"
+    }
+   ]
+  },
+  "filtre_govdesi": {
+   "malzeme": "belirtilmemis (sari-yesil renk: pirinc varsayimi)",
+   "kapali": true,
+   "aciklama": "Donel profil; pencereler ayrica kesilir.",
+   "kose": [
+    {
+     "id": "F1",
+     "r": 3.7,
+     "z": -3.71,
+     "not_": "ust yuz ic kenari (delik O7.40)"
+    },
+    {
+     "id": "F2",
+     "r": 4.54,
+     "z": -3.71,
+     "not_": "ust yuz"
+    },
+    {
+     "id": "F3",
+     "r": 4.74,
+     "z": -3.91,
+     "not_": "pah, 3/8-40 dis baslangici"
+    },
+    {
+     "id": "F4",
+     "r": 4.74,
+     "z": -5.46,
+     "not_": "dis sonu"
+    },
+    {
+     "id": "F5",
+     "r": 4.29,
+     "z": -5.9,
+     "not_": "dis cikis pahi"
+    },
+    {
+     "id": "F6",
+     "r": 4.29,
+     "z": -6.53,
+     "not_": "boyun O8.58"
+    },
+    {
+     "id": "F7",
+     "r": 4.74,
+     "z": -6.91,
+     "not_": "konik gecis"
+    },
+    {
+     "id": "F8",
+     "r": 4.74,
+     "z": -8.1,
+     "not_": "elek oturma bandi 1 (O9.48)"
+    },
+    {
+     "id": "F9",
+     "r": 4.09,
+     "z": -8.65,
+     "not_": "kanal pahi"
+    },
+    {
+     "id": "F10",
+     "r": 4.09,
+     "z": -10.77,
+     "not_": "kanal 1 tabani O8.18 (pencere 1: z -8.90..-10.51)"
+    },
+    {
+     "id": "F11",
+     "r": 4.74,
+     "z": -11.3,
+     "not_": "kanal pahi"
+    },
+    {
+     "id": "F12",
+     "r": 4.74,
+     "z": -12.3,
+     "not_": "elek oturma bandi 2"
+    },
+    {
+     "id": "F13",
+     "r": 4.09,
+     "z": -12.86,
+     "not_": "kanal pahi"
+    },
+    {
+     "id": "F14",
+     "r": 4.09,
+     "z": -14.96,
+     "not_": "kanal 2 tabani (pencere 2: z -13.11..-14.70)"
+    },
+    {
+     "id": "F15",
+     "r": 4.74,
+     "z": -15.51,
+     "not_": "kanal pahi"
+    },
+    {
+     "id": "F16",
+     "r": 4.74,
+     "z": -16.71,
+     "not_": "elek oturma bandi 3 sonu"
+    },
+    {
+     "id": "F17",
+     "r": 5.15,
+     "z": -16.71,
+     "not_": "flans O10.30"
+    },
+    {
+     "id": "F18",
+     "r": 5.15,
+     "z": -18.51,
+     "not_": "flans"
+    },
+    {
+     "id": "F19",
+     "r": 4.95,
+     "z": -18.71,
+     "not_": "pah"
+    },
+    {
+     "id": "F20",
+     "r": 0.0,
+     "z": -18.71,
+     "not_": "alt yuz merkezi"
+    },
+    {
+     "id": "F21",
+     "r": 0.0,
+     "z": -17.92,
+     "not_": "kor delik ucu (118 derece matkap konisi)"
+    },
+    {
+     "id": "F22",
+     "r": 3.7,
+     "z": -15.71,
+     "not_": "delik O7.40 silindirik sonu"
+    }
+   ]
+  },
+  "elek": {
+   "malzeme": "AISI 316 tel elek",
+   "kapali": true,
+   "aciklama": "Ince silindirik kovan",
+   "kose": [
+    {
+     "id": "M1",
+     "r": 4.74,
+     "z": -7.61,
+     "not_": ""
+    },
+    {
+     "id": "M2",
+     "r": 4.84,
+     "z": -7.61,
+     "not_": ""
+    },
+    {
+     "id": "M3",
+     "r": 4.84,
+     "z": -16.71,
+     "not_": ""
+    },
+    {
+     "id": "M4",
+     "r": 4.74,
+     "z": -16.71,
+     "not_": ""
+    }
+   ]
+  }
+ },
+ "donel_olmayan": {
+  "altigen": {
+   "parca": "bas",
+   "AF": 15.85,
+   "AF_nominal": "16 +0/-0.25",
+   "z_alt": 0.51,
+   "z_ust": 7.01,
+   "kose_acisal_konum_deg": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+   ],
+   "not_": "koseler kesit duzleminde; ust/alt 40 derece pah konileri donel profilde"
+  },
+  "slot": {
+   "parca": "girdap_konisi",
+   "adet": {
+    "deger": 2,
+    "durum": "VARSAYIM (cizimde yalniz 1 slot gorunur, gorunen ceyrek n<=4 ile tutarli)"
+   },
+   "genislik": {
+    "deger": 0.16,
+    "belirsizlik": 0.03,
+    "durum": "olculen"
+   },
+   "derinlik": {
+    "deger": 0.19,
+    "belirsizlik": 0.04,
+    "durum": "olculen (slot tabaninin 60 derece koniden ciktigi nokta z=10.59)"
+   },
+   "eksen_kacikligi_e": {
+    "deger": 0.2,
+    "belirsizlik": 0.05,
+    "durum": "olculen (izdusumden 3B geri cozum)"
+   },
+   "tanim": "Duz kanal; taban 110 derece koninin anadogrusuna paralel ve yuzeyden h kadar derin; kanal ekseni meridyen duzleminden e kadar paralel kaydirilmis (teğetsel slot). Uc duzlugunden (z=12.66) baslar, 60 derece konide z=10.59 da tukenir.",
+   "cizimdeki_slot_azimut_deg": 75,
+   "donus_yonu": "orifis tarafindan bakinca saat yonu tersi (dusuk guven)",
+   "kenar_A": [
+    [
+     0.23,
+     12.66
+    ],
+    [
+     0.38,
+     12.26
+    ],
+    [
+     0.51,
+     11.94
+    ],
+    [
+     0.69,
+     11.44
+    ],
+    [
+     0.86,
+     10.98
+    ],
+    [
+     0.9,
+     10.6
+    ]
+   ],
+   "kenar_B": [
+    [
+     0.35,
+     12.66
+    ],
+    [
+     0.52,
+     12.29
+    ],
+    [
+     0.64,
+     11.98
+    ],
+    [
+     0.83,
+     11.47
+    ],
+    [
+     1.02,
+     10.98
+    ],
+    [
+     1.06,
+     10.58
+    ]
+   ],
+   "taban_cizgisi": [
+    [
+     0.31,
+     12.66
+    ],
+    [
+     1.06,
+     10.58
+    ]
+   ]
+  },
+  "capraz_delik": {
+   "parca": "tutucu_vida",
+   "cap": 2.4,
+   "z": 3.06,
+   "eksen": "radyal, kesit duzleminde",
+   "adet": {
+    "deger": 2,
+    "durum": "VARSAYIM: boydan boya delinmis (0 ve 180 derece); kesitte yalniz sag taraf gorunur"
+   }
+  },
+  "alyan_yuvasi": {
+   "parca": "tutucu_vida",
+   "AF": 4.76,
+   "kose_kose": 5.5,
+   "z_agiz": -3.13,
+   "z_dip": -0.64,
+   "derinlik": 2.49,
+   "kose_konumu_deg": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+   ],
+   "agiz_havsasi": "~0.35 x 45 derece"
+  },
+  "filtre_pencereleri": {
+   "parca": "filtre_govdesi",
+   "sira": [
+    {
+     "z_ust": -8.9,
+     "z_alt": -10.51
+    },
+    {
+     "z_ust": -13.11,
+     "z_alt": -14.7
+    }
+   ],
+   "r_ic": 3.7,
+   "r_dis": 4.09,
+   "adet_sira_basina": {
+    "deger": 2,
+    "durum": "VARSAYIM"
+   },
+   "yay_acisi_deg": {
+    "deger": 150,
+    "durum": "VARSAYIM"
+   },
+   "merkez_azimut_deg": [
+    45,
+    225
+   ],
+   "not_": "Azimut model eksenlerinde: +X = kesit duzleminin sag yarisi (0 derece), izleyici -Y tarafinda (slot -75 derecede, izleyiciye dogru). Kesitte pencere hizasinda sag duvar (0 derece) ve ARKADAKI ceyrek (0-90 derece, elek eksenden r=3.7'ye kadar kesintisiz gorunuyor) tamamen acik; dis gorunuste on-sol (180-270 derece) acik gorunuyor. Kopruler cizimin gosteremedigi bolgelerde olmali: 135 derece (dis gorunusun arkasi) ve 315 derece (cikarilan ceyrek) -> 30 derecelik 2 kopru varsayildi. (Bagimsiz inceleme duzeltmesi: onceki 315/135 merkezli yerlesim 30-60 derecede, cizimde acik gorunen bolgede kopru birakiyordu.)"
+  }
+ },
+ "disler": [
+  {
+   "parca": "bas",
+   "dis": "9/16\"-24 UNEF-2A (dis)",
+   "z": [
+    -6.49,
+    -2.43
+   ],
+   "cizim_dis_cap": 14.16,
+   "nominal": 14.288,
+   "hatve": 1.058
+  },
+  {
+   "parca": "bas",
+   "dis": "3/8\"-40 UNS-2B (ic)",
+   "z": [
+    -6.7,
+    3.65
+   ],
+   "dis_dibi_cap": 8.84,
+   "nominal": 9.525,
+   "hatve": 0.635,
+   "not_": "dis cikisi z=3.65..4.25; ustu duz delik O8.84"
+  },
+  {
+   "parca": "tutucu_vida",
+   "dis": "3/8\"-40 UNS-2A (dis)",
+   "z": [
+    -2.94,
+    -0.95
+   ],
+   "cizim_dis_cap": 9.48
+  },
+  {
+   "parca": "filtre_govdesi",
+   "dis": "3/8\"-40 UNS-2A (dis)",
+   "z": [
+    -5.46,
+    -3.91
+   ],
+   "cizim_dis_cap": 9.48
+  }
+ ],
+ "akis_yolu": {
+  "kosul": "0.50 USgal/h = 1.90 kg/h @10 bar, 817 kg/m3, 3.5 cSt",
+  "Q_mm3_s": 646.0,
+  "gecitler": [
+   {
+    "sira": 1,
+    "gecit": "Elek (200 mesh, 75 um) - kanal ustu serbest elek alani",
+    "alan_mm2": 66.5781,
+    "hiz_m_s": 0.0097,
+    "durum": "olculen+hesap",
+    "aciklama": "elek acik alan orani 0.349; 120 mesh/140 um icin 0.437"
+   },
+   {
+    "sira": 2,
+    "gecit": "Filtre pencereleri (2 sira)",
+    "alan_mm2": 65.3451,
+    "hiz_m_s": 0.0099,
+    "durum": "VARSAYIM (pencere acisi)",
+    "aciklama": "2 sira x 2 pencere x 150 derece"
+   },
+   {
+    "sira": 3,
+    "gecit": "Filtre govdesi deligi O7.40",
+    "alan_mm2": 43.0084,
+    "hiz_m_s": 0.015,
+    "durum": "olculen",
+    "aciklama": ""
+   },
+   {
+    "sira": 4,
+    "gecit": "Filtre ustu - vida alti araligi (0.58 mm) ",
+    "alan_mm2": 9.1106,
+    "hiz_m_s": 0.0709,
+    "durum": "olculen",
+    "aciklama": "alyan agzi cevresinde silindirik gecis; delik zaten dogrudan alyan yuvasina bakar"
+   },
+   {
+    "sira": 5,
+    "gecit": "Alyan yuvasi 3/16\" (4.76 A/F)",
+    "alan_mm2": 19.6221,
+    "hiz_m_s": 0.0329,
+    "durum": "olculen",
+    "aciklama": ""
+   },
+   {
+    "sira": 6,
+    "gecit": "Vida eksenel deligi O3.90",
+    "alan_mm2": 11.9459,
+    "hiz_m_s": 0.0541,
+    "durum": "olculen",
+    "aciklama": "z=-0.21..4.16 arasi bos; ustunde konik sapi (O3.70)"
+   },
+   {
+    "sira": 7,
+    "gecit": "Capraz delik(ler) O2.40 x2",
+    "alan_mm2": 9.0478,
+    "hiz_m_s": 0.0714,
+    "durum": "cap olculen, adet VARSAYIM",
+    "aciklama": "tek delik ise 4.52"
+   },
+   {
+    "sira": 8,
+    "gecit": "Halka bosluk: vida O7.48 / govde deligi O8.84",
+    "alan_mm2": 17.4321,
+    "hiz_m_s": 0.0371,
+    "durum": "olculen",
+    "aciklama": "z=-0.73..8.06; alt kismi dis acilmis (dis dibi 8.84 alindi)"
+   },
+   {
+    "sira": 9,
+    "gecit": "Halka bosluk: konik etegi O7.60 / delik O8.84",
+    "alan_mm2": 16.0108,
+    "hiz_m_s": 0.0403,
+    "durum": "olculen",
+    "aciklama": "z=8.26..9.21"
+   },
+   {
+    "sira": 10,
+    "gecit": "Kademe O8.58 / 60 derece koni (z=9.48)",
+    "alan_mm2": 15.7347,
+    "hiz_m_s": 0.0411,
+    "durum": "olculen",
+    "aciklama": "sonra konik kama boslugu r=2.79 temas cizgisine kadar daralir"
+   },
+   {
+    "sira": 11,
+    "gecit": "Slotlar: n x w x h = 2 x 0.16 x 0.19",
+    "alan_mm2": 0.0608,
+    "hiz_m_s": 10.6249,
+    "durum": "w,h olculen; n VARSAYIM",
+    "aciklama": "tek slot 0.0304 mm2; EN DAR KESIT (olcum kesiti)"
+   },
+   {
+    "sira": 12,
+    "gecit": "Girdap odasi girisi O1.52 (koni tabani)",
+    "alan_mm2": 0.7578,
+    "hiz_m_s": 0.8525,
+    "durum": "olculen",
+    "aciklama": "konik uc (O0.80 duzluk) ile 69 derece koni arasi halka, z=12.66"
+   },
+   {
+    "sira": 13,
+    "gecit": "Orifis O0.36, L=0.28",
+    "alan_mm2": 0.1018,
+    "hiz_m_s": 6.3465,
+    "durum": "olculen (sematik)",
+    "aciklama": "L/d=0.78; cikis trompeti O0.54, havsa O3.98 x 0.21"
+   }
+  ]
+ },
+ "boyutlandirma": {
+  "Cd_gerekli_050_do036": 0.1283,
+  "CdA_050_mm2": 0.01306,
+  "FN_050_SI": 1.8464607142062596e-08,
+  "cizim_geometrisi_ile_RizkLefebvre": [
+   {
+    "n_slot": 1,
+    "Ap_mm2": 0.0304,
+    "K": 0.0556,
+    "Cd_RL": 0.118,
+    "debi_kg_h": 1.75,
+    "debi_USgal_h": 0.46,
+    "puskurtme_acisi_RL_deg": 56.1
+   },
+   {
+    "n_slot": 2,
+    "Ap_mm2": 0.0608,
+    "K": 0.1111,
+    "Cd_RL": 0.167,
+    "debi_kg_h": 2.48,
+    "debi_USgal_h": 0.65,
+    "puskurtme_acisi_RL_deg": 50.5
+   },
+   {
+    "n_slot": 3,
+    "Ap_mm2": 0.0912,
+    "K": 0.1667,
+    "Cd_RL": 0.205,
+    "debi_kg_h": 3.03,
+    "debi_USgal_h": 0.8,
+    "puskurtme_acisi_RL_deg": 47.6
+   },
+   {
+    "n_slot": 4,
+    "Ap_mm2": 0.1216,
+    "K": 0.2222,
+    "Cd_RL": 0.237,
+    "debi_kg_h": 3.5,
+    "debi_USgal_h": 0.92,
+    "puskurtme_acisi_RL_deg": 45.5
+   }
+  ],
+  "kapasite_olcekleme": [
+   {
+    "USgal_h": 0.5,
+    "kg_h": 1.9,
+    "do_mm_sabitCd": 0.36,
+    "Ap_mm2_sabitK": 0.0608
+   },
+   {
+    "USgal_h": 0.55,
+    "kg_h": 2.09,
+    "do_mm_sabitCd": 0.378,
+    "Ap_mm2_sabitK": 0.0669
+   },
+   {
+    "USgal_h": 0.6,
+    "kg_h": 2.28,
+    "do_mm_sabitCd": 0.394,
+    "Ap_mm2_sabitK": 0.073
+   },
+   {
+    "USgal_h": 0.65,
+    "kg_h": 2.47,
+    "do_mm_sabitCd": 0.41,
+    "Ap_mm2_sabitK": 0.079
+   },
+   {
+    "USgal_h": 0.75,
+    "kg_h": 2.82,
+    "do_mm_sabitCd": 0.439,
+    "Ap_mm2_sabitK": 0.0902
+   },
+   {
+    "USgal_h": 0.85,
+    "kg_h": 3.2,
+    "do_mm_sabitCd": 0.467,
+    "Ap_mm2_sabitK": 0.1024
+   },
+   {
+    "USgal_h": 1.0,
+    "kg_h": 3.77,
+    "do_mm_sabitCd": 0.507,
+    "Ap_mm2_sabitK": 0.1206
+   },
+   {
+    "USgal_h": 1.65,
+    "kg_h": 6.18,
+    "do_mm_sabitCd": 0.649,
+    "Ap_mm2_sabitK": 0.1978
+   },
+   {
+    "USgal_h": 2.0,
+    "kg_h": 7.49,
+    "do_mm_sabitCd": 0.715,
+    "Ap_mm2_sabitK": 0.2397
+   },
+   {
+    "USgal_h": 5.0,
+    "kg_h": 18.7,
+    "do_mm_sabitCd": 1.129,
+    "Ap_mm2_sabitK": 0.5984
+   },
+   {
+    "USgal_h": 11.0,
+    "kg_h": 41.2,
+    "do_mm_sabitCd": 1.676,
+    "Ap_mm2_sabitK": 1.3184
+   }
+  ]
+ },
+ "parametreler": [
+  {
+   "ad": "m_dot_kg_h",
+   "varsayilan": 1.9,
+   "aralik": [
+    1.9,
+    41.2
+   ],
+   "tur": "tasarim girdisi",
+   "not_": "EN 293 tablosu; 12 USgal/h ustu filtresiz (sayfa 4)"
+  },
+  {
+   "ad": "dP_bar",
+   "varsayilan": 10,
+   "aralik": [
+    7,
+    20
+   ],
+   "tur": "tasarim girdisi"
+  },
+  {
+   "ad": "rho_kg_m3",
+   "varsayilan": 817,
+   "tur": "sabit (test yagi ISO 4113)"
+  },
+  {
+   "ad": "nu_cSt",
+   "varsayilan": 3.5,
+   "tur": "sabit (test yagi)"
+  },
+  {
+   "ad": "d_o",
+   "varsayilan": 0.36,
+   "aralik": [
+    0.2,
+    2.0
+   ],
+   "tur": "tasarim degiskeni",
+   "not_": "orifis capi"
+  },
+  {
+   "ad": "L_o",
+   "varsayilan": 0.28,
+   "aralik": [
+    0.15,
+    1.0
+   ],
+   "tur": "tasarim degiskeni",
+   "not_": "L_o/d_o ~0.8"
+  },
+  {
+   "ad": "D_s",
+   "varsayilan": 1.52,
+   "aralik": [
+    1.0,
+    4.0
+   ],
+   "tur": "tasarim degiskeni",
+   "not_": "girdap odasi giris capi (H24)"
+  },
+  {
+   "ad": "alpha_s_deg",
+   "varsayilan": 69.2,
+   "aralik": [
+    60,
+    120
+   ],
+   "tur": "tasarim degiskeni",
+   "not_": "girdap odasi koni tam acisi"
+  },
+  {
+   "ad": "n_slot",
+   "varsayilan": 2,
+   "aralik": [
+    1,
+    4
+   ],
+   "tur": "tasarim degiskeni (VARSAYIM)"
+  },
+  {
+   "ad": "w_slot",
+   "varsayilan": 0.16,
+   "aralik": [
+    0.1,
+    0.8
+   ],
+   "tur": "tasarim degiskeni"
+  },
+  {
+   "ad": "h_slot",
+   "varsayilan": 0.19,
+   "aralik": [
+    0.1,
+    0.8
+   ],
+   "tur": "tasarim degiskeni"
+  },
+  {
+   "ad": "e_slot",
+   "varsayilan": 0.2,
+   "aralik": [
+    0.0,
+    0.6
+   ],
+   "tur": "tasarim degiskeni",
+   "not_": "teğetsel kaciklik; e <= D_s/2 - w/2"
+  },
+  {
+   "ad": "seat_cone_deg",
+   "varsayilan": 110,
+   "tur": "sabit (cizim)"
+  },
+  {
+   "ad": "back_cone_deg",
+   "varsayilan": 60,
+   "tur": "sabit (cizim)"
+  },
+  {
+   "ad": "d_tip",
+   "varsayilan": 0.8,
+   "aralik": [
+    0.5,
+    2.0
+   ],
+   "tur": "turetilen/tasarim",
+   "not_": "konik uc duzlugu capi"
+  },
+  {
+   "ad": "d_recess",
+   "varsayilan": 3.98,
+   "tur": "sabit (cizim)"
+  },
+  {
+   "ad": "h_recess",
+   "varsayilan": 0.21,
+   "tur": "sabit (cizim)"
+  },
+  {
+   "ad": "AF_hex",
+   "varsayilan": 15.85,
+   "tur": "standart (EN 293: 16 +0/-0.25)"
+  },
+  {
+   "ad": "H_head",
+   "varsayilan": 14.0,
+   "tur": "standart (14 +-0.2)"
+  },
+  {
+   "ad": "R_dome",
+   "varsayilan": 7.98,
+   "tur": "standart (R8 +0/-0.2)"
+  },
+  {
+   "ad": "z_dome_c",
+   "varsayilan": 6.75,
+   "tur": "standart (H_head-7.25)"
+  },
+  {
+   "ad": "D_flange",
+   "varsayilan": 15.7,
+   "tur": "standart (O16 +0/-0.5)"
+  },
+  {
+   "ad": "L_thread_end",
+   "varsayilan": 7.5,
+   "tur": "standart (7.5 +-0.5)"
+  },
+  {
+   "ad": "thread_ext",
+   "varsayilan": "9/16-24 UNEF-2A",
+   "tur": "standart"
+  },
+  {
+   "ad": "thread_int",
+   "varsayilan": "3/8-40 UNS",
+   "tur": "standart"
+  },
+  {
+   "ad": "D_bore",
+   "varsayilan": 8.84,
+   "tur": "sabit (dis dibi)"
+  },
+  {
+   "ad": "D_screw_body",
+   "varsayilan": 7.48,
+   "tur": "sabit (cizim)"
+  },
+  {
+   "ad": "d_screw_bore",
+   "varsayilan": 3.9,
+   "tur": "sabit (cizim)"
+  },
+  {
+   "ad": "d_cross",
+   "varsayilan": 2.4,
+   "tur": "sabit (cizim)"
+  },
+  {
+   "ad": "n_cross",
+   "varsayilan": 2,
+   "tur": "VARSAYIM"
+  },
+  {
+   "ad": "AF_socket",
+   "varsayilan": 4.76,
+   "tur": "standart (SW 3/16\")"
+  },
+  {
+   "ad": "filter_mesh_um",
+   "varsayilan": 75,
+   "aralik": [
+    75,
+    140
+   ],
+   "tur": "secim: 75 um/200 mesh (0.50-0.85), 140 um/120 mesh (1.00-11.0), yok (>=12)"
+  },
+  {
+   "ad": "L_filter_max",
+   "varsayilan": 20.5,
+   "tur": "standart (max zarf; cizilen uc z=-18.71)"
+  },
+  {
+   "ad": "D_filter_max",
+   "varsayilan": 11.8,
+   "tur": "standart (max zarf; cizilen flans O10.30)"
+  }
+ ],
+ "belirsizlik": {
+  "vektor_cozunurlugu_mm": 0.014,
+  "kose_okuma_mm": 0.02,
+  "egri_teget_noktalari_mm": 0.05,
+  "slot_olculeri_mm": 0.03,
+  "not_": "Vektor koordinatlari 600 dpi tam sayiya yuvarlanmis; 3:1 olcekte +-0.5 birim = +-0.007 mm. Cizimin kendisi sematik olabilir (ic geometri 0.50..60 USgal/h icin dort sayfada birebir ayni)."
+ }
+}

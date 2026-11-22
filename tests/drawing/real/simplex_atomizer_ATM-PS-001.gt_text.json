@@ -1,0 +1,201 @@
+{
+ "schema": "pcdrw-gt-text/1",
+ "source": "simplex_atomizer_ATM-PS-001.pdf",
+ "note": "Every text item visible on the sheet (read from the rendered preview). kind: dim | callout | label | title | scale | note. partial=true: item must be contained in a recognised run (title-block cells / note fragments that may be split or joined). Compare modulo whitespace runs.",
+ "items": [
+  {
+   "text": "0.5 x 45°",
+   "kind": "dim"
+  },
+  {
+   "text": "10",
+   "kind": "dim"
+  },
+  {
+   "text": "0.5",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø2",
+   "kind": "dim"
+  },
+  {
+   "text": "90°",
+   "kind": "dim"
+  },
+  {
+   "text": "90°",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø3.2",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø5",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø8",
+   "kind": "dim"
+  },
+  {
+   "text": "0.6",
+   "kind": "dim"
+  },
+  {
+   "text": "0.4",
+   "kind": "dim"
+  },
+  {
+   "text": "2",
+   "kind": "dim"
+  },
+  {
+   "text": "4.2",
+   "kind": "dim"
+  },
+  {
+   "text": "5.8",
+   "kind": "dim"
+  },
+  {
+   "text": "0.5",
+   "kind": "dim"
+  },
+  {
+   "text": "1.35",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø5",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø0.8 ORIFICE",
+   "kind": "callout"
+  },
+  {
+   "text": "(1) NOZZLE TIP",
+   "kind": "callout"
+  },
+  {
+   "text": "(2) SWIRLER INSERT",
+   "kind": "callout"
+  },
+  {
+   "text": "SECTION A-A",
+   "kind": "label"
+  },
+  {
+   "text": "(axial plane through feed groove 1)",
+   "kind": "label"
+  },
+  {
+   "text": "VIEW B - SWIRLER (2) FRONT FACE",
+   "kind": "label"
+  },
+  {
+   "text": "3x TANGENTIAL SLOTS, EQ. SP. 120°",
+   "kind": "label"
+  },
+  {
+   "text": "dashed = swirl chamber Ø3.2 (part 1)",
+   "kind": "label"
+  },
+  {
+   "text": "TITLE",
+   "kind": "title"
+  },
+  {
+   "text": "PARTS",
+   "kind": "title"
+  },
+  {
+   "text": "SCALE",
+   "kind": "title"
+  },
+  {
+   "text": "DWG NO",
+   "kind": "title"
+  },
+  {
+   "text": "PURPOSE",
+   "kind": "title"
+  },
+  {
+   "text": "SIMPLEX PRESSURE-SWIRL ATOMIZER",
+   "kind": "title"
+  },
+  {
+   "text": "PersistCAD drawing-import test input",
+   "kind": "title"
+  },
+  {
+   "text": "(1) NOZZLE TIP (2) SWIRLER INSERT",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "10:1",
+   "kind": "scale",
+   "partial": true
+  },
+  {
+   "text": "SHEET A3",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "UNITS mm",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "ATM-PS-001",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "REV A",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "NOTES:",
+   "kind": "note"
+  },
+  {
+   "text": "1. ALL DIMENSIONS IN mm. SHEET A3, SCALE 10:1.",
+   "kind": "note"
+  },
+  {
+   "text": "2. SIMPLEX PRESSURE-SWIRL ATOMIZER, HOLLOW-CONE SPRAY.",
+   "kind": "note"
+  },
+  {
+   "text": "3. 3 SLOTS 0.5 x 0.5, Ap = 0.75 mm2; GROOVES 0.6 x 0.5.",
+   "kind": "note"
+  },
+  {
+   "text": "4. Ds/do = 4.0, lo/do = 0.50, Ls/Ds = 0.625, K = Ap/(Ds.do) = 0.29.",
+   "kind": "note"
+  },
+  {
+   "text": "5. SLOT OUTER WALL TANGENT TO SWIRL CHAMBER WALL.",
+   "kind": "note"
+  },
+  {
+   "text": "6. BREAK ALL SHARP EDGES EXCEPT ORIFICE EXIT EDGE.",
+   "kind": "note"
+  },
+  {
+   "text": "7. GENERIC REFERENCE GEOMETRY FOR CAD IMPORT TESTS -",
+   "kind": "note"
+  },
+  {
+   "text": "NOT A RELEASED / FLIGHT DESIGN.",
+   "kind": "note"
+  }
+ ]
+}

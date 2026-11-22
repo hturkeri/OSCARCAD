@@ -1,0 +1,1234 @@
+{
+ "schema": "persistcad/1",
+ "name": "ATM-PS-001_SimplexAtomizer",
+ "parameters": [
+  {
+   "name": "L_total",
+   "expr": "10",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "10 overall length of the assembly (tip + insert), x = 0 at the orifice exit face",
+   "exposed": true,
+   "label": "L_total",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_out",
+   "expr": "8",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø8 nozzle tip outer diameter",
+   "exposed": true,
+   "label": "D_out",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "chamfer",
+   "expr": "0.5",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "0.5 x 45° outer exit chamfer",
+   "exposed": true,
+   "label": "chamfer",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "d0",
+   "expr": "0.8",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø0.8 orifice (d0 / do)",
+   "exposed": true,
+   "label": "d0",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_exit",
+   "expr": "2",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø2 exit countersink diameter at the forward face",
+   "exposed": true,
+   "label": "D_exit",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "a_exit",
+   "expr": "90",
+   "kind": "angle",
+   "min": null,
+   "max": null,
+   "description": "90° exit cone included angle",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_exit",
+   "expr": "(D_exit-d0)/2/tan(a_exit/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "0.6 exit cone length (dimension 0.6)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "lo",
+   "expr": "0.4",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "0.4 orifice land length (lo; lo/do = 0.50)",
+   "exposed": true,
+   "label": "lo",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_c1",
+   "expr": "L_exit+lo",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "1.0 : orifice land end / start of the swirl-chamber cone",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "Ds",
+   "expr": "3.2",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø3.2 swirl chamber diameter (Ds; Ds/do = 4.0)",
+   "exposed": true,
+   "label": "Ds",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "a_cone",
+   "expr": "90",
+   "kind": "angle",
+   "min": null,
+   "max": null,
+   "description": "90° swirl chamber cone included angle",
+   "exposed": true,
+   "label": "a_cone",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_c0",
+   "expr": "x_c1+(Ds-d0)/2/tan(a_cone/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "2.2 : chamber cylinder start (end of the 90° cone)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_tip",
+   "expr": "4.2",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "4.2 length of part (1) at its bore / front face of the insert",
+   "exposed": true,
+   "label": "L_tip",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "Ls",
+   "expr": "L_tip-x_c0",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "2 swirl chamber cylindrical length (Ls; Ls/Ds = 0.625)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_bore",
+   "expr": "5",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø5 tip counterbore = insert outer diameter",
+   "exposed": true,
+   "label": "D_bore",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_ins",
+   "expr": "L_total-L_tip",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "5.8 swirler insert (2) length",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "n_slot",
+   "expr": "3",
+   "kind": "count",
+   "min": null,
+   "max": null,
+   "description": "3 tangential slots, eq. sp. 120°",
+   "exposed": true,
+   "label": "n_slot",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_w",
+   "expr": "0.5",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "0.5 slot width (tangential)",
+   "exposed": true,
+   "label": "slot_w",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_d",
+   "expr": "0.5",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "0.5 slot depth (axial, into the insert front face)",
+   "exposed": true,
+   "label": "slot_d",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_off",
+   "expr": "Ds/2-slot_w/2",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "1.35 slot centreline offset from the axis (outer wall tangent to chamber, note 5)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_len",
+   "expr": "1.9",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[interp] slot strip length from the tangent point to the groove (view B)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "groove_w",
+   "expr": "0.6",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "0.6 feed groove width",
+   "exposed": true,
+   "label": "groove_w",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "groove_d",
+   "expr": "0.5",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "0.5 feed groove depth (radial, flat floor)",
+   "exposed": true,
+   "label": "groove_d",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "groove_az",
+   "expr": "37",
+   "kind": "angle",
+   "min": null,
+   "max": null,
+   "description": "[interp] azimuth of feed groove 1 in the model frame (view B: 143° from +u, mirrored)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "Ap",
+   "expr": "n_slot*slot_w*slot_d",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "0.75 mm² total slot area (note 3)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "K",
+   "expr": "Ap/(Ds*d0)",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "0.29 atomizer constant K = Ap/(Ds*do) (note 4)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  }
+ ],
+ "features": [
+  {
+   "id": "Ck_Tip",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XZ",
+     "faceRef": "",
+     "offset": "0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 1.0,
+      "y": 0.0
+     },
+     {
+      "id": 4,
+      "x": 3.5,
+      "y": 0.0
+     },
+     {
+      "id": 7,
+      "x": 4.0,
+      "y": 0.5
+     },
+     {
+      "id": 10,
+      "x": 4.0,
+      "y": 10.0
+     },
+     {
+      "id": 13,
+      "x": 2.5,
+      "y": 10.0
+     },
+     {
+      "id": 16,
+      "x": 2.5,
+      "y": 4.2
+     },
+     {
+      "id": 19,
+      "x": 1.6,
+      "y": 4.2
+     },
+     {
+      "id": 22,
+      "x": 1.6,
+      "y": 2.2
+     },
+     {
+      "id": 25,
+      "x": 0.4,
+      "y": 1.0
+     },
+     {
+      "id": 28,
+      "x": 0.4,
+      "y": 0.6000000000000001
+     }
+    ],
+    "entities": [
+     {
+      "id": 31,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 32,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 33,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 34,
+      "type": "line",
+      "points": [
+       10,
+       13
+      ]
+     },
+     {
+      "id": 35,
+      "type": "line",
+      "points": [
+       13,
+       16
+      ]
+     },
+     {
+      "id": 36,
+      "type": "line",
+      "points": [
+       16,
+       19
+      ]
+     },
+     {
+      "id": 37,
+      "type": "line",
+      "points": [
+       19,
+       22
+      ]
+     },
+     {
+      "id": 38,
+      "type": "line",
+      "points": [
+       22,
+       25
+      ]
+     },
+     {
+      "id": 39,
+      "type": "line",
+      "points": [
+       25,
+       28
+      ]
+     },
+     {
+      "id": 40,
+      "type": "line",
+      "points": [
+       28,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "D_exit/2"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "D_out/2-chamfer"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "0"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "D_out/2"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "chamfer"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "D_out/2"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "L_total"
+     },
+     {
+      "id": 14,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "D_bore/2"
+     },
+     {
+      "id": 15,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "L_total"
+     },
+     {
+      "id": 17,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "D_bore/2"
+     },
+     {
+      "id": 18,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "L_tip"
+     },
+     {
+      "id": 20,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "Ds/2"
+     },
+     {
+      "id": 21,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "L_tip"
+     },
+     {
+      "id": 23,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "Ds/2"
+     },
+     {
+      "id": 24,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "x_c0"
+     },
+     {
+      "id": 26,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "d0/2"
+     },
+     {
+      "id": 27,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "x_c1"
+     },
+     {
+      "id": 29,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "d0/2"
+     },
+     {
+      "id": 30,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "L_exit"
+     }
+    ],
+    "nextId": 41
+   }
+  },
+  {
+   "id": "Tip_Don",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Tip",
+    "axis": "V",
+    "angle": "360",
+    "op": "new",
+    "bodyName": "NozzleTip"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Insert",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XZ",
+     "faceRef": "",
+     "offset": "0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 0.0,
+      "y": 4.2
+     },
+     {
+      "id": 4,
+      "x": 2.5,
+      "y": 4.2
+     },
+     {
+      "id": 7,
+      "x": 2.5,
+      "y": 10.0
+     },
+     {
+      "id": 10,
+      "x": 0.0,
+      "y": 10.0
+     }
+    ],
+    "entities": [
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 15,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 16,
+      "type": "line",
+      "points": [
+       10,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "L_tip"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "D_bore/2"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "L_tip"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "D_bore/2"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "L_total"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "0"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "L_total"
+     }
+    ],
+    "nextId": 17
+   }
+  },
+  {
+   "id": "Insert_Don",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Insert",
+    "axis": "V",
+    "angle": "360",
+    "op": "new",
+    "bodyName": "SwirlerInsert"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Slot",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XY",
+     "faceRef": "",
+     "offset": "L_tip"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 0.0,
+      "y": 1.1
+     },
+     {
+      "id": 4,
+      "x": 1.9,
+      "y": 1.1
+     },
+     {
+      "id": 7,
+      "x": 1.9,
+      "y": 1.6
+     },
+     {
+      "id": 10,
+      "x": 0.0,
+      "y": 1.6
+     }
+    ],
+    "entities": [
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 15,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 16,
+      "type": "line",
+      "points": [
+       10,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "slot_off-slot_w/2"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "slot_len"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "slot_off-slot_w/2"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "slot_len"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "slot_off+slot_w/2"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "0"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "slot_off+slot_w/2"
+     }
+    ],
+    "nextId": 17
+   }
+  },
+  {
+   "id": "Slot",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Slot",
+    "distance": "slot_d",
+    "direction": "normal",
+    "op": "cut",
+    "targets": "SwirlerInsert"
+   },
+   "refs": []
+  },
+  {
+   "id": "Slot_Cogalt",
+   "type": "Pattern",
+   "suppressed": false,
+   "props": {
+    "kind": "circular",
+    "source": "Slot",
+    "count": "n_slot",
+    "angle": "360",
+    "axis": "Z",
+    "targets": "SwirlerInsert"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Groove",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XY",
+     "faceRef": "",
+     "offset": "L_tip"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 1.7778155270402,
+      "y": 0.9640393932899087
+     },
+     {
+      "id": 4,
+      "x": 2.4167239350780343,
+      "y": 1.4454914118115472
+     },
+     {
+      "id": 7,
+      "x": 2.055634921186805,
+      "y": 1.9246727178399228
+     },
+     {
+      "id": 10,
+      "x": 1.4167265131489712,
+      "y": 1.4432206993182843
+     }
+    ],
+    "entities": [
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 15,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 16,
+      "type": "line",
+      "points": [
+       10,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "(D_bore/2-groove_d)*cos(groove_az)-(-groove_w/2)*sin(groove_az)"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "(D_bore/2-groove_d)*sin(groove_az)+(-groove_w/2)*cos(groove_az)"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "(D_bore/2+0.3)*cos(groove_az)-(-groove_w/2)*sin(groove_az)"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "(D_bore/2+0.3)*sin(groove_az)+(-groove_w/2)*cos(groove_az)"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "(D_bore/2+0.3)*cos(groove_az)-(groove_w/2)*sin(groove_az)"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "(D_bore/2+0.3)*sin(groove_az)+(groove_w/2)*cos(groove_az)"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "(D_bore/2-groove_d)*cos(groove_az)-(groove_w/2)*sin(groove_az)"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "(D_bore/2-groove_d)*sin(groove_az)+(groove_w/2)*cos(groove_az)"
+     }
+    ],
+    "nextId": 17
+   }
+  },
+  {
+   "id": "Groove",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Groove",
+    "distance": "L_ins",
+    "direction": "normal",
+    "op": "cut",
+    "targets": "SwirlerInsert"
+   },
+   "refs": []
+  },
+  {
+   "id": "Groove_Cogalt",
+   "type": "Pattern",
+   "suppressed": false,
+   "props": {
+    "kind": "circular",
+    "source": "Groove",
+    "count": "n_slot",
+    "angle": "360",
+    "axis": "Z",
+    "targets": "SwirlerInsert"
+   },
+   "refs": []
+  }
+ ],
+ "mfg": {
+  "additive": {
+   "enabled": false,
+   "process": "LPBF_Metal",
+   "material": "316L",
+   "minWallThickness": 0.4,
+   "minFeatureSize": 0.3,
+   "minHoleDiameter": 0.5,
+   "maxSelfSupportingHoleDia": 8,
+   "minOverhangAngle": 45,
+   "minGap": 0.3,
+   "maxAspectRatio": 8,
+   "minEscapeHoleDia": 2,
+   "build": [
+    250,
+    250,
+    300
+   ],
+   "buildDir": [
+    0,
+    0,
+    1
+   ],
+   "layerThickness": 0.03
+  },
+  "conventional": {
+   "enabled": false,
+   "process": "CNC_Turning",
+   "material": "generic",
+   "minToolDiameter": 0.1,
+   "maxToolLengthToDia": 6,
+   "maxHoleDepthToDia": 3,
+   "minWallThickness": 0.08,
+   "maxWallHeightToThickness": 15,
+   "minHoleDiameter": 0.15,
+   "preferStandardDrills": false,
+   "stock": [
+    20,
+    20,
+    60
+   ],
+   "toolAxis": [
+    0,
+    0,
+    1
+   ]
+  }
+ }
+}

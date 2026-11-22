@@ -1,0 +1,253 @@
+CLAUDE OPUS İÇİN HAZIR PROMPT — SPACECLAIM GUI VE 2D → 3D MODELLEME
+İnceleme tarihi: 18 Kasım 2026
+
+ROL VE GÖREV
+Sen CAD uygulamalarında uzman ürün tasarımcısı, etkileşim mimarı ve kıdemli uygulama geliştiricisisin. Aşağıdaki yerel SpaceClaim incelemesini kullanarak mevcut projem için doğrudan modelleme odaklı, tutarlı bir GUI ve 2D eskizden 3D geometri oluşturma deneyimi tasarla. Önce mevcut projeyi/ortamı incele; sonra arayüz envanteri, iki akış şeması, durum modeli, uygulanabilir geliştirme planı ve kabul testleri üret. Ortam kod geliştirmeyi destekliyorsa mevcut mimariye uygun çalışan uygulamaya ilerle.
+
+Fable çalışma ortamının platformunu, kütüphanelerini veya CAD motorunu varsayma. Mevcut projede ne bulunduğunu belirle. Bir web arayüzü, masaüstü arayüzü veya yalnızca prototip üretme kararı ortamın gerçek yeteneklerine dayanmalı. Kullanıcının mevcut projesini gereksiz yere yeniden yazma.
+
+KANIT SÖZLEŞMESİ
+[G] Yerel SpaceClaim GUI'sinde görüldü/denendi.
+[B] Resmî dokümantasyon bilgisi; yerel sürümde ayrıca denenmiş olmayabilir.
+[Ö] Yeni ürün için önerilen tasarım veya uygulama kararı.
+[D] Doğrulanmadı; varsayımla tamamlanmamalı.
+Bu etiketleri koru. Bir kontrolün görünmesi, işlevinin test edildiği anlamına gelmez. Görsel önizleme ile gerçek CAD katısını ayır. Eski ve yeni sürümlerin davranışlarını tek sürüm gibi birleştirme.
+
+1. İNCELEMENİN BAĞLAMI VE SINIRI
+[G] Windows üzerindeki Ansys SpaceClaim 2023 R1 açıldı; arayüz İngilizce. Yakalanan ana pencere 1240 × 800 mantıksal piksel. Yeni Design1 belgesiyle çalışıldı. Kullanıcının mevcut tasarım dosyaları açılıp değiştirilmedi.
+[G] Başlangıçta Sketch sekmesi, eğik grid, Groups paneli, Options–Selection ve Properties görüldü. Bu, gözlenen açılış durumudur; bütün kurulumlar için varsayılan olduğu iddia edilmemeli.
+[G] Rectangle ile kapalı dikdörtgen oluşturuldu; End Sketch Editing sonrasında yüzey oluştu, Design sekmesi ve Pull aracı etkinleşti. Structure ağacında Surface doğrulandı.
+[G] Pull'da yüz seçimi, turuncu vurgu, sarı yön tutamacı, mini-toolbar ve sayısal giriş alanı gözlendi.
+[D] Otomasyonla sürükleme/sayısal giriş denemeleri sonunda katı doğrulanamadı; ağaçta Surface kaldı. Bunu SpaceClaim'in katı oluşturamadığı şeklinde yorumlama. Bu oturumun doğrulama sınırıdır. Başarılı extrusion, kesin mesafe/birim, boolean cut/add, açık profil sonucu ve Undo/Redo uçtan uca test edilmiş değildir.
+[G] File ve tüm görünür ribbon sekmeleri açıldı; ana araç etiketleri okundu. Sol panel sekmeleri ve yüz sağ-tık menüsü incelendi.
+[D] Bütün alt menüler, her ikonun tooltip'i, ayar iletişim kutuları, lisans/eklenti koşulları, dosya içe/dışa aktarma diyalogları ve bütün araçların sonuçları taranmadı. Bu envanteri eksiksiz ürün API'si veya tüm komutların fonksiyon testi diye sunma.
+
+2. ANA GUI ANATOMİSİ
+[G] Üstte koyu mavi başlık alanı; belge adı ortada, pencere kontrolleri sağda. Sol üstte hızlı erişim ikonları: açma, kaydetme, geri alma/yineleme ve açılır seçenekler.
+[G] Başlığın altında yatay sekme şeridi. Altında yaklaşık 90 piksel yüksekliğinde açık gri ribbon; dikey ayırıcılarla araç grupları, büyük ikon+etiket düğmeleri, küçük ikon kümeleri, açılır oklar, onay kutuları ve sayısal alanlar birlikte kullanılıyor.
+[G] Ana düzen: solda yaklaşık 240 piksel genişliğinde panel sütunu, sağda büyük beyaz modelleme alanı. Sol sütunda üst panel, ortada Options, altta Properties var. Panel başlıklarında sabitleme ikonları ve bölümler arasında ayırıcılar görülüyor.
+[G] Üst sol panelin alt sekmeleri: Structure, Layers, Selection, Groups, Views.
+[G] Çalışma alanının alt solunda yön triadı/küpü; eskizde ayrıca grid merkezinde eksenler ve grid-altında dört küçük mod/yardım düğmesi görülüyor. Bu dört düğmenin tüm işlevleri tooltip ile doğrulanmadı.
+[G] Çalışma alanının altında Design1 belge sekmesi; değişiklik sonrası yıldız. En altta koyu mavi status bar: solda yönerge, ortalarda koordinat/seçim bilgisi, sağda seçim ve görünüm ikonları.
+[G] Pull tool guides bu kurulumda viewport'un SOL ÜST kenarında iki sütunlu küçük ikon grubu. Eski dokümandaki sağ yerleşimini bu ekranın gerçeği gibi kullanma.
+[G] Seçili yüz turuncu, seçilmemiş yüz açık yeşil; kenarlar koyu. Eskiz dikdörtgeni yeşil/turkuaz çizgi ve köşe işaretleriyle gösterildi. Pull tutamacı sarı. Kırmızı/yeşil/mavi eksen renkleri kullanılıyor. Bu renklerin bütün hover/selection durumları için tam sözlüğü çıkarılmadı.
+[G] Tooltip'lerde araç adı, kısayol, açıklama ve yardım yönlendirmesi var. Rectangle (R), Plan View (V), Home (H) doğrudan görüldü; F1 yardım/F3 video satırları görüldü.
+[Ö] Ölçüleri sabit piksel zorunluluğu olarak değil, yerleşim oranlarına referans olarak kullan. Dar alanda ribbon taşma menüsü, ayarlanabilir panel genişliği ve okunabilir hedef alanlar tasarla. Renk dışında ikon/metinle durum bildir.
+
+3. RIBBON ENVANTERİ — GÖRÜNÜR KONTROLLER
+Aşağıdaki satırlar [G] görünür etiket envanteridir; komutların çalıştırılıp başarıyla sonuçlandığı anlamına gelmez. İsimsiz küçük ikonların adını tahmin etme.
+
+File:
+New, Open, Save, Save As, Restore, Share, Save Project (pasif görüldü), Print, Close, Recent Documents, SpaceClaim Options, Exit SpaceClaim. Son kullanılan dosyaların kişisel adlarını yeni ürüne/veri setine taşıma.
+
+Sketch:
+Clipboard/Paste; Orient/Home/Plan View; Create/Line/Circle/Rectangle ve küçük eğri araçları; Modify ikonları; Constraints/Dimension/Autoconstrain ve kısıt ikonları; Edit/Select/Pull/Move/Fill; End Sketch/Enable 3D Sketch/End Sketch Editing.
+Boş eskizde birçok düzenleme/kısıt kontrolü pasifti; dikdörtgen çizilince bazıları etkinleşti.
+
+Design:
+Clipboard; Orient/Home/Plan View/Spin/Pan/Zoom; Mode/Sketch Mode ve mod ikonları; Edit/Select/Pull/Move/Fill; Intersect/Combine/Split Body/Split/Project; Create içinde referans geometri ikonları, Shell/Offset/Mirror; Body/Equation/Cylinder/Sphere; Record/Blocks/Script.
+
+Display:
+Style/Color/Layer0/çizgi stili ve kalınlık/Graphics; Camera kontrolleri; Window/New Window/Split/Switch Windows; Grid/Show Sketch Grid/Fade Scene/Clip Scene Above Grid; Display/Show.
+
+Assembly:
+Orient; Part/File/Standard Part; Assemble/Tangent/Align/Orient/Rigid/Gear/Anchor; Edit/Select/Move; Configurations/Default/Add/Remove/Copy/Explode/Traceline. Bazıları mevcut bağlamda pasif.
+
+Measure:
+Inspect/Measure/Mass Properties/Check Geometry; Interference/Curves/Volumes; Quality/Normal/Grid/Curvature/Dihedral/Draft/Stripes/Deviation.
+
+Facets:
+Select; Cleanup/Check Facets/Auto Fix/Shrinkwrap ve ikonlar; Organize/Separate/Separate All/Join; Modify/Shell/Scale/Thicken ve ikonlar; Adjust/Smooth/Reduce/Regularize; Inspect/Overhangs/Thickness/Cavity; Create/Convert; Edge Display/Internal/Open/Over-connected.
+
+Repair:
+Navigate/Zoom to Fit/Clip Volume; Solidify/Stitch/Gaps/Missing Faces; Fix/Split Edges/Extra Edges/Duplicates; Fix Curves/Fit Curves/Curve Gaps/Duplicate Curves/Small Curves; Adjust/Merge Faces/Small Faces/Simplify/Inexact Edges/Straighten/Relax/Tangency.
+
+Prepare:
+Analysis/Volume Extract/Midsurface/Enclosure/Spot Weld/Weld/Wrap/Split By Plane/Extend/Imprint; Remove/Interference/Rounds/Faces/Short Edges; Detect/Bad Faces/Sharp Edges/Clearance; Beams/Profiles/Create/Extract/Orient/Connect/Split/Display.
+
+Workbench:
+Icepak/Identify Objects/Icepak Simplify/Opening/Fan/Grille/Enclosure/Show; Sharing/Overlap Bodies/Split Edges/Extra Edges/Simplify/Small Faces/Share/Unshare/Force Share; Shared Display/Faces/Edges/Vertices; Free Display/Beams/Edges; Ansys Transfer/Update Parameters/Workbench 2023 R1/Mechanical 2023 R1/Fluent 2023 R1.
+
+Detail:
+Font/yazı tipi-boyutu-stili-hizalama kontrolleri; Annotation/Select/Dimension/Note/Track Encoding ve simgeler; Views; Symbols/Insert/Create; Sheet Setup/Format/Orientation/Size/Scale; 3D Markup/New Slide.
+
+Sheet Metal:
+Import/Convert/Square-Up/Identify; Sketch ikonları; Edit/Select/Pull/Move; Modify/Junction/Edge Relief/Corner Relief; Create/Forms/Split/Bead/Bend/Marker/Double wall/Gusset/Tab/Hinge/Flange; Flat/Unfold/Fold Walls; Show/Highlight.
+
+Tools:
+Reverse Engineering/Auto Skin/Skin Surface/Extract Curves/Orient Facets/Fit Spline/Vectorize Image; Manufacturing/Standard Hole/Identify Holes/Move Body/Create Workpiece/Toolpath/Relief/Unroll.
+
+KeyShot:
+Download KeyShot/About KeyShot/Sample Gallery/Close KeyShot Tab. Bu görünümden KeyShot'un kurulu/çalışır olduğu sonucu çıkarma.
+
+Ansys Motion:
+Open/Replace.
+
+4. PANEL VE BAĞLAM DAVRANIŞLARI
+[G] Structure: Design1* kökü, altında Surface nesnesi; görünürlük kutuları, hiyerarşi oku ve nesne türü ikonları.
+[B] Structure bir nesne/component ağacıdır; klasik parametrik feature-history ağacı olarak adlandırma.
+[G] Layers: Layer0 satırı, renk kutusu, ampul/görünürlük, çizgi stili kontrolleri.
+[G] Selection: Selected: Face; All Types açılır listesi; arama ikonu; Search all bodies kutusu; Edges → Surface edge loop sonucu.
+[G] Groups: Create NS, Create Parameter, View groups in: Root Part, Name/Type sütunları. Seçime göre düğmelerin etkinliği değişti.
+[G] Views: Create/Delete, Name/Shortcut sütunları; Isometric Ctrl+0, Trimetric Ctrl+1, Top Ctrl+2, Bottom Ctrl+3, Left Ctrl+4, Right Ctrl+5, Front Ctrl+6. Listenin aşağısı ayrıca taranmadı.
+[G] Options başlığı araçla değişti: Options–Selection → Options–Sketch → Options–Pull.
+[G] Rectangle seçenekleri: Define rectangle from center; Automatically create constraints; Snap to grid; Snap to angle; Layout Sketch; Dimensions bölümü. Önceki Selection görünümünde Cartesian dimensions ve Polar dimensions de görüldü.
+[G] Pull seçenekleri: General; Add, Cut, No merge; altlarında bağlama bağlı ikonlar. İsimsiz ikonların hepsine işlev atama.
+[G] Properties yüz seçilince Appearance altında Color ve Style alanlarını gösterdi; alttaki başka alanlar bilgi balonu tarafından kısmen kapandı. Tam özellik şeması doğrulanmadı.
+[B] Options işlem ayarını, Properties seçili nesnenin verisini temsil eder. Bunları tek statik form olarak birleştirme.
+[G] Sağ-tık menüsünde Use Last Sketch Plane, View, Clip with Volume, Spin Center, Select, Suppress for Physics, Hide, Hide Others, Inverse Visibility, Show All, Locate in Structure Tree, Face, Component, Cut, Copy, Paste, Copy Scene, Delete, Anchor Pull Handle, Properties görüldü; Detach/Activate Component/Load Subassembly gibi pasif öğeler de vardı. İşlemler çalıştırılmadı.
+[G] Sağ-tık menüsüyle birlikte küçük yatay Pull mini-toolbar göründü. Yüz seçimi sırasında imlece yakın mini-toolbar da belirdi.
+[G] File ve bağlam menüleri Escape ile kapandı. Bunu tamamlanmamış bütün geometri işlemlerinin Escape semantiğiyle eşitleme.
+[G] Ribbon sekmeleri arasında gezinirken Pull, seçili yüz ve Options–Pull kaldı. Etkin ribbon sekmesi ≠ etkin araç ≠ geometri çalışma modu.
+
+5. CANLI 2D → YÜZEY AKIŞI VE DOĞRULANAMAYAN DEVAM
+G01: Boş Design1, Sketch, eğik grid.
+G02: Plan View tıklandı; kamera gride dik oldu. Kamera değişimi ile düzlem seçimini ayrı tut.
+G03: Rectangle etkinleştirildi; Options–Sketch ve merkezden dikdörtgen seçeneği çıktı.
+G04: Çizim sırasında Snapping to Grid yönergesi, iki küçük sayısal ölçü alanı ve yakalama geri bildirimi görüldü. Sürükleme denemesi tek başına bitmiş profil oluşturmadı; takip eden karşı köşe tıklaması dikdörtgeni tamamladı. Bu otomasyon dizisini evrensel mouse kuralı olarak dayatma.
+G05: Kapalı dikdörtgen yeşil/turkuaz kenarlar ve köşe noktalarıyla göründü; belge değişiklik yıldızı aldı.
+G06: End Sketch Editing tıklandı; grid kalktı, açık yeşil düzlemsel bölge oluştu, Design ve Pull etkinleşti.
+G07: Home ile eğik 3D görünüm elde edildi; yüz hâlâ düzlemseldi.
+G08: Yüz seçildi; turuncu vurgu, sarı çift yön tutamacı, Pull 1 face yönergesi, status bar'da Face / 1 Face görüldü.
+G09: Space ile 0 değerli sayısal giriş alanı, rakam tuşlarıyla giriş alanı görüldü. Çok basamaklı değer/Enter denemeleri kalıcı katı üretimini doğrulamadı.
+G10: Structure kontrolünde nesne Surface olarak kaldı. Sonraki katı üretme adımı yalnız [B] ile destekleniyor.
+
+6. RESMÎ BELGELERLE TAMAMLANAN MODELLEME MANTIĞI
+[B, v19] Sketch (K), Section (X), 3D (D) ayrı modlardır. Sketch → 3D geçişi kapalı eğrileri yüzeye dönüştürür; tek başına katı üretimi değildir. Açık/bağımsız eğriler eğri olarak kalabilir.
+[B, v19] Return to 3D mini-toolbar komutu Pull'a geçebilir. Yerel 2023 R1 gözlemi End Sketch Editing üzerinden aynı ana geçişi doğruladı; düğme adlarını karıştırma.
+[B, v19] Pull (P) bağlama göre yüz çekme/offset, revolve, sweep, draft, kenarda round/chamfer gibi işlemler sunar. Birincil seçim değişecek geometri; ikincil seçim yönlendirici referanstır.
+[B, v19] Tool guides: Select, Direction, Revolve, Draft, Sweep, Scale Body, Up To, Full Pull. Yerel ikonların tamamı isimleriyle tek tek eşleştirilmedi.
+[B, v19] Thicken surfaces seçeneği yüzeyin katılaşması ile yalnız taşınması arasındaki farkı etkiler. Both Sides ve Add/Cut/No Merge gibi seçenekler işlem sonucunu değiştirir.
+[B, v19] Açık çizginin çekilmesi yüzey üretebilir; bunu kapalı hacim olarak kabul etme.
+[B] Seçim viewport veya Structure üzerinden yapılabilir; Ctrl ile seçim ekleme/çıkarma, Alt ile ikincil referans belgelenir. Kutu seçimi yönü tam kapsama/kesişim davranışını etkileyebilir. Yerel tam seçim matrisi test edilmedi.
+[D] Smart seçim önceliği farklı sürüm belgelerinde farklıdır; Body/Face/Edge sırasını yerel sürümde doğrulamadan sabit doğru gibi yazma.
+
+7. GUI ARAÇ TASARIMI AKIŞ ŞEMASI
+Aşağıdaki şema [G+B] bulgulardan türetilen [Ö] uygulama modelidir; SpaceClaim'in iç yazılım mimarisinin tespiti değildir.
+
+```mermaid
+flowchart TD
+  A[Belge ve aktif component] --> B[Çalışma modu / düzlem]
+  B --> C[Araç seçimi]
+  C --> D[Options + guide + imleç + yönerge güncellenir]
+  D --> E{Gerekli seçim türü doğru mu?}
+  E -->|Hayır| F[Geçerli hedefleri vurgula ve bekle]
+  F --> E
+  E -->|Evet| G[Birincil seçim ve gerekli referanslar]
+  G --> H[Mesafe / yön / işlem seçeneği]
+  H --> I{Geometri önizlemesi geçerli mi?}
+  I -->|Hayır| J[Nedeni göster; önceki modeli koru]
+  J --> H
+  I -->|Evet| K[Önizleme]
+  K --> L{Onay / iptal / düzenleme}
+  L -->|Düzenleme| H
+  L -->|İptal| M[Geçici sonucu kaldır]
+  L -->|Onay| N[Geometriyi tek işlem olarak uygula]
+  N --> O[Ağaç + özellikler + status + Undo kaydı]
+  O --> D
+  M --> D
+```
+
+Ribbon sekmesi değişimi ayrı bir UI olayıdır: belge geometrisini değiştirmemeli; gözlenen davranışa uygun olarak aktif aracın korunması desteklenmeli. Bir araç/mod değişiminin açık işlemi iptal mi tamam mı edeceği ayrıca açık bir sözleşme olmalı.
+
+8. 2D ESKİZ → 3D CİSİM AKIŞ ŞEMASI
+Şemadaki Surface'a kadar olan temel dikdörtgen yolu [G], katı/yüzey üretim dalları [B], hata/işlem yönetimi [Ö].
+
+```mermaid
+flowchart TD
+  A[Yeni belge] --> B{Çalışma düzlemi var mı?}
+  B -->|Hayır| C[Düzlem veya düzlemsel yüz seç]
+  C --> D[Sketch]
+  B -->|Evet| D
+  D --> E[İsteğe bağlı Plan View]
+  E --> F[Line / Rectangle / Circle]
+  F --> G[Snap + ölçü + kısıtlarla profil]
+  G --> H[End Sketch Editing]
+  H --> I{Kapalı geçerli bölge?}
+  I -->|Evet| J[Yüzey / yüz oluşur]
+  I -->|Açık eğri| K[Serbest eğri]
+  I -->|Geçersiz| X[Hata ve düzeltme]
+  X --> G
+  J --> L[Pull ve yüz seçimi]
+  L --> M[Yön + mesafe + uygun yüzey kalınlaştırma seçeneği]
+  M --> N{Motor sonucu geçerli mi?}
+  N -->|Hayır| X
+  N -->|Evet| O[Önizleme ve uygulama]
+  O --> P[Katı gövdeyi doğrula]
+  K --> Q{Profili düzelt veya yüzey üret}
+  Q -->|Profili düzelt| G
+  Q -->|Yüzey amaçlı Pull| R[Yüzey sonucu; katı diye gösterme]
+  P --> S[Yüz / kenar üzerinden doğrudan düzenleme]
+```
+
+9. UYGULAMA DURUM MODELİ
+[Ö] En az şu alanları birbirinden ayır:
+document: belge kimliği, dirty flag, birim/tolerans, component, geometriler, undo/redo.
+workspace: sketch/section/3D modu, etkin düzlem, kamera, görünüm, grid durumu.
+ui: ribbon sekmesi, aktif sol panel, panel boyutları, menü/tooltip/focus.
+tool: etkin komut, guide/adım, seçenekler, gerekli seçim türleri, geçici girdiler.
+selection: hover, primary seçim kümesi, secondary referanslar, seçim filtresi.
+operation: idle/awaitingSelection/awaitingInput/preview/invalid/committing/completed/cancelled.
+
+Her olayın önkoşulunu, UI etkisini, geometri etkisini ve geri alınabilirliğini yaz. Geçerli seçim yoksa aracın neden beklediği görünsün. Options araçla, Properties nesneyle güncellensin. Seçim değişimi tüm ilgili panellere tek tutarlı durum olarak yansısın.
+
+10. CAD MOTORU İLE GUI ARASINDAKİ SÖZLEŞME
+[Ö] Mevcut CAD motorunu kullan. GUI yalnız ekran üstünde bir kutu çizdiği için B-rep katı oluşturmuş sayılmaz.
+Geometri katmanı düzlem/koordinat dönüşümü, eskiz eğrileri, toleranslı kapalı bölge tespiti, iç döngüler, yüz/kenar/gövde kimlikleri, extrusion/thicken, gerekiyorsa boolean ve geçerlilik kontrolünü yönetmeli.
+GUI seçim, araç durumu, ölçü/birim girişi, geçici önizleme ve hata sunumunu yönetmeli.
+Önerilen servisler: evaluateProfiles, previewPull, commitOperation, cancelPreview, queryEntityProperties, undo, redo. İsimleri mevcut projeye uyarla.
+Önizleme kalıcı belgeyi değiştirmesin; başarılı commit bir undo işlemi olsun. Hata halinde önceki geçerli modeli koru. Yeni topoloji oluştuğunda eski seçili yüz kimliklerini güvenli şekilde yeniden eşle veya temizle.
+Motor yoksa görsel prototip sınırını açıkça belirt; desteklenmeyen araçları çalışıyormuş gibi gösterme. Bir üçgen ağı B-rep katı veya üretime uygun CAD dosyası diye sunma.
+
+11. ÜRÜN TASARIM İLKELERİ VE ÖNCELİK
+[Ö] SpaceClaim'in bilgi mimarisini ve doğrudan etkileşim yaklaşımını referans al. Kendi ürününün dilini/ikonlarını kullan; marka/logoyu ve tüm ribbon'ı dekorasyon olarak kopyalama.
+P0: belge, viewport, kamera, Structure, Options/Properties ayrımı, seçim, sketch düzlemi, Rectangle/Circle/Line, profil doğrulama, Pull, sayısal ölçü, undo/redo.
+P1: yüz üzerinde eskiz, iç döngü/delik, çoklu profil, Add/Cut/No Merge, seçim filtresi, Layers/Groups/Views, sağ-tık ve tool guides.
+P2: gelişmiş Repair/Prepare/Facets/Assembly ve diğer sekmeler; yalnız gerçek motor/ortam desteği varsa. Görünür her düğme işlevsel veya gerekçeli pasif olmalı.
+Ölçü alanında birim, yön ve geçersiz değer geri bildirimi göster. Kullanıcı araç durumunu anlamak için yalnız renge bağlı kalmasın. Tooltip kısa eylem açıklaması ve kısayol içersin. Hata mesajı hangi geometriyi nasıl düzeltmesi gerektiğini söylesin.
+
+12. KABUL TESTLERİ — YENİ UYGULAMA İÇİN, YEREL TEST BAŞARISI İDDİASI DEĞİL
+T01: Yeni belge → düzlem → Rectangle → kapalı profil → eskizi bitir → yüzey → Pull → geçerli katı. Viewport ve Structure aynı türü göstermeli.
+T02: Circle ile aynı zincir; sayısal mesafe ve birim sonucu doğrulanmalı.
+T03: Açık profil katı gibi gösterilmemeli; yüzey üretimi veya düzeltme yolu sunulmalı.
+T04: İç içe iki profilin delik semantiği belirli olmalı; motor desteği test edilmeli.
+T05: Sıfır/negatif/çok büyük mesafe, geçersiz metin ve birim dönüşümü kontrollü ele alınmalı.
+T06: Birden fazla kapalı bölge seçimi, yanlış nesne türü seçimi ve boş seçimin davranışı açık olmalı.
+T07: Önizleme iptali belgeyi değiştirmemeli; araç değiştirme/Enter/Escape/focus kaybı sözleşmesi tutarlı olmalı.
+T08: Undo/Redo geometri, ağaç, seçim ve dirty flag'i tutarlı geri getirmeli.
+T09: Mevcut gövdeye Add/Cut/No Merge ayrı test edilmeli; sonuç yalnız görünüşle değil gövde/topoloji bilgisiyle doğrulanmalı.
+T10: Plan View kamerayı değiştirirken yanlışlıkla sketch düzlemini değiştirmemeli.
+T11: Ribbon sekmesi değişimi aktif araçtan ayrı çalışmalı; panel ve yönerge uyumlu kalmalı.
+T12: Başarısız geometri işlemi önceki modeli korumalı; hata viewport ve status'ta anlaşılır olmalı.
+T13: Panel daraltma/yeniden boyutlama, klavye odağı ve farklı pencere boyutlarında araç erişimi denenmeli.
+T14: Hover ile kalıcı seçim ayrılmalı; sağ-tık menüsü seçili nesne bağlamını korumalı.
+
+13. BEKLENEN TESLİM
+1) İnceleme kanıtlarına göre kapsam ve açık sorular.
+2) Bölge → kontrol → görünme/etkinleşme koşulu → girdi → model etkisi → geri bildirim → iptal/undo sütunlarıyla envanter.
+3) Yukarıdaki iki Mermaid akışını mevcut projeye uyarlayan diyagramlar.
+4) Bileşen ve durum mimarisi; CAD motoru bağlantısı.
+5) P0/P1/P2 planı; mevcut projenin gerçek dosya/bileşenleriyle eşleştirme.
+6) Uygulama varsa çalışan sonuç ve anlamlı test kanıtı; eksik motor/ortam işlevlerini açıkça listele.
+7) [G]/[B]/[Ö]/[D] ayrımını koru; araştırmada doğrulanmayan özellikleri icat etme.
+
+14. RESMÎ KAYNAKLAR
+Eski sürüm kaynakları tasarım mantığını destekler; yerel 2023 R1 görünümünün yerine geçmez.
+- Design modes, v19: https://help.spaceclaim.com/v19.0/en/Content/Modes.htm
+- Sketching, v19: https://help.spaceclaim.com/v19.0/en/Content/Sketching_overview.htm
+- Sketch plane, v19: https://help.spaceclaim.com/v19.0/en/Content/The_sketch_grid.htm
+- Pulling, v19: https://help.spaceclaim.com/v19.0/en/Content/Pulling.htm
+- Selecting, v19: https://help.spaceclaim.com/v19.0/en/Content/Selecting.htm
+- Options, v19: https://help.spaceclaim.com/v19.0/en/Content/Options.htm
+- Structure tree, v19: https://help.spaceclaim.com/v19.0/en/Content/Structure_tree.htm
+- Properties, v19: https://help.spaceclaim.com/v19.0/en/Content/Properties.htm
+- Status bar, v19: https://help.spaceclaim.com/v19.0/en/Content/StatusBar.htm
+- Interface anatomy, 2015: https://help.spaceclaim.com/2015.0.0/en/Content/The_SpaceClaim_interface.htm
+- QAT, 2017.2: https://help.spaceclaim.com/2017.2.0/en/Content/Quick_Access_toolbar_options.htm
+- Panels, Ansys 2025 R1: https://ansyshelp.ansys.com/public/Views/Secured/corp/v251/en/spaceclaim/Discovery/user_manual/intro/r_intro_ui-panels.html
+- Selection filter, DSM 6: https://help.spaceclaim.com/dsm/6.0/en/Discovery/user_manual/select_filter.html
+- Box selection, v19: https://help.spaceclaim.com/v19.0/en/Content/Select_Filter.htm
+- Combine guides, DSM 6: https://help.spaceclaim.com/dsm/6.0/en/Discovery/user_manual/design/r_combine_tool_guides.html
+
+EK KANIT
+Aynı klasördeki spaceclaim-2023r1-pull.png yerel son inceleme ekranıdır: Design ribbon, Pull, seçili düzlemsel yüz, Views, Options ve Properties. Görsel bir katı üretme başarısının kanıtı değildir. Bu dosya promptla birlikte isteğe bağlı görsel referans olarak kullanılabilir.

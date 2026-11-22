@@ -1,0 +1,236 @@
+{
+ "bbox": {
+  "max": [
+   25.0,
+   25.0,
+   30.0
+  ],
+  "min": [
+   -25.0,
+   -25.0,
+   0.0
+  ],
+  "sorted_extents": [
+   30.0,
+   50.0,
+   50.0
+  ]
+ },
+ "body_count": 1,
+ "body_names": [
+  "SwirlCup"
+ ],
+ "body_volumes": [
+  26288.35795115027
+ ],
+ "features": [
+  "Sketch:Ck_Profile",
+  "Revolve:Cup_Don",
+  "Sketch:Ck_Slot_Pri",
+  "Extrude:Slot_Pri",
+  "Pattern:Slot_Pri_Cogalt",
+  "Sketch:Ck_Slot_Sec",
+  "Extrude:Slot_Sec",
+  "Pattern:Slot_Sec_Cogalt"
+ ],
+ "frame": "model Z = drawing axis x (x=0 at the forward / exit face)",
+ "key_values": [
+  50.0,
+  10.0,
+  27.0,
+  17.0,
+  19.0,
+  43.0,
+  47.0,
+  32.0,
+  22.0,
+  34.0,
+  24.0,
+  14.0,
+  30.0,
+  3.5
+ ],
+ "name": "swc_rr_001",
+ "parameters": {
+  "A_pri": {
+   "expr": "n_pri*w_pri*L_pri",
+   "value": 160.0
+  },
+  "A_sec": {
+   "expr": "n_sec*w_sec*L_sec",
+   "value": 240.0
+  },
+  "A_throat": {
+   "expr": "pi*D_throat^2/4",
+   "value": 153.93804002589985
+  },
+  "D0": {
+   "expr": "27",
+   "value": 27.0
+  },
+  "D_bore": {
+   "expr": "10",
+   "value": 10.0
+  },
+  "D_flare_in": {
+   "expr": "D0+2*(L_total-x_flare)/tan(a_flare/2)",
+   "value": 43.0
+  },
+  "D_flare_out": {
+   "expr": "D_flare_in+2*wall_flare",
+   "value": 47.0
+  },
+  "D_hub": {
+   "expr": "32",
+   "value": 32.0
+  },
+  "D_lip": {
+   "expr": "19",
+   "value": 19.0
+  },
+  "D_outer": {
+   "expr": "50",
+   "value": 50.0
+  },
+  "D_pri": {
+   "expr": "24",
+   "value": 24.0
+  },
+  "D_sec": {
+   "expr": "34",
+   "value": 34.0
+  },
+  "D_throat": {
+   "expr": "14",
+   "value": 14.0
+  },
+  "D_vent_exit": {
+   "expr": "17",
+   "value": 17.0
+  },
+  "D_vent_root": {
+   "expr": "22",
+   "value": 22.0
+  },
+  "L_exit_cone": {
+   "expr": "6",
+   "value": 6.0
+  },
+  "L_pri": {
+   "expr": "5",
+   "value": 5.0
+  },
+  "L_sec": {
+   "expr": "6",
+   "value": 6.0
+  },
+  "L_throat": {
+   "expr": "2",
+   "value": 2.0
+  },
+  "L_total": {
+   "expr": "30",
+   "value": 30.0
+  },
+  "a_flare": {
+   "expr": "90",
+   "value": 90.0
+  },
+  "a_vent": {
+   "expr": "90",
+   "value": 90.0
+  },
+  "n_pri": {
+   "expr": "8",
+   "value": 8.0
+  },
+  "n_sec": {
+   "expr": "10",
+   "value": 10.0
+  },
+  "off_pri": {
+   "expr": "8",
+   "value": 8.0
+  },
+  "off_sec": {
+   "expr": "11",
+   "value": 11.0
+  },
+  "t0_sec": {
+   "expr": "9",
+   "value": 9.0
+  },
+  "t_end": {
+   "expr": "28",
+   "value": 28.0
+  },
+  "w_groove": {
+   "expr": "3.5",
+   "value": 3.5
+  },
+  "w_pri": {
+   "expr": "4",
+   "value": 4.0
+  },
+  "w_sec": {
+   "expr": "4",
+   "value": 4.0
+  },
+  "wall_flare": {
+   "expr": "2",
+   "value": 2.0
+  },
+  "x_flare": {
+   "expr": "22",
+   "value": 22.0
+  },
+  "x_gr1": {
+   "expr": "x_groove+w_groove",
+   "value": 22.5
+  },
+  "x_groove": {
+   "expr": "19",
+   "value": 19.0
+  },
+  "x_lip": {
+   "expr": "x_th1+L_exit_cone",
+   "value": 21.0
+  },
+  "x_pri0": {
+   "expr": "3",
+   "value": 3.0
+  },
+  "x_pri1": {
+   "expr": "x_pri0+L_pri",
+   "value": 8.0
+  },
+  "x_sec0": {
+   "expr": "10",
+   "value": 10.0
+  },
+  "x_sec1": {
+   "expr": "x_sec0+L_sec",
+   "value": 16.0
+  },
+  "x_th0": {
+   "expr": "x_pri1+(D_pri-D_throat)/2/tan(a_vent/2)",
+   "value": 13.0
+  },
+  "x_th1": {
+   "expr": "x_th0+L_throat",
+   "value": 15.0
+  }
+ },
+ "pcad": "samples/ref_swc_rr_001.pcad",
+ "pdf": "tests/drawing/real/radrad_swirler_SWC-RR-001.pdf",
+ "slot_pattern_counts": [
+  8,
+  10
+ ],
+ "tolerances": {
+  "bbox_rel": 0.02,
+  "volume_rel": 0.03
+ },
+ "units": "mm",
+ "volume": 26288.35795115027
+}

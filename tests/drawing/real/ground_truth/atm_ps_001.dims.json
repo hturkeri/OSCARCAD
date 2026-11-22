@@ -1,0 +1,189 @@
+{
+ "drawing": "simplex_atomizer_ATM-PS-001.pdf",
+ "scale": "10:1",
+ "units": "mm",
+ "dims": [
+  {
+   "text": "10",
+   "kind": "linear",
+   "nominal": 10,
+   "view": "A-A",
+   "meaning": "overall length x=0..10",
+   "param": "L_total"
+  },
+  {
+   "text": "0.5",
+   "kind": "linear",
+   "nominal": 0.5,
+   "view": "A-A",
+   "meaning": "axial depth of the front-face slot x=4.2..4.7",
+   "param": "slot_d"
+  },
+  {
+   "text": "0.5 x 45°",
+   "kind": "chamfer",
+   "nominal": 0.5,
+   "view": "A-A",
+   "meaning": "outer exit-edge chamfer on part (1)",
+   "param": "chamfer"
+  },
+  {
+   "text": "Ø2",
+   "kind": "diameter",
+   "nominal": 2,
+   "view": "A-A",
+   "meaning": "exit countersink diameter at forward face",
+   "param": "D_exit"
+  },
+  {
+   "text": "90°",
+   "kind": "angle",
+   "nominal": 90,
+   "view": "A-A",
+   "meaning": "exit countersink (Ø2 -> Ø0.8) included angle",
+   "param": "a_exit"
+  },
+  {
+   "text": "90°",
+   "kind": "angle",
+   "nominal": 90,
+   "view": "A-A",
+   "meaning": "swirl chamber cone included angle",
+   "param": "a_cone"
+  },
+  {
+   "text": "Ø0.8 ORIFICE",
+   "kind": "diameter",
+   "nominal": 0.8,
+   "view": "A-A",
+   "meaning": "orifice diameter d0",
+   "param": "d0"
+  },
+  {
+   "text": "0.6",
+   "kind": "linear",
+   "nominal": 0.6,
+   "view": "A-A",
+   "meaning": "exit cone axial length x=0..0.6"
+  },
+  {
+   "text": "0.4",
+   "kind": "linear",
+   "nominal": 0.4,
+   "view": "A-A",
+   "meaning": "orifice land length lo, x=0.6..1.0",
+   "param": "lo"
+  },
+  {
+   "text": "2",
+   "kind": "linear",
+   "nominal": 2,
+   "view": "A-A",
+   "meaning": "swirl chamber cylindrical length x=2.2..4.2 (Ls)"
+  },
+  {
+   "text": "4.2",
+   "kind": "linear",
+   "nominal": 4.2,
+   "view": "A-A",
+   "meaning": "length of part (1) up to insert front face",
+   "param": "L_tip"
+  },
+  {
+   "text": "5.8",
+   "kind": "linear",
+   "nominal": 5.8,
+   "view": "A-A",
+   "meaning": "swirler insert (2) length x=4.2..10"
+  },
+  {
+   "text": "Ø3.2",
+   "kind": "diameter",
+   "nominal": 3.2,
+   "view": "A-A",
+   "meaning": "swirl chamber diameter Ds",
+   "param": "Ds"
+  },
+  {
+   "text": "Ø5",
+   "kind": "diameter",
+   "nominal": 5,
+   "view": "A-A",
+   "meaning": "tip counterbore = insert outside diameter",
+   "param": "D_bore"
+  },
+  {
+   "text": "Ø8",
+   "kind": "diameter",
+   "nominal": 8,
+   "view": "A-A",
+   "meaning": "tip outside diameter",
+   "param": "D_out"
+  },
+  {
+   "text": "(1) NOZZLE TIP",
+   "kind": "label",
+   "nominal": null,
+   "view": "A-A",
+   "meaning": "leader to part 1"
+  },
+  {
+   "text": "(2) SWIRLER INSERT",
+   "kind": "label",
+   "nominal": null,
+   "view": "A-A",
+   "meaning": "leader to part 2"
+  },
+  {
+   "text": "0.5",
+   "kind": "linear",
+   "nominal": 0.5,
+   "view": "B",
+   "meaning": "slot width (tangential)",
+   "param": "slot_w"
+  },
+  {
+   "text": "1.35",
+   "kind": "linear",
+   "nominal": 1.35,
+   "view": "B",
+   "meaning": "slot centreline offset from axis (= Ds/2 - 0.25)",
+   "param": "slot_off"
+  },
+  {
+   "text": "Ø5",
+   "kind": "diameter",
+   "nominal": 5,
+   "view": "B",
+   "meaning": "insert outside diameter"
+  },
+  {
+   "text": "3x TANGENTIAL SLOTS, EQ. SP. 120°",
+   "kind": "note",
+   "nominal": 3,
+   "view": "B",
+   "meaning": "3 slots, 120 deg pitch",
+   "param": "n_slot",
+   "extra": {
+    "pitch": 120
+   }
+  },
+  {
+   "text": "dashed = swirl chamber Ø3.2 (part 1)",
+   "kind": "note",
+   "nominal": 3.2,
+   "view": "B",
+   "meaning": "dashed circle is the chamber of part 1"
+  }
+ ],
+ "notes": [
+  "scale 10:1 (sheet A3, units mm)",
+  "simplex pressure-swirl atomizer, hollow-cone spray",
+  "3 slots 0.5 x 0.5, Ap = 0.75 mm2; grooves 0.6 x 0.5",
+  "Ds/do = 4.0, lo/do = 0.50, Ls/Ds = 0.625, K = Ap/(Ds.do) = 0.29",
+  "slot outer wall tangent to swirl chamber wall",
+  "break all sharp edges except orifice exit edge",
+  "DWG NO ATM-PS-001 REV A",
+  "parts (1) NOZZLE TIP (2) SWIRLER INSERT"
+ ]
+}

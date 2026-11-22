@@ -1,0 +1,296 @@
+{
+ "schema": "pcdrw-gt-text/1",
+ "source": "radrad_swirler_SWC-RR-001.pdf",
+ "note": "Every text item visible on the sheet (read from the rendered preview). kind: dim | callout | label | title | scale | note. partial=true: item must be contained in a recognised run (title-block cells / note fragments that may be split or joined). Compare modulo whitespace runs.",
+ "items": [
+  {
+   "text": "3.5",
+   "kind": "dim"
+  },
+  {
+   "text": "5",
+   "kind": "dim"
+  },
+  {
+   "text": "2",
+   "kind": "dim"
+  },
+  {
+   "text": "6",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø50",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø10",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø17",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø19",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø27 (D0)",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø43",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø47",
+   "kind": "dim"
+  },
+  {
+   "text": "3",
+   "kind": "dim"
+  },
+  {
+   "text": "5",
+   "kind": "dim"
+  },
+  {
+   "text": "2",
+   "kind": "dim"
+  },
+  {
+   "text": "6",
+   "kind": "dim"
+  },
+  {
+   "text": "3",
+   "kind": "dim"
+  },
+  {
+   "text": "11",
+   "kind": "dim"
+  },
+  {
+   "text": "22",
+   "kind": "dim"
+  },
+  {
+   "text": "8",
+   "kind": "dim"
+  },
+  {
+   "text": "30",
+   "kind": "dim"
+  },
+  {
+   "text": "4",
+   "kind": "dim"
+  },
+  {
+   "text": "6",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø50",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø24",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø50",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø34",
+   "kind": "dim"
+  },
+  {
+   "text": "9",
+   "kind": "dim"
+  },
+  {
+   "text": "4",
+   "kind": "dim"
+  },
+  {
+   "text": "Ø22 VENTURI ROOT O.D. AT x=10",
+   "kind": "callout"
+  },
+  {
+   "text": "Ø32 HUB",
+   "kind": "callout"
+  },
+  {
+   "text": "Ø14 THROAT",
+   "kind": "callout"
+  },
+  {
+   "text": "VENTURI INLET CONE 90° INCL.",
+   "kind": "callout"
+  },
+  {
+   "text": "FLARE 90° INCL., WALL 2",
+   "kind": "callout"
+  },
+  {
+   "text": "VENTURI",
+   "kind": "callout"
+  },
+  {
+   "text": "B",
+   "kind": "label"
+  },
+  {
+   "text": "C",
+   "kind": "label"
+  },
+  {
+   "text": "A",
+   "kind": "label"
+  },
+  {
+   "text": "A",
+   "kind": "label"
+  },
+  {
+   "text": "A",
+   "kind": "label"
+  },
+  {
+   "text": "A",
+   "kind": "label"
+  },
+  {
+   "text": "SECTION A-A",
+   "kind": "label"
+  },
+  {
+   "text": "SECTION B-B PRIMARY SWIRLER",
+   "kind": "label"
+  },
+  {
+   "text": "SECTION C-C SECONDARY SWIRLER",
+   "kind": "label"
+  },
+  {
+   "text": "8x TANGENTIAL SLOTS 4 x 5, EQ. SP. 45° - CCW SWIRL",
+   "kind": "label"
+  },
+  {
+   "text": "10x TANGENTIAL SLOTS 4 x 6, EQ. SP. 36° - CW SWIRL",
+   "kind": "label"
+  },
+  {
+   "text": "(viewed from downstream)",
+   "kind": "label"
+  },
+  {
+   "text": "(viewed from downstream)",
+   "kind": "label"
+  },
+  {
+   "text": "TITLE",
+   "kind": "title"
+  },
+  {
+   "text": "TYPE",
+   "kind": "title"
+  },
+  {
+   "text": "SCALE",
+   "kind": "title"
+  },
+  {
+   "text": "DWG NO",
+   "kind": "title"
+  },
+  {
+   "text": "PURPOSE",
+   "kind": "title"
+  },
+  {
+   "text": "RADIAL-RADIAL SWIRL CUP",
+   "kind": "title"
+  },
+  {
+   "text": "COUNTER-ROTATING, 8 PRI / 10 SEC",
+   "kind": "title"
+  },
+  {
+   "text": "PersistCAD drawing-import input",
+   "kind": "title"
+  },
+  {
+   "text": "2:1",
+   "kind": "scale",
+   "partial": true
+  },
+  {
+   "text": "SHEET A3",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "UNITS mm",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "SWC-RR-001",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "REV A",
+   "kind": "title",
+   "partial": true
+  },
+  {
+   "text": "NOTES:",
+   "kind": "note"
+  },
+  {
+   "text": "1. ALL DIMENSIONS IN mm. SHEET A3, SCALE 2:1. x = 0 AT FORWARD FACE, FLOW LEFT TO RIGHT.",
+   "kind": "note"
+  },
+  {
+   "text": "2. COUNTER-ROTATING RADIAL-RADIAL SWIRL CUP: 8 PRIMARY PASSAGES (CCW), 10 SECONDARY PASSAGES (CW),",
+   "kind": "note"
+  },
+  {
+   "text": "VENTURI AND FLARE; REFERENCE DIAMETER D0 = 27. CONFIGURATION AFTER WANG ET AL., J. FLUID MECH. 583 (2007).",
+   "kind": "note"
+  },
+  {
+   "text": "3. ONLY THE PASSAGE COUNTS, SWIRL SENSES AND D0 ARE FROM THE PAPER. ALL OTHER DIMENSIONS ARE CHOSEN HERE.",
+   "kind": "note"
+  },
+  {
+   "text": "THE PAPER'S ELLIPTICAL PRIMARY JETS ARE REPLACED BY STRAIGHT RECTANGULAR SLOTS (SKETCH + EXTRUDE-CUT).",
+   "kind": "note"
+  },
+  {
+   "text": "4. SLOT CENTRELINE OFFSET FROM AXIS: PRIMARY 8, SECONDARY 11. FLOW AREAS: PRIMARY 160 mm2, SECONDARY 240 mm2",
+   "kind": "note"
+  },
+  {
+   "text": "(SPLIT 40/60); VENTURI THROAT 154 mm2.",
+   "kind": "note"
+  },
+  {
+   "text": "5. FUEL NOZZLE BORE Ø10. VENTURI: INLET Ø24, THROAT Ø14 x 2 LONG, EXIT Ø17, LIP Ø19 AT x = 21.",
+   "kind": "note"
+  },
+  {
+   "text": "6. MODELLING: (a) REVOLVE HALF PROFILE 360°; (b) CUT 8 PRIMARY SLOTS x = 3..8; (c) CUT 10 SECONDARY SLOTS x = 10..16.",
+   "kind": "note"
+  },
+  {
+   "text": "7. GENERIC RESEARCH GEOMETRY - NOT AN ENGINE PART DRAWING.",
+   "kind": "note"
+  }
+ ]
+}

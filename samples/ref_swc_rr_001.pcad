@@ -1,0 +1,1542 @@
+{
+ "schema": "persistcad/1",
+ "name": "SWC-RR-001_RadialRadialSwirlCup",
+ "parameters": [
+  {
+   "name": "D_outer",
+   "expr": "50",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø50 outer diameter of the cup body (x = 0 .. x_groove)",
+   "exposed": true,
+   "label": "D_outer",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_bore",
+   "expr": "10",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø10 fuel nozzle bore through the forward face (x = 0..x_pri0)",
+   "exposed": true,
+   "label": "D_bore",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_total",
+   "expr": "30",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "30 overall length, x = 0 at forward face",
+   "exposed": true,
+   "label": "L_total",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_pri0",
+   "expr": "3",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "3 : primary slots start (dim chain 3-5-2-6-3-11)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_pri",
+   "expr": "5",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "5 : primary slot / chamber axial length (x = 3..8)",
+   "exposed": true,
+   "label": "L_pri",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_pri1",
+   "expr": "x_pri0+L_pri",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "8 : primary slots end = venturi inlet face",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_pri",
+   "expr": "24",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø24 primary chamber diameter = venturi inlet (section B-B, note 5)",
+   "exposed": true,
+   "label": "D_pri",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "a_vent",
+   "expr": "90",
+   "kind": "angle",
+   "min": null,
+   "max": null,
+   "description": "90° venturi inlet cone, included angle",
+   "exposed": true,
+   "label": "a_vent",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_throat",
+   "expr": "14",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø14 venturi throat",
+   "exposed": true,
+   "label": "D_throat",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_throat",
+   "expr": "2",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "2 throat cylinder length (note 5: 'x 2 LONG')",
+   "exposed": true,
+   "label": "L_throat",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_th0",
+   "expr": "x_pri1+(D_pri-D_throat)/2/tan(a_vent/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "13 : throat start (inlet cone length 5)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_th1",
+   "expr": "x_th0+L_throat",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "15 : throat end",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_exit_cone",
+   "expr": "6",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "6 : venturi exit (divergent) cone length (x = 15..21)",
+   "exposed": true,
+   "label": "L_exit_cone",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_lip",
+   "expr": "x_th1+L_exit_cone",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "21 : venturi lip plane",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_vent_exit",
+   "expr": "17",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø17 venturi exit inner diameter at the lip",
+   "exposed": true,
+   "label": "D_vent_exit",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_lip",
+   "expr": "19",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø19 venturi lip outer diameter at x = 21",
+   "exposed": true,
+   "label": "D_lip",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_vent_root",
+   "expr": "22",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø22 venturi root O.D. at x = x_sec0",
+   "exposed": true,
+   "label": "D_vent_root",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_sec0",
+   "expr": "10",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "10 : secondary slots / chamber start (= venturi root)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_sec",
+   "expr": "6",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "6 : secondary slot / chamber axial length (x = 10..16)",
+   "exposed": true,
+   "label": "L_sec",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_sec1",
+   "expr": "x_sec0+L_sec",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "16 : secondary chamber end",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_sec",
+   "expr": "34",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø34 secondary chamber diameter (section C-C)",
+   "exposed": true,
+   "label": "D_sec",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D0",
+   "expr": "27",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø27 (D0) reference diameter = bore after the secondary chamber, x = x_sec1..x_flare",
+   "exposed": true,
+   "label": "D0",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_groove",
+   "expr": "19",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "19 : rear face of the Ø50 body = start of the Ø32 hub groove",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_hub",
+   "expr": "32",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø32 hub (groove floor)",
+   "exposed": true,
+   "label": "D_hub",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "w_groove",
+   "expr": "3.5",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "3.5 groove width (x = 19..22.5)",
+   "exposed": true,
+   "label": "w_groove",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_gr1",
+   "expr": "x_groove+w_groove",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "22.5 : groove end where the outer flare cone leaves the hub",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "a_flare",
+   "expr": "90",
+   "kind": "angle",
+   "min": null,
+   "max": null,
+   "description": "90° flare, included angle",
+   "exposed": true,
+   "label": "a_flare",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "wall_flare",
+   "expr": "2",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "2 flare wall (measured radially/axially, not normal to the cone)",
+   "exposed": true,
+   "label": "wall_flare",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "x_flare",
+   "expr": "22",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "22 : flare start (inner cone leaves Ø27 bore); dim 22 + 8",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_flare_in",
+   "expr": "D0+2*(L_total-x_flare)/tan(a_flare/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø43 flare inner exit diameter at x = 30",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_flare_out",
+   "expr": "D_flare_in+2*wall_flare",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "Ø47 flare outer exit diameter at x = 30",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "n_pri",
+   "expr": "8",
+   "kind": "count",
+   "min": null,
+   "max": null,
+   "description": "8 primary tangential slots, CCW swirl viewed from downstream",
+   "exposed": true,
+   "label": "n_pri",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "w_pri",
+   "expr": "4",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "4 primary slot width",
+   "exposed": true,
+   "label": "w_pri",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "off_pri",
+   "expr": "8",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "8 primary slot centreline offset from the axis (edges at 6 and 10)",
+   "exposed": true,
+   "label": "off_pri",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "n_sec",
+   "expr": "10",
+   "kind": "count",
+   "min": null,
+   "max": null,
+   "description": "10 secondary tangential slots, CW swirl viewed from downstream",
+   "exposed": true,
+   "label": "n_sec",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "w_sec",
+   "expr": "4",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "4 secondary slot width",
+   "exposed": true,
+   "label": "w_sec",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "off_sec",
+   "expr": "11",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "11 secondary slot centreline offset (edges at 9 and 13)",
+   "exposed": true,
+   "label": "off_sec",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "t0_sec",
+   "expr": "9",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[interp] secondary slot cutter starts 9 mm along the slot line so it never touches the venturi root",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "t_end",
+   "expr": "28",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[interp] slot cutter length along the tangent (runs out through Ø50)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_pri",
+   "expr": "n_pri*w_pri*L_pri",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "160 mm² primary flow area (note 4)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_sec",
+   "expr": "n_sec*w_sec*L_sec",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "240 mm² secondary flow area (note 4)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_throat",
+   "expr": "pi*D_throat^2/4",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "154 mm² venturi throat (note 4)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  }
+ ],
+ "features": [
+  {
+   "id": "Ck_Profile",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XZ",
+     "faceRef": "",
+     "offset": "0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 5.0,
+      "y": 0.0
+     },
+     {
+      "id": 4,
+      "x": 25.0,
+      "y": 0.0
+     },
+     {
+      "id": 7,
+      "x": 25.0,
+      "y": 19.0
+     },
+     {
+      "id": 10,
+      "x": 16.0,
+      "y": 19.0
+     },
+     {
+      "id": 13,
+      "x": 16.0,
+      "y": 22.5
+     },
+     {
+      "id": 16,
+      "x": 23.5,
+      "y": 30.0
+     },
+     {
+      "id": 19,
+      "x": 21.5,
+      "y": 30.0
+     },
+     {
+      "id": 22,
+      "x": 13.5,
+      "y": 22.0
+     },
+     {
+      "id": 25,
+      "x": 13.5,
+      "y": 16.0
+     },
+     {
+      "id": 28,
+      "x": 17.0,
+      "y": 16.0
+     },
+     {
+      "id": 31,
+      "x": 17.0,
+      "y": 10.0
+     },
+     {
+      "id": 34,
+      "x": 11.0,
+      "y": 10.0
+     },
+     {
+      "id": 37,
+      "x": 9.5,
+      "y": 21.0
+     },
+     {
+      "id": 40,
+      "x": 8.5,
+      "y": 21.0
+     },
+     {
+      "id": 43,
+      "x": 7.0,
+      "y": 15.0
+     },
+     {
+      "id": 46,
+      "x": 7.0,
+      "y": 13.0
+     },
+     {
+      "id": 49,
+      "x": 12.0,
+      "y": 8.0
+     },
+     {
+      "id": 52,
+      "x": 12.0,
+      "y": 3.0
+     },
+     {
+      "id": 55,
+      "x": 5.0,
+      "y": 3.0
+     }
+    ],
+    "entities": [
+     {
+      "id": 58,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 59,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 60,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 61,
+      "type": "line",
+      "points": [
+       10,
+       13
+      ]
+     },
+     {
+      "id": 62,
+      "type": "line",
+      "points": [
+       13,
+       16
+      ]
+     },
+     {
+      "id": 63,
+      "type": "line",
+      "points": [
+       16,
+       19
+      ]
+     },
+     {
+      "id": 64,
+      "type": "line",
+      "points": [
+       19,
+       22
+      ]
+     },
+     {
+      "id": 65,
+      "type": "line",
+      "points": [
+       22,
+       25
+      ]
+     },
+     {
+      "id": 66,
+      "type": "line",
+      "points": [
+       25,
+       28
+      ]
+     },
+     {
+      "id": 67,
+      "type": "line",
+      "points": [
+       28,
+       31
+      ]
+     },
+     {
+      "id": 68,
+      "type": "line",
+      "points": [
+       31,
+       34
+      ]
+     },
+     {
+      "id": 69,
+      "type": "line",
+      "points": [
+       34,
+       37
+      ]
+     },
+     {
+      "id": 70,
+      "type": "line",
+      "points": [
+       37,
+       40
+      ]
+     },
+     {
+      "id": 71,
+      "type": "line",
+      "points": [
+       40,
+       43
+      ]
+     },
+     {
+      "id": 72,
+      "type": "line",
+      "points": [
+       43,
+       46
+      ]
+     },
+     {
+      "id": 73,
+      "type": "line",
+      "points": [
+       46,
+       49
+      ]
+     },
+     {
+      "id": 74,
+      "type": "line",
+      "points": [
+       49,
+       52
+      ]
+     },
+     {
+      "id": 75,
+      "type": "line",
+      "points": [
+       52,
+       55
+      ]
+     },
+     {
+      "id": 76,
+      "type": "line",
+      "points": [
+       55,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "D_bore/2"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "D_outer/2"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "0"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "D_outer/2"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "x_groove"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "D_hub/2"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "x_groove"
+     },
+     {
+      "id": 14,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "D_hub/2"
+     },
+     {
+      "id": 15,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "x_gr1"
+     },
+     {
+      "id": 17,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "D_flare_out/2"
+     },
+     {
+      "id": 18,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "L_total"
+     },
+     {
+      "id": 20,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "D_flare_in/2"
+     },
+     {
+      "id": 21,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "L_total"
+     },
+     {
+      "id": 23,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "D0/2"
+     },
+     {
+      "id": 24,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "x_flare"
+     },
+     {
+      "id": 26,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "D0/2"
+     },
+     {
+      "id": 27,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "x_sec1"
+     },
+     {
+      "id": 29,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "D_sec/2"
+     },
+     {
+      "id": 30,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "x_sec1"
+     },
+     {
+      "id": 32,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       31
+      ],
+      "value": "D_sec/2"
+     },
+     {
+      "id": 33,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       31
+      ],
+      "value": "x_sec0"
+     },
+     {
+      "id": 35,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       34
+      ],
+      "value": "D_vent_root/2"
+     },
+     {
+      "id": 36,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       34
+      ],
+      "value": "x_sec0"
+     },
+     {
+      "id": 38,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       37
+      ],
+      "value": "D_lip/2"
+     },
+     {
+      "id": 39,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       37
+      ],
+      "value": "x_lip"
+     },
+     {
+      "id": 41,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       40
+      ],
+      "value": "D_vent_exit/2"
+     },
+     {
+      "id": 42,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       40
+      ],
+      "value": "x_lip"
+     },
+     {
+      "id": 44,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       43
+      ],
+      "value": "D_throat/2"
+     },
+     {
+      "id": 45,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       43
+      ],
+      "value": "x_th1"
+     },
+     {
+      "id": 47,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       46
+      ],
+      "value": "D_throat/2"
+     },
+     {
+      "id": 48,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       46
+      ],
+      "value": "x_th0"
+     },
+     {
+      "id": 50,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       49
+      ],
+      "value": "D_pri/2"
+     },
+     {
+      "id": 51,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       49
+      ],
+      "value": "x_pri1"
+     },
+     {
+      "id": 53,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       52
+      ],
+      "value": "D_pri/2"
+     },
+     {
+      "id": 54,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       52
+      ],
+      "value": "x_pri0"
+     },
+     {
+      "id": 56,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       55
+      ],
+      "value": "D_bore/2"
+     },
+     {
+      "id": 57,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       55
+      ],
+      "value": "x_pri0"
+     }
+    ],
+    "nextId": 77
+   }
+  },
+  {
+   "id": "Cup_Don",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Profile",
+    "axis": "V",
+    "angle": "360",
+    "op": "new",
+    "bodyName": "SwirlCup"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Slot_Pri",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XY",
+     "faceRef": "",
+     "offset": "x_pri0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 0.0,
+      "y": 6.0
+     },
+     {
+      "id": 4,
+      "x": 28.0,
+      "y": 6.0
+     },
+     {
+      "id": 7,
+      "x": 28.0,
+      "y": 10.0
+     },
+     {
+      "id": 10,
+      "x": 0.0,
+      "y": 10.0
+     }
+    ],
+    "entities": [
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 15,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 16,
+      "type": "line",
+      "points": [
+       10,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "(off_pri)-(w_pri)/2"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "t_end"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "(off_pri)-(w_pri)/2"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "t_end"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "(off_pri)+(w_pri)/2"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "0"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "(off_pri)+(w_pri)/2"
+     }
+    ],
+    "nextId": 17
+   }
+  },
+  {
+   "id": "Slot_Pri",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Slot_Pri",
+    "distance": "L_pri",
+    "direction": "normal",
+    "op": "cut",
+    "targets": "SwirlCup"
+   },
+   "refs": []
+  },
+  {
+   "id": "Slot_Pri_Cogalt",
+   "type": "Pattern",
+   "suppressed": false,
+   "props": {
+    "kind": "circular",
+    "source": "Slot_Pri",
+    "count": "n_pri",
+    "angle": "360",
+    "axis": "Z",
+    "targets": "SwirlCup"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Slot_Sec",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XY",
+     "faceRef": "",
+     "offset": "x_sec0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 9.0,
+      "y": -13.0
+     },
+     {
+      "id": 4,
+      "x": 28.0,
+      "y": -13.0
+     },
+     {
+      "id": 7,
+      "x": 28.0,
+      "y": -9.0
+     },
+     {
+      "id": 10,
+      "x": 9.0,
+      "y": -9.0
+     }
+    ],
+    "entities": [
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 15,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 16,
+      "type": "line",
+      "points": [
+       10,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "t0_sec"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "-((off_sec)+(w_sec)/2)"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "t_end"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "-((off_sec)+(w_sec)/2)"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "t_end"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "-((off_sec)-(w_sec)/2)"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "t0_sec"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "-((off_sec)-(w_sec)/2)"
+     }
+    ],
+    "nextId": 17
+   }
+  },
+  {
+   "id": "Slot_Sec",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Slot_Sec",
+    "distance": "L_sec",
+    "direction": "normal",
+    "op": "cut",
+    "targets": "SwirlCup"
+   },
+   "refs": []
+  },
+  {
+   "id": "Slot_Sec_Cogalt",
+   "type": "Pattern",
+   "suppressed": false,
+   "props": {
+    "kind": "circular",
+    "source": "Slot_Sec",
+    "count": "n_sec",
+    "angle": "360",
+    "axis": "Z",
+    "targets": "SwirlCup"
+   },
+   "refs": []
+  }
+ ],
+ "mfg": {
+  "additive": {
+   "enabled": false,
+   "process": "LPBF_Metal",
+   "material": "316L",
+   "minWallThickness": 0.4,
+   "minFeatureSize": 0.3,
+   "minHoleDiameter": 0.5,
+   "maxSelfSupportingHoleDia": 8,
+   "minOverhangAngle": 45,
+   "minGap": 0.3,
+   "maxAspectRatio": 8,
+   "minEscapeHoleDia": 2,
+   "build": [
+    250,
+    250,
+    300
+   ],
+   "buildDir": [
+    0,
+    0,
+    1
+   ],
+   "layerThickness": 0.03
+  },
+  "conventional": {
+   "enabled": false,
+   "process": "CNC_Turning",
+   "material": "generic",
+   "minToolDiameter": 0.1,
+   "maxToolLengthToDia": 6,
+   "maxHoleDepthToDia": 3,
+   "minWallThickness": 0.08,
+   "maxWallHeightToThickness": 15,
+   "minHoleDiameter": 0.15,
+   "preferStandardDrills": false,
+   "stock": [
+    20,
+    20,
+    60
+   ],
+   "toolAxis": [
+    0,
+    0,
+    1
+   ]
+  }
+ }
+}

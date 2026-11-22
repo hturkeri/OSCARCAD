@@ -1,0 +1,4901 @@
+{
+ "schema": "persistcad/1",
+ "name": "Enjektor_09-DB01_Kesit",
+ "parameters": [
+  {
+   "name": "Q",
+   "expr": "1.90",
+   "kind": "scalar",
+   "min": 1.9,
+   "max": 7.5,
+   "description": "[S] Nominal debi @ test basıncı [kg/h] (EN 293: 0.50 USgal/h = 1.90 kg/h)",
+   "exposed": true,
+   "label": "Debi Q [kg/h]",
+   "step": 0.05,
+   "group": "Akış"
+  },
+  {
+   "name": "dP",
+   "expr": "10",
+   "kind": "scalar",
+   "min": 7,
+   "max": 20,
+   "description": "[S] Püskürtme basınç farkı [bar] (EN 293 test: 10 bar)",
+   "exposed": true,
+   "label": "Basınç ΔP [bar]",
+   "step": 0.5,
+   "group": "Akış"
+  },
+  {
+   "name": "Cd",
+   "expr": "0.1283",
+   "kind": "scalar",
+   "min": 0.08,
+   "max": 0.45,
+   "description": "[T] Etkin boşaltma katsayısı: çizilen d0=0.36 ve 1.90 kg/h @10 bar ile kalibre (SPEC §6)",
+   "exposed": true,
+   "label": "Boşaltma katsayısı Cd",
+   "step": 0.005,
+   "group": "Akış"
+  },
+  {
+   "name": "d0_mod",
+   "expr": "0",
+   "kind": "count",
+   "min": 0,
+   "max": 1,
+   "description": "Orifis modu: 0 = Ø debiden hesaplanır (Q, ΔP, Cd); 1 = elle verilen d0_el kullanılır",
+   "exposed": true,
+   "label": "Orifis modu (0: debiden, 1: elle Ø)",
+   "step": 1,
+   "group": "Akış"
+  },
+  {
+   "name": "d0_el",
+   "expr": "0.36",
+   "kind": "length",
+   "min": 0.2,
+   "max": 1.0,
+   "description": "[Ö] Orifis çapı, elle (çizim: Ø0.36) — yalnız d0_mod=1 iken etkin",
+   "exposed": true,
+   "label": "Orifis Ø (elle) [mm]",
+   "step": 0.01,
+   "group": "Akış"
+  },
+  {
+   "name": "Lo",
+   "expr": "0.28",
+   "kind": "length",
+   "min": 0.15,
+   "max": 1.0,
+   "description": "[Ö] Orifis silindirik boyu (çizim 0.28, L/d=0.78)",
+   "exposed": true,
+   "label": "Orifis boyu Lo [mm]",
+   "step": 0.01,
+   "group": "Akış"
+  },
+  {
+   "name": "Ds",
+   "expr": "1.52",
+   "kind": "length",
+   "min": 1.2,
+   "max": 4.0,
+   "description": "[Ö] Girdap odası giriş çapı (H24, Ø1.52)",
+   "exposed": true,
+   "label": "Girdap odası Ø Ds [mm]",
+   "step": 0.02,
+   "group": "Akış"
+  },
+  {
+   "name": "alfa_s",
+   "expr": "69.2",
+   "kind": "angle",
+   "min": 60,
+   "max": 120,
+   "description": "[Ö] Girdap odası koni tam açısı (çizim 69.2°)",
+   "exposed": true,
+   "label": "Girdap odası koni açısı [°]",
+   "step": 0.5,
+   "group": "Akış"
+  },
+  {
+   "name": "rho",
+   "expr": "817",
+   "kind": "scalar",
+   "min": 700,
+   "max": 1000,
+   "description": "[S] Test yağı yoğunluğu [kg/m³] (ISO 4113, 37.8 °C)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "nu_cSt",
+   "expr": "3.5",
+   "kind": "scalar",
+   "min": 1,
+   "max": 10,
+   "description": "[S] Test yağı kinematik viskozitesi [cSt]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "mu",
+   "expr": "rho*nu_cSt/1000000",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Dinamik viskozite [Pa·s]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "d0_hes",
+   "expr": "1000*sqrt(4*(Q/3600)/(Cd*pi*sqrt(2*rho*dP*100000)))",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Orifis çapı debiden: ṁ = Cd·(π d0²/4)·√(2ρΔP)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "d0",
+   "expr": "(1-d0_mod)*d0_hes + d0_mod*d0_el",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Kullanılan orifis çapı [mm]",
+   "exposed": false,
+   "label": "Orifis çapı d0",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "n_slot",
+   "expr": "2",
+   "kind": "count",
+   "min": 1,
+   "max": 4,
+   "description": "[V] VARSAYIM: teğetsel slot adedi (çizimde yalnız 1 slot görünür; 1–4 hepsi tutarlı)",
+   "exposed": true,
+   "label": "Slot adedi (VARSAYIM)",
+   "step": 1,
+   "group": "Swirler"
+  },
+  {
+   "name": "w_slot",
+   "expr": "0.16",
+   "kind": "length",
+   "min": 0.1,
+   "max": 0.5,
+   "description": "[Ö] Slot genişliği (0.16 ± 0.03)",
+   "exposed": true,
+   "label": "Slot genişliği w [mm]",
+   "step": 0.01,
+   "group": "Swirler"
+  },
+  {
+   "name": "h_slot",
+   "expr": "0.19",
+   "kind": "length",
+   "min": 0.1,
+   "max": 0.3,
+   "description": "[Ö] Slot derinliği, 110° koni yüzeyine dik (0.19 ± 0.04)",
+   "exposed": true,
+   "label": "Slot derinliği h [mm]",
+   "step": 0.01,
+   "group": "Swirler"
+  },
+  {
+   "name": "e_slot",
+   "expr": "0.20",
+   "kind": "length",
+   "min": 0.05,
+   "max": 0.5,
+   "description": "[Ö] Slot ekseninin nozul ekseninden kaçıklığı (0.20 ± 0.05); e ≤ Ds/2 − w/2",
+   "exposed": true,
+   "label": "Slot eksen kaçıklığı e [mm]",
+   "step": 0.01,
+   "group": "Swirler"
+  },
+  {
+   "name": "koni_on",
+   "expr": "110",
+   "kind": "angle",
+   "min": 100,
+   "max": 120,
+   "description": "[Ö] Yuva / swirler uç konisi tam açısı (110°)",
+   "exposed": true,
+   "label": "Uç (yuva) konisi açısı [°]",
+   "step": 1,
+   "group": "Swirler"
+  },
+  {
+   "name": "koni_arka",
+   "expr": "60",
+   "kind": "angle",
+   "min": 50,
+   "max": 70,
+   "description": "[Ö] Swirler arka konisi tam açısı (60°)",
+   "exposed": true,
+   "label": "Arka koni açısı [°]",
+   "step": 1,
+   "group": "Swirler"
+  },
+  {
+   "name": "d_uc",
+   "expr": "0.80",
+   "kind": "length",
+   "min": 0.5,
+   "max": 1.1,
+   "description": "[Ö] Swirler uç düzlüğü çapı (Ø0.80)",
+   "exposed": true,
+   "label": "Uç düzlüğü Ø [mm]",
+   "step": 0.05,
+   "group": "Swirler"
+  },
+  {
+   "name": "slot_uc_payi",
+   "expr": "d_uc/2 - h_slot/cos(koni_on/2)",
+   "kind": "length",
+   "min": 0,
+   "max": null,
+   "description": "[T] Tasarım bağıntısı: slot tabanı uç düzlüğünde eksene ulaşmamalı (karşılıklı slotlar uçta birleşir, girdap kolu kalmaz)",
+   "exposed": false,
+   "label": "Slot tabanı–eksen payı (uçta)",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_ic_payi",
+   "expr": "e_slot - w_slot/2",
+   "kind": "length",
+   "min": 0,
+   "max": null,
+   "description": "[T] Tasarım bağıntısı: slotun iç duvarı eksen düzlemini geçmemeli (e ≥ w/2), aksi halde akışın bir kısmı ters yönde döner",
+   "exposed": false,
+   "label": "Slot iç duvarı–eksen düzlemi payı",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_dis_payi",
+   "expr": "Ds/2 - e_slot - w_slot/2",
+   "kind": "length",
+   "min": 0,
+   "max": null,
+   "description": "[T] Tasarım bağıntısı: slotun dış duvarı girdap odası yarıçapının içinde kalmalı (e + w/2 ≤ Ds/2)",
+   "exposed": false,
+   "label": "Slot dış duvarı–girdap odası payı",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_az",
+   "expr": "-75",
+   "kind": "angle",
+   "min": -180,
+   "max": 180,
+   "description": "[Ö] 1. slotun açısal konumu: kesit düzleminden izleyiciye doğru ≈75° (diğerleri eşit aralıklı [V])",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "elek_goz",
+   "expr": "75",
+   "kind": "scalar",
+   "min": 75,
+   "max": 140,
+   "description": "[S] Elek göz açıklığı [µm]: 75 (200 mesh, 0.50–0.85 USgal/h) / 140 (120 mesh, 1.00–11.0)",
+   "exposed": true,
+   "label": "Elek göz açıklığı [µm]",
+   "step": 5,
+   "group": "Filtre"
+  },
+  {
+   "name": "elek_tel",
+   "expr": "52",
+   "kind": "scalar",
+   "min": 30,
+   "max": 80,
+   "description": "[V] Elek tel çapı [µm] (kare örgü: 200 mesh → 52, 120 mesh → 72)",
+   "exposed": true,
+   "label": "Elek tel çapı [µm]",
+   "step": 1,
+   "group": "Filtre"
+  },
+  {
+   "name": "L_elek",
+   "expr": "9.10",
+   "kind": "length",
+   "min": 7.5,
+   "max": 10.8,
+   "description": "[Ö] Elek kovanı boyu (çizim 9.10; zarf 20.5 max → ≤ 10.8)",
+   "exposed": true,
+   "label": "Elek boyu [mm]",
+   "step": 0.1,
+   "group": "Filtre"
+  },
+  {
+   "name": "pen_aci",
+   "expr": "150",
+   "kind": "angle",
+   "min": 100,
+   "max": 160,
+   "description": "[V] VARSAYIM: filtre penceresi yay açısı (sıra başına n_pen pencere). Çizim yalnız 0°–90° arasının açık olduğunu gösterir (≥ 100°)",
+   "exposed": true,
+   "label": "Pencere açısı (VARSAYIM) [°]",
+   "step": 5,
+   "group": "Filtre"
+  },
+  {
+   "name": "n_pen",
+   "expr": "2",
+   "kind": "count",
+   "min": 2,
+   "max": 2,
+   "description": "[V] VARSAYIM: sıra başına pencere adedi (köprüler 135° ve 315°'de: çizimde görünmeyen bölgeler)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "pen_merkez",
+   "expr": "45",
+   "kind": "angle",
+   "min": 0,
+   "max": 360,
+   "description": "[Ö]/[V] 1. pencerenin merkez azimutu: çizimde kesit düzlemi (0°) ve arkadaki çeyrek (0°–90°) tamamen açık → merkez 45°",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "dLf",
+   "expr": "L_elek - 9.10",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Elek boyu farkı (iki kanal tabanına eşit paylaştırılır)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "elek_acik",
+   "expr": "(elek_goz/(elek_goz+elek_tel))^2",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Elek açık alan oranı (kare örgü)",
+   "exposed": false,
+   "label": "Elek açık alan oranı",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "elek_mesh",
+   "expr": "25400/(elek_goz+elek_tel)",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Mesh sayısı [1/inç]",
+   "exposed": false,
+   "label": "Elek mesh sayısı [1/inç]",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "n_capraz",
+   "expr": "2",
+   "kind": "count",
+   "min": 1,
+   "max": 2,
+   "description": "[V] VARSAYIM: çapraz delik adedi (2 = boydan boya delinmiş; kesitte yalnız biri görünür)",
+   "exposed": true,
+   "label": "Çapraz delik adedi (VARSAYIM)",
+   "step": 1,
+   "group": "Tutucu vida"
+  },
+  {
+   "name": "d_capraz",
+   "expr": "2.40",
+   "kind": "length",
+   "min": 1.5,
+   "max": 3.0,
+   "description": "[Ö] Çapraz delik çapı (Ø2.40)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_capraz",
+   "expr": "3.06",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Çapraz delik ekseni kotu",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "H_bas",
+   "expr": "14.01",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[S] Baş yüksekliği 14 ±0.2 (çizimde 14.01)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "AF_alt",
+   "expr": "15.85",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[S] Altıgen anahtar ağzı 16 +0/−0.25 (çizimde 15.85)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "AF_soket",
+   "expr": "4.76",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[S] Alyan yuvası SW 3/16\"",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_delik",
+   "expr": "8.84",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Baş deliği = 3/8\"-40 UNS iç diş dibi çapı",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_dis",
+   "expr": "9.48",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] 3/8\"-40 UNS erkek diş üstü çapı (çizim)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_vida",
+   "expr": "7.48",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Tutucu vida gövde çapı",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "d_vida_delik",
+   "expr": "3.90",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Tutucu vida eksenel deliği",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "d_filtre_delik",
+   "expr": "7.40",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Filtre gövdesi deliği",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_etek",
+   "expr": "7.60",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Swirler etek çapı",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "d_sap",
+   "expr": "3.70",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Swirler sap çapı",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "R_tr",
+   "expr": "0.48",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Orifis çıkış trompeti yarıçapı",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "h_tr",
+   "expr": "0.28",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Çıkış trompeti yüksekliği (H2→H3)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "h_havsa",
+   "expr": "0.21",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[Ö] Çıkış havşası derinliği (Ø3.98)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "D_zarf",
+   "expr": "11.8",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[S] Filtre azami zarf çapı Ø11.8 max = akış hacmi dış sınırı [V: brülör adaptörü deliği]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "L_zarf",
+   "expr": "20.5",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[S] Filtre azami zarf boyu 20.5 max = akış hacmi alt sınırı",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_f",
+   "expr": "H_bas - h_havsa",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Havşa tabanı = trompet sonu (H3, H4)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_2",
+   "expr": "z_f - h_tr",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Orifis silindirinin sonu (H2)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_1",
+   "expr": "z_2 - Lo",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Orifis girişi (H1)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_24",
+   "expr": "z_1 - (Ds-d0)/2/tan(alfa_s/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Girdap odası konisi başlangıcı (H24)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_yuva",
+   "expr": "z_24 - (4.29-Ds/2)/tan(koni_on/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Yuva konisi başlangıcı (H23), çizimde 9.93",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_uc",
+   "expr": "z_24 + (Ds-d_uc)/2/tan(koni_on/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Swirler uç düzlüğü (S1,S2), çizimde 12.66",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_S3",
+   "expr": "z_24 - (2.79-Ds/2)/tan(koni_on/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Uç konisi sonu (S3), çizimde 10.98",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_S4",
+   "expr": "z_S3 - (3.78-2.79)/tan(koni_arka/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Arka koni sonu (S4), çizimde 9.27",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "z_alt",
+   "expr": "z_S4 - 1.21",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Swirler alt yüzü = tutucu vida üst yüzü, çizimde 8.06",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_s0",
+   "expr": "-(h_slot*sin(koni_on/2)+0.15)/cos(koni_on/2)",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Slot takımının uç tarafı (anadoğru boyunca, uç düzlüğünü 0.15 aşar)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "slot_s1",
+   "expr": "(2.79-d_uc/2)/sin(koni_on/2) + h_slot/tan((koni_on-koni_arka)/2) + 0.3",
+   "kind": "length",
+   "min": null,
+   "max": null,
+   "description": "[T] Slot takımının arka ucu (arka konide tükenme noktası + 0.3)",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_orifis",
+   "expr": "pi*d0^2/4",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Orifis alanı [mm²]",
+   "exposed": false,
+   "label": "Orifis alanı [mm²]",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "A_slot",
+   "expr": "n_slot*w_slot*h_slot",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Toplam slot alanı n·w·h [mm²] (ölçüm kesiti)",
+   "exposed": false,
+   "label": "Slot alanı n·w·h (anma) [mm²]",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "A_slot_etkin",
+   "expr": "n_slot*w_slot*(h_slot-(e_slot^2+w_slot^2/12)/Ds*cos(koni_on/2))",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Modeldeki GERÇEK en dar slot kesiti (girdap odası ağzı, r = Ds/2): kaçık düz kanal koni yüzeyine göre sığlaşır; n·w·h'den ≈ %7–9 küçük (OCCT kesit ölçümüyle doğrulandı) [mm²]",
+   "exposed": false,
+   "label": "Slot en dar kesiti (model) [mm²]",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "A_oda_giris",
+   "expr": "pi*((Ds/2-(z_uc-z_24)*tan(alfa_s/2))^2-(d_uc/2)^2)",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Swirler ucu ile girdap odası konisi arasındaki halka [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_kama",
+   "expr": "pi*(4.29^2-(3.78-(z_yuva-0.45-z_S4)*tan(koni_arka/2))^2)",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Ø8.58 kademe / arka koni halkası [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_etek",
+   "expr": "pi*(D_delik^2-D_etek^2)/4",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Etek/delik halka boşluğu [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_halka",
+   "expr": "pi*(D_delik^2-D_vida^2)/4",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Vida/delik halka boşluğu [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_capraz",
+   "expr": "n_capraz*pi*d_capraz^2/4",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Çapraz delik(ler) [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_vida_delik",
+   "expr": "pi*d_vida_delik^2/4",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Vida eksenel deliği [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_soket",
+   "expr": "sqrt(3)/2*AF_soket^2",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Alyan yuvası [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_aralik",
+   "expr": "pi*AF_soket*1.05*0.58",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Filtre üstü / vida altı aralığı (0.58 mm, alyan ağzı çevresi) [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_filtre_delik",
+   "expr": "pi*d_filtre_delik^2/4",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Filtre gövde deliği [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_pencere",
+   "expr": "n_pen*pen_aci/360*2*pi*3.895*(3.20+dLf)",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Filtre pencereleri, 2 sıra (ort. yarıçap 3.895) [mm²] — pencere açısı VARSAYIM",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_elek",
+   "expr": "2*pi*4.74*(6.41+dLf)*elek_acik",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Kanal üstü serbest elek açık alanı [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "A_min_diger",
+   "expr": "min(min(min(A_oda_giris,A_kama),min(A_etek,A_halka)),min(min(A_capraz,A_vida_delik),min(min(A_soket,A_aralik),min(A_filtre_delik,min(A_pencere,A_elek)))))",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Slot ve orifis dışındaki en dar geçit [mm²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "oran_slot_orifis",
+   "expr": "A_slot/A_orifis",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] A_slot / A_orifis",
+   "exposed": false,
+   "label": "A_slot / A_orifis",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "oran_diger_orifis",
+   "expr": "A_min_diger/A_orifis",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] En dar diğer geçit / A_orifis (≫1 olmalı)",
+   "exposed": false,
+   "label": "En dar diğer geçit / A_orifis",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "K_geo",
+   "expr": "A_slot/(Ds*d0)",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Atomizör sabiti K = A_p/(D_s·d0)",
+   "exposed": false,
+   "label": "Atomizör sabiti K = A_slot/(Ds·d0)",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "Cd_RL",
+   "expr": "0.35*K_geo^0.5*(Ds/d0)^0.25",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Rizk–Lefebvre: Cd = 0.35·K^0.5·(Ds/d0)^0.25 (gösterge; mikro/viskoz nozul için doğrulanmamış)",
+   "exposed": false,
+   "label": "Cd (Rizk–Lefebvre, gösterge)",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "Q_RL",
+   "expr": "Cd_RL*A_orifis/1000000*sqrt(2*rho*dP*100000)*3600",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Rizk–Lefebvre Cd ile beklenen debi [kg/h] (gösterge)",
+   "exposed": false,
+   "label": "Debi (Rizk–Lefebvre, gösterge) [kg/h]",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "FN",
+   "expr": "(Q/3600)/sqrt(dP*100000*rho)",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Akış sayısı FN = ṁ/√(ΔP·ρ) [m²]",
+   "exposed": false,
+   "label": "",
+   "step": 0,
+   "group": ""
+  },
+  {
+   "name": "aci_RL",
+   "expr": "6*K_geo^(-0.15)*(dP*100000*(d0/1000)^2*rho/mu^2)^0.11",
+   "kind": "angle",
+   "min": null,
+   "max": null,
+   "description": "[T] Rizk–Lefebvre püskürtme açısı 2θ = 6·K^−0.15·(ΔP·d0²·ρ/μ²)^0.11 [°] (gösterge)",
+   "exposed": false,
+   "label": "Püskürtme açısı 2θ (R–L, gösterge)",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "Lo_d0",
+   "expr": "Lo/d0",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Orifis L/d",
+   "exposed": false,
+   "label": "Orifis L/d",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "Ds_d0",
+   "expr": "Ds/d0",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Ds/d0 (tipik 2.7–5)",
+   "exposed": false,
+   "label": "Ds/d0",
+   "step": 0,
+   "group": "Hesaplanan"
+  },
+  {
+   "name": "v_slot",
+   "expr": "(Q/3600)/rho/(A_slot/1000000)",
+   "kind": "scalar",
+   "min": null,
+   "max": null,
+   "description": "[T] Slot ortalama hızı [m/s]",
+   "exposed": false,
+   "label": "Slot ortalama hızı [m/s]",
+   "step": 0,
+   "group": "Hesaplanan"
+  }
+ ],
+ "features": [
+  {
+   "id": "Ck_Govde",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XZ",
+     "faceRef": "",
+     "offset": "0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 0.1799800103726231,
+      "y": 13.24
+     },
+     {
+      "id": 4,
+      "x": 0.0,
+      "y": 13.24
+     },
+     {
+      "id": 7,
+      "x": 0.0,
+      "y": 13.52
+     },
+     {
+      "id": 10,
+      "x": 0.1799800103726231,
+      "y": 13.52
+     },
+     {
+      "id": 13,
+      "x": 0.6599800103726231,
+      "y": 13.52
+     },
+     {
+      "id": 16,
+      "x": 0.2701082365802646,
+      "y": 13.799999999999999
+     },
+     {
+      "id": 18,
+      "x": 1.91,
+      "y": 13.799999999999999
+     },
+     {
+      "id": 21,
+      "x": 1.99,
+      "y": 13.87
+     },
+     {
+      "id": 24,
+      "x": 1.99,
+      "y": 13.959999999999999
+     },
+     {
+      "id": 27,
+      "x": 2.05,
+      "y": 14.01
+     },
+     {
+      "id": 30,
+      "x": 3.17,
+      "y": 14.01
+     },
+     {
+      "id": 33,
+      "x": -0.19,
+      "y": 6.77
+     },
+     {
+      "id": 36,
+      "x": 7.79,
+      "y": 7.01
+     },
+     {
+      "id": 38,
+      "x": 9.14,
+      "y": 5.87
+     },
+     {
+      "id": 41,
+      "x": 9.14,
+      "y": 1.59
+     },
+     {
+      "id": 44,
+      "x": 7.85,
+      "y": 0.51
+     },
+     {
+      "id": 47,
+      "x": 7.85,
+      "y": 0.0
+     },
+     {
+      "id": 50,
+      "x": 6.15,
+      "y": 0.0
+     },
+     {
+      "id": 53,
+      "x": 6.15,
+      "y": -1.5
+     },
+     {
+      "id": 56,
+      "x": 7.08,
+      "y": -2.43
+     },
+     {
+      "id": 59,
+      "x": 7.08,
+      "y": -6.49
+     },
+     {
+      "id": 62,
+      "x": 6.08,
+      "y": -7.49
+     },
+     {
+      "id": 65,
+      "x": 5.19,
+      "y": -7.49
+     },
+     {
+      "id": 68,
+      "x": 4.42,
+      "y": -6.7
+     },
+     {
+      "id": 71,
+      "x": 4.42,
+      "y": 9.407480550256556
+     },
+     {
+      "id": 74,
+      "x": 4.29,
+      "y": 9.477480550256557
+     },
+     {
+      "id": 77,
+      "x": 4.29,
+      "y": 9.927480550256556
+     },
+     {
+      "id": 80,
+      "x": 0.76,
+      "y": 12.399213160136831
+     }
+    ],
+    "entities": [
+     {
+      "id": 83,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 84,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 85,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 86,
+      "type": "arc",
+      "points": [
+       13,
+       16,
+       10
+      ],
+      "radius": 0.4799999999999996
+     },
+     {
+      "id": 87,
+      "type": "line",
+      "points": [
+       16,
+       18
+      ]
+     },
+     {
+      "id": 88,
+      "type": "line",
+      "points": [
+       18,
+       21
+      ]
+     },
+     {
+      "id": 89,
+      "type": "line",
+      "points": [
+       21,
+       24
+      ]
+     },
+     {
+      "id": 90,
+      "type": "line",
+      "points": [
+       24,
+       27
+      ]
+     },
+     {
+      "id": 91,
+      "type": "line",
+      "points": [
+       27,
+       30
+      ]
+     },
+     {
+      "id": 92,
+      "type": "arc",
+      "points": [
+       33,
+       36,
+       30
+      ],
+      "radius": 7.983608206819771
+     },
+     {
+      "id": 93,
+      "type": "line",
+      "points": [
+       36,
+       38
+      ]
+     },
+     {
+      "id": 94,
+      "type": "line",
+      "points": [
+       38,
+       41
+      ]
+     },
+     {
+      "id": 95,
+      "type": "line",
+      "points": [
+       41,
+       44
+      ]
+     },
+     {
+      "id": 96,
+      "type": "line",
+      "points": [
+       44,
+       47
+      ]
+     },
+     {
+      "id": 97,
+      "type": "line",
+      "points": [
+       47,
+       50
+      ]
+     },
+     {
+      "id": 98,
+      "type": "line",
+      "points": [
+       50,
+       53
+      ]
+     },
+     {
+      "id": 99,
+      "type": "line",
+      "points": [
+       53,
+       56
+      ]
+     },
+     {
+      "id": 100,
+      "type": "line",
+      "points": [
+       56,
+       59
+      ]
+     },
+     {
+      "id": 101,
+      "type": "line",
+      "points": [
+       59,
+       62
+      ]
+     },
+     {
+      "id": 102,
+      "type": "line",
+      "points": [
+       62,
+       65
+      ]
+     },
+     {
+      "id": 103,
+      "type": "line",
+      "points": [
+       65,
+       68
+      ]
+     },
+     {
+      "id": 104,
+      "type": "line",
+      "points": [
+       68,
+       71
+      ]
+     },
+     {
+      "id": 105,
+      "type": "line",
+      "points": [
+       71,
+       74
+      ]
+     },
+     {
+      "id": 106,
+      "type": "line",
+      "points": [
+       74,
+       77
+      ]
+     },
+     {
+      "id": 107,
+      "type": "line",
+      "points": [
+       77,
+       80
+      ]
+     },
+     {
+      "id": 108,
+      "type": "line",
+      "points": [
+       80,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "d0/2"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "z_1"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "0"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "z_1"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "0"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "z_2"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "d0/2"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "z_2"
+     },
+     {
+      "id": 14,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "d0/2+R_tr"
+     },
+     {
+      "id": 15,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "z_2"
+     },
+     {
+      "id": 17,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "z_f"
+     },
+     {
+      "id": 19,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       18
+      ],
+      "value": "1.91"
+     },
+     {
+      "id": 20,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       18
+      ],
+      "value": "z_f"
+     },
+     {
+      "id": 22,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       21
+      ],
+      "value": "1.99"
+     },
+     {
+      "id": 23,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       21
+      ],
+      "value": "z_f+0.07"
+     },
+     {
+      "id": 25,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       24
+      ],
+      "value": "1.99"
+     },
+     {
+      "id": 26,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       24
+      ],
+      "value": "H_bas-0.05"
+     },
+     {
+      "id": 28,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       27
+      ],
+      "value": "2.05"
+     },
+     {
+      "id": 29,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       27
+      ],
+      "value": "H_bas"
+     },
+     {
+      "id": 31,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       30
+      ],
+      "value": "3.17"
+     },
+     {
+      "id": 32,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       30
+      ],
+      "value": "H_bas"
+     },
+     {
+      "id": 34,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       33
+      ],
+      "value": "-0.19"
+     },
+     {
+      "id": 35,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       33
+      ],
+      "value": "H_bas-7.24"
+     },
+     {
+      "id": 37,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       36
+      ],
+      "value": "H_bas-7.00"
+     },
+     {
+      "id": 39,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       38
+      ],
+      "value": "9.14"
+     },
+     {
+      "id": 40,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       38
+      ],
+      "value": "5.87"
+     },
+     {
+      "id": 42,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       41
+      ],
+      "value": "9.14"
+     },
+     {
+      "id": 43,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       41
+      ],
+      "value": "1.59"
+     },
+     {
+      "id": 45,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       44
+      ],
+      "value": "7.85"
+     },
+     {
+      "id": 46,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       44
+      ],
+      "value": "0.51"
+     },
+     {
+      "id": 48,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       47
+      ],
+      "value": "7.85"
+     },
+     {
+      "id": 49,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       47
+      ],
+      "value": "0"
+     },
+     {
+      "id": 51,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       50
+      ],
+      "value": "6.15"
+     },
+     {
+      "id": 52,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       50
+      ],
+      "value": "0"
+     },
+     {
+      "id": 54,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       53
+      ],
+      "value": "6.15"
+     },
+     {
+      "id": 55,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       53
+      ],
+      "value": "-1.50"
+     },
+     {
+      "id": 57,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       56
+      ],
+      "value": "7.08"
+     },
+     {
+      "id": 58,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       56
+      ],
+      "value": "-2.43"
+     },
+     {
+      "id": 60,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       59
+      ],
+      "value": "7.08"
+     },
+     {
+      "id": 61,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       59
+      ],
+      "value": "-6.49"
+     },
+     {
+      "id": 63,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       62
+      ],
+      "value": "6.08"
+     },
+     {
+      "id": 64,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       62
+      ],
+      "value": "-7.49"
+     },
+     {
+      "id": 66,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       65
+      ],
+      "value": "5.19"
+     },
+     {
+      "id": 67,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       65
+      ],
+      "value": "-7.49"
+     },
+     {
+      "id": 69,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       68
+      ],
+      "value": "D_delik/2"
+     },
+     {
+      "id": 70,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       68
+      ],
+      "value": "-6.70"
+     },
+     {
+      "id": 72,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       71
+      ],
+      "value": "D_delik/2"
+     },
+     {
+      "id": 73,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       71
+      ],
+      "value": "z_yuva-0.52"
+     },
+     {
+      "id": 75,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       74
+      ],
+      "value": "4.29"
+     },
+     {
+      "id": 76,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       74
+      ],
+      "value": "z_yuva-0.45"
+     },
+     {
+      "id": 78,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       77
+      ],
+      "value": "4.29"
+     },
+     {
+      "id": 79,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       77
+      ],
+      "value": "z_yuva"
+     },
+     {
+      "id": 81,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       80
+      ],
+      "value": "Ds/2"
+     },
+     {
+      "id": 82,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       80
+      ],
+      "value": "z_24"
+     }
+    ],
+    "nextId": 109
+   }
+  },
+  {
+   "id": "Govde_Don",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Govde",
+    "axis": "V",
+    "angle": "360",
+    "op": "new",
+    "bodyName": "Govde"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Altigen",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XY",
+     "faceRef": "",
+     "offset": "-9"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 9.151001766655568,
+      "y": 0.0
+     },
+     {
+      "id": 4,
+      "x": 4.575500883327784,
+      "y": 7.925
+     },
+     {
+      "id": 7,
+      "x": -4.575500883327784,
+      "y": 7.925
+     },
+     {
+      "id": 10,
+      "x": -9.151001766655568,
+      "y": 0.0
+     },
+     {
+      "id": 13,
+      "x": -4.575500883327784,
+      "y": -7.925
+     },
+     {
+      "id": 16,
+      "x": 4.575500883327784,
+      "y": -7.925
+     }
+    ],
+    "entities": [
+     {
+      "id": 19,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 20,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 21,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 22,
+      "type": "line",
+      "points": [
+       10,
+       13
+      ]
+     },
+     {
+      "id": 23,
+      "type": "line",
+      "points": [
+       13,
+       16
+      ]
+     },
+     {
+      "id": 24,
+      "type": "line",
+      "points": [
+       16,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "(AF_alt)/sqrt(3)"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "(AF_alt)/sqrt(3)/2"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "(AF_alt)/2"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "-(AF_alt)/sqrt(3)/2"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "(AF_alt)/2"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "-(AF_alt)/sqrt(3)"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "0"
+     },
+     {
+      "id": 14,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "-(AF_alt)/sqrt(3)/2"
+     },
+     {
+      "id": 15,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "-(AF_alt)/2"
+     },
+     {
+      "id": 17,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "(AF_alt)/sqrt(3)/2"
+     },
+     {
+      "id": 18,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "-(AF_alt)/2"
+     }
+    ],
+    "nextId": 25
+   }
+  },
+  {
+   "id": "Govde_Altigen",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Altigen",
+    "distance": "24",
+    "direction": "normal",
+    "op": "intersect",
+    "targets": "Govde"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Orifis",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XY",
+     "faceRef": "",
+     "offset": "z_2"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 0.0,
+      "y": 0.0
+     }
+    ],
+    "entities": [],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "Coincident",
+      "refs": [
+       0,
+       1
+      ]
+     }
+    ],
+    "nextId": 3
+   }
+  },
+  {
+   "id": "Orifis",
+   "type": "Hole",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Orifis",
+    "diameter": "d0",
+    "depth": "Lo+0.02",
+    "kind": "simple",
+    "tipAngle": "0",
+    "targets": "Govde"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Swirler",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XZ",
+     "faceRef": "",
+     "offset": "0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 0.0,
+      "y": 12.651287873892327
+     },
+     {
+      "id": 4,
+      "x": 0.4,
+      "y": 12.651287873892327
+     },
+     {
+      "id": 7,
+      "x": 2.79,
+      "y": 10.97779185757112
+     },
+     {
+      "id": 10,
+      "x": 3.78,
+      "y": 9.263061558077931
+     },
+     {
+      "id": 13,
+      "x": 3.8,
+      "y": 9.20306155807793
+     },
+     {
+      "id": 16,
+      "x": 3.8,
+      "y": 8.253061558077931
+     },
+     {
+      "id": 19,
+      "x": 3.5999999999999996,
+      "y": 8.053061558077932
+     },
+     {
+      "id": 22,
+      "x": 2.0500000000000003,
+      "y": 8.053061558077932
+     },
+     {
+      "id": 25,
+      "x": 1.85,
+      "y": 7.853061558077932
+     },
+     {
+      "id": 28,
+      "x": 1.85,
+      "y": 4.85
+     },
+     {
+      "id": 31,
+      "x": 1.44,
+      "y": 4.16
+     },
+     {
+      "id": 34,
+      "x": 0.0,
+      "y": 4.16
+     }
+    ],
+    "entities": [
+     {
+      "id": 37,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 38,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 39,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 40,
+      "type": "line",
+      "points": [
+       10,
+       13
+      ]
+     },
+     {
+      "id": 41,
+      "type": "line",
+      "points": [
+       13,
+       16
+      ]
+     },
+     {
+      "id": 42,
+      "type": "line",
+      "points": [
+       16,
+       19
+      ]
+     },
+     {
+      "id": 43,
+      "type": "line",
+      "points": [
+       19,
+       22
+      ]
+     },
+     {
+      "id": 44,
+      "type": "line",
+      "points": [
+       22,
+       25
+      ]
+     },
+     {
+      "id": 45,
+      "type": "line",
+      "points": [
+       25,
+       28
+      ]
+     },
+     {
+      "id": 46,
+      "type": "line",
+      "points": [
+       28,
+       31
+      ]
+     },
+     {
+      "id": 47,
+      "type": "line",
+      "points": [
+       31,
+       34
+      ]
+     },
+     {
+      "id": 48,
+      "type": "line",
+      "points": [
+       34,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "z_uc"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "d_uc/2"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "z_uc"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "2.79"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "z_S3"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "3.78"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "z_S4"
+     },
+     {
+      "id": 14,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "D_etek/2"
+     },
+     {
+      "id": 15,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "z_S4-0.06"
+     },
+     {
+      "id": 17,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "D_etek/2"
+     },
+     {
+      "id": 18,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "z_S4-1.01"
+     },
+     {
+      "id": 20,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "D_etek/2-0.20"
+     },
+     {
+      "id": 21,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "z_alt"
+     },
+     {
+      "id": 23,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "d_sap/2+0.20"
+     },
+     {
+      "id": 24,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "z_alt"
+     },
+     {
+      "id": 26,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "d_sap/2"
+     },
+     {
+      "id": 27,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "z_alt-0.20"
+     },
+     {
+      "id": 29,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "d_sap/2"
+     },
+     {
+      "id": 30,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "4.85"
+     },
+     {
+      "id": 32,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       31
+      ],
+      "value": "1.44"
+     },
+     {
+      "id": 33,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       31
+      ],
+      "value": "4.16"
+     },
+     {
+      "id": 35,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       34
+      ],
+      "value": "0"
+     },
+     {
+      "id": 36,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       34
+      ],
+      "value": "4.16"
+     }
+    ],
+    "nextId": 49
+   }
+  },
+  {
+   "id": "Swirler_Don",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Swirler",
+    "axis": "V",
+    "angle": "360",
+    "op": "new",
+    "bodyName": "Swirler"
+   },
+   "refs": []
+  },
+  {
+   "id": "Dz_Slot",
+   "type": "Plane",
+   "suppressed": false,
+   "props": {
+    "kind": "axisAngle",
+    "axis": "Z",
+    "angle": "slot_az",
+    "show": "0"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Slot",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "OnPlane",
+     "faceRef": "",
+     "offset": "-e_slot",
+     "planeRef": "Dz_Slot"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": -0.1454770921793257,
+      "y": 12.801287873892328
+     },
+     {
+      "id": 4,
+      "x": 3.260534763686185,
+      "y": 10.416372697183654
+     },
+     {
+      "id": 7,
+      "x": 3.512908395680645,
+      "y": 10.77679959667081
+     },
+     {
+      "id": 10,
+      "x": 0.10689653981513458,
+      "y": 13.161714773379483
+     }
+    ],
+    "entities": [
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 15,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 16,
+      "type": "line",
+      "points": [
+       10,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "d_uc/2 - (h_slot)*cos(koni_on/2) + (slot_s0)*sin(koni_on/2)"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "z_uc - (h_slot)*sin(koni_on/2) - (slot_s0)*cos(koni_on/2)"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "d_uc/2 - (h_slot)*cos(koni_on/2) + (slot_s1)*sin(koni_on/2)"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "z_uc - (h_slot)*sin(koni_on/2) - (slot_s1)*cos(koni_on/2)"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "d_uc/2 - (-0.25)*cos(koni_on/2) + (slot_s1)*sin(koni_on/2)"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "z_uc - (-0.25)*sin(koni_on/2) - (slot_s1)*cos(koni_on/2)"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "d_uc/2 - (-0.25)*cos(koni_on/2) + (slot_s0)*sin(koni_on/2)"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "z_uc - (-0.25)*sin(koni_on/2) - (slot_s0)*cos(koni_on/2)"
+     }
+    ],
+    "nextId": 17
+   }
+  },
+  {
+   "id": "Slot",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Slot",
+    "distance": "w_slot",
+    "direction": "symmetric",
+    "op": "cut",
+    "targets": "Swirler"
+   },
+   "refs": []
+  },
+  {
+   "id": "Slot_Cogalt",
+   "type": "Pattern",
+   "suppressed": false,
+   "props": {
+    "kind": "circular",
+    "source": "Slot",
+    "count": "n_slot",
+    "angle": "360",
+    "axis": "Z",
+    "targets": "Swirler"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Vida",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XZ",
+     "faceRef": "",
+     "offset": "0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 1.95,
+      "y": 7.953061558077932
+     },
+     {
+      "id": 4,
+      "x": 2.05,
+      "y": 8.053061558077932
+     },
+     {
+      "id": 7,
+      "x": 3.74,
+      "y": 8.053061558077932
+     },
+     {
+      "id": 10,
+      "x": 3.74,
+      "y": -0.73
+     },
+     {
+      "id": 13,
+      "x": 4.54,
+      "y": -0.73
+     },
+     {
+      "id": 16,
+      "x": 4.74,
+      "y": -0.95
+     },
+     {
+      "id": 19,
+      "x": 4.74,
+      "y": -2.94
+     },
+     {
+      "id": 22,
+      "x": 4.54,
+      "y": -3.13
+     },
+     {
+      "id": 25,
+      "x": 2.36,
+      "y": -3.13
+     },
+     {
+      "id": 28,
+      "x": 2.36,
+      "y": -0.62
+     },
+     {
+      "id": 31,
+      "x": 1.95,
+      "y": -0.21000000000000008
+     }
+    ],
+    "entities": [
+     {
+      "id": 34,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 35,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 36,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 37,
+      "type": "line",
+      "points": [
+       10,
+       13
+      ]
+     },
+     {
+      "id": 38,
+      "type": "line",
+      "points": [
+       13,
+       16
+      ]
+     },
+     {
+      "id": 39,
+      "type": "line",
+      "points": [
+       16,
+       19
+      ]
+     },
+     {
+      "id": 40,
+      "type": "line",
+      "points": [
+       19,
+       22
+      ]
+     },
+     {
+      "id": 41,
+      "type": "line",
+      "points": [
+       22,
+       25
+      ]
+     },
+     {
+      "id": 42,
+      "type": "line",
+      "points": [
+       25,
+       28
+      ]
+     },
+     {
+      "id": 43,
+      "type": "line",
+      "points": [
+       28,
+       31
+      ]
+     },
+     {
+      "id": 44,
+      "type": "line",
+      "points": [
+       31,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "d_vida_delik/2"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "z_alt-0.10"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "d_vida_delik/2+0.10"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "z_alt"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "D_vida/2"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "z_alt"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "D_vida/2"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "-0.73"
+     },
+     {
+      "id": 14,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "D_dis/2-0.20"
+     },
+     {
+      "id": 15,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "-0.73"
+     },
+     {
+      "id": 17,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 18,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "-0.95"
+     },
+     {
+      "id": 20,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 21,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "-2.94"
+     },
+     {
+      "id": 23,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "D_dis/2-0.20"
+     },
+     {
+      "id": 24,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "-3.13"
+     },
+     {
+      "id": 26,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "AF_soket/2-0.02"
+     },
+     {
+      "id": 27,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "-3.13"
+     },
+     {
+      "id": 29,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "AF_soket/2-0.02"
+     },
+     {
+      "id": 30,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "-0.62"
+     },
+     {
+      "id": 32,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       31
+      ],
+      "value": "d_vida_delik/2"
+     },
+     {
+      "id": 33,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       31
+      ],
+      "value": "-0.62+(AF_soket/2-0.02-d_vida_delik/2)"
+     }
+    ],
+    "nextId": 45
+   }
+  },
+  {
+   "id": "Vida_Don",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Vida",
+    "axis": "V",
+    "angle": "360",
+    "op": "new",
+    "bodyName": "TutmaVidasi"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Alyan",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XY",
+     "faceRef": "",
+     "offset": "-3.63"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 2.7481872813426187,
+      "y": 0.0
+     },
+     {
+      "id": 4,
+      "x": 1.3740936406713093,
+      "y": 2.38
+     },
+     {
+      "id": 7,
+      "x": -1.3740936406713093,
+      "y": 2.38
+     },
+     {
+      "id": 10,
+      "x": -2.7481872813426187,
+      "y": 0.0
+     },
+     {
+      "id": 13,
+      "x": -1.3740936406713093,
+      "y": -2.38
+     },
+     {
+      "id": 16,
+      "x": 1.3740936406713093,
+      "y": -2.38
+     }
+    ],
+    "entities": [
+     {
+      "id": 19,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 20,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 21,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 22,
+      "type": "line",
+      "points": [
+       10,
+       13
+      ]
+     },
+     {
+      "id": 23,
+      "type": "line",
+      "points": [
+       13,
+       16
+      ]
+     },
+     {
+      "id": 24,
+      "type": "line",
+      "points": [
+       16,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "(AF_soket)/sqrt(3)"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "(AF_soket)/sqrt(3)/2"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "(AF_soket)/2"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "-(AF_soket)/sqrt(3)/2"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "(AF_soket)/2"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "-(AF_soket)/sqrt(3)"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "0"
+     },
+     {
+      "id": 14,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "-(AF_soket)/sqrt(3)/2"
+     },
+     {
+      "id": 15,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "-(AF_soket)/2"
+     },
+     {
+      "id": 17,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "(AF_soket)/sqrt(3)/2"
+     },
+     {
+      "id": 18,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "-(AF_soket)/2"
+     }
+    ],
+    "nextId": 25
+   }
+  },
+  {
+   "id": "Vida_Alyan",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Alyan",
+    "distance": "2.99",
+    "direction": "normal",
+    "op": "cut",
+    "targets": "TutmaVidasi"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Capraz",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "YZ",
+     "faceRef": "",
+     "offset": "-(n_capraz-1)*5"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 0.0,
+      "y": 3.06
+     }
+    ],
+    "entities": [
+     {
+      "id": 4,
+      "type": "circle",
+      "points": [
+       1
+      ],
+      "radius": 1.2
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "0"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "z_capraz"
+     },
+     {
+      "id": 5,
+      "type": "Diameter",
+      "refs": [
+       4
+      ],
+      "value": "d_capraz"
+     }
+    ],
+    "nextId": 6
+   }
+  },
+  {
+   "id": "Vida_Capraz",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Capraz",
+    "distance": "n_capraz*5",
+    "direction": "normal",
+    "op": "cut",
+    "targets": "TutmaVidasi"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Filtre",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XZ",
+     "faceRef": "",
+     "offset": "0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 3.7,
+      "y": -3.71
+     },
+     {
+      "id": 4,
+      "x": 4.54,
+      "y": -3.71
+     },
+     {
+      "id": 7,
+      "x": 4.74,
+      "y": -3.91
+     },
+     {
+      "id": 10,
+      "x": 4.74,
+      "y": -5.46
+     },
+     {
+      "id": 13,
+      "x": 4.29,
+      "y": -5.9
+     },
+     {
+      "id": 16,
+      "x": 4.29,
+      "y": -6.53
+     },
+     {
+      "id": 19,
+      "x": 4.74,
+      "y": -6.91
+     },
+     {
+      "id": 22,
+      "x": 4.74,
+      "y": -8.1
+     },
+     {
+      "id": 25,
+      "x": 4.09,
+      "y": -8.65
+     },
+     {
+      "id": 28,
+      "x": 4.09,
+      "y": -10.77
+     },
+     {
+      "id": 31,
+      "x": 4.74,
+      "y": -11.3
+     },
+     {
+      "id": 34,
+      "x": 4.74,
+      "y": -12.3
+     },
+     {
+      "id": 37,
+      "x": 4.09,
+      "y": -12.86
+     },
+     {
+      "id": 40,
+      "x": 4.09,
+      "y": -14.96
+     },
+     {
+      "id": 43,
+      "x": 4.74,
+      "y": -15.51
+     },
+     {
+      "id": 46,
+      "x": 4.74,
+      "y": -16.71
+     },
+     {
+      "id": 49,
+      "x": 5.15,
+      "y": -16.71
+     },
+     {
+      "id": 52,
+      "x": 5.15,
+      "y": -18.51
+     },
+     {
+      "id": 55,
+      "x": 4.95,
+      "y": -18.71
+     },
+     {
+      "id": 58,
+      "x": 0.0,
+      "y": -18.71
+     },
+     {
+      "id": 61,
+      "x": 0.0,
+      "y": -17.92
+     },
+     {
+      "id": 64,
+      "x": 3.7,
+      "y": -15.71
+     }
+    ],
+    "entities": [
+     {
+      "id": 67,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 68,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 69,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 70,
+      "type": "line",
+      "points": [
+       10,
+       13
+      ]
+     },
+     {
+      "id": 71,
+      "type": "line",
+      "points": [
+       13,
+       16
+      ]
+     },
+     {
+      "id": 72,
+      "type": "line",
+      "points": [
+       16,
+       19
+      ]
+     },
+     {
+      "id": 73,
+      "type": "line",
+      "points": [
+       19,
+       22
+      ]
+     },
+     {
+      "id": 74,
+      "type": "line",
+      "points": [
+       22,
+       25
+      ]
+     },
+     {
+      "id": 75,
+      "type": "line",
+      "points": [
+       25,
+       28
+      ]
+     },
+     {
+      "id": 76,
+      "type": "line",
+      "points": [
+       28,
+       31
+      ]
+     },
+     {
+      "id": 77,
+      "type": "line",
+      "points": [
+       31,
+       34
+      ]
+     },
+     {
+      "id": 78,
+      "type": "line",
+      "points": [
+       34,
+       37
+      ]
+     },
+     {
+      "id": 79,
+      "type": "line",
+      "points": [
+       37,
+       40
+      ]
+     },
+     {
+      "id": 80,
+      "type": "line",
+      "points": [
+       40,
+       43
+      ]
+     },
+     {
+      "id": 81,
+      "type": "line",
+      "points": [
+       43,
+       46
+      ]
+     },
+     {
+      "id": 82,
+      "type": "line",
+      "points": [
+       46,
+       49
+      ]
+     },
+     {
+      "id": 83,
+      "type": "line",
+      "points": [
+       49,
+       52
+      ]
+     },
+     {
+      "id": 84,
+      "type": "line",
+      "points": [
+       52,
+       55
+      ]
+     },
+     {
+      "id": 85,
+      "type": "line",
+      "points": [
+       55,
+       58
+      ]
+     },
+     {
+      "id": 86,
+      "type": "line",
+      "points": [
+       58,
+       61
+      ]
+     },
+     {
+      "id": 87,
+      "type": "line",
+      "points": [
+       61,
+       64
+      ]
+     },
+     {
+      "id": 88,
+      "type": "line",
+      "points": [
+       64,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "d_filtre_delik/2"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "-3.71"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "D_dis/2-0.20"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "-3.71"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "-3.91"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "-5.46"
+     },
+     {
+      "id": 14,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "4.29"
+     },
+     {
+      "id": 15,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       13
+      ],
+      "value": "-5.90"
+     },
+     {
+      "id": 17,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "4.29"
+     },
+     {
+      "id": 18,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       16
+      ],
+      "value": "-6.53"
+     },
+     {
+      "id": 20,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 21,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       19
+      ],
+      "value": "-6.91"
+     },
+     {
+      "id": 23,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 24,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       22
+      ],
+      "value": "-8.10"
+     },
+     {
+      "id": 26,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "4.09"
+     },
+     {
+      "id": 27,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       25
+      ],
+      "value": "-8.65"
+     },
+     {
+      "id": 29,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "4.09"
+     },
+     {
+      "id": 30,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       28
+      ],
+      "value": "-10.77-dLf/2"
+     },
+     {
+      "id": 32,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       31
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 33,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       31
+      ],
+      "value": "-11.30-dLf/2"
+     },
+     {
+      "id": 35,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       34
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 36,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       34
+      ],
+      "value": "-12.30-dLf/2"
+     },
+     {
+      "id": 38,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       37
+      ],
+      "value": "4.09"
+     },
+     {
+      "id": 39,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       37
+      ],
+      "value": "-12.86-dLf/2"
+     },
+     {
+      "id": 41,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       40
+      ],
+      "value": "4.09"
+     },
+     {
+      "id": 42,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       40
+      ],
+      "value": "-14.96-dLf"
+     },
+     {
+      "id": 44,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       43
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 45,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       43
+      ],
+      "value": "-15.51-dLf"
+     },
+     {
+      "id": 47,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       46
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 48,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       46
+      ],
+      "value": "-16.71-dLf"
+     },
+     {
+      "id": 50,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       49
+      ],
+      "value": "5.15"
+     },
+     {
+      "id": 51,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       49
+      ],
+      "value": "-16.71-dLf"
+     },
+     {
+      "id": 53,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       52
+      ],
+      "value": "5.15"
+     },
+     {
+      "id": 54,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       52
+      ],
+      "value": "-18.51-dLf"
+     },
+     {
+      "id": 56,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       55
+      ],
+      "value": "4.95"
+     },
+     {
+      "id": 57,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       55
+      ],
+      "value": "-18.71-dLf"
+     },
+     {
+      "id": 59,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       58
+      ],
+      "value": "0"
+     },
+     {
+      "id": 60,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       58
+      ],
+      "value": "-18.71-dLf"
+     },
+     {
+      "id": 62,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       61
+      ],
+      "value": "0"
+     },
+     {
+      "id": 63,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       61
+      ],
+      "value": "-17.92-dLf"
+     },
+     {
+      "id": 65,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       64
+      ],
+      "value": "d_filtre_delik/2"
+     },
+     {
+      "id": 66,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       64
+      ],
+      "value": "-15.71-dLf"
+     }
+    ],
+    "nextId": 89
+   }
+  },
+  {
+   "id": "Filtre_Don",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Filtre",
+    "axis": "V",
+    "angle": "360",
+    "op": "new",
+    "bodyName": "Filtre"
+   },
+   "refs": []
+  },
+  {
+   "id": "Dz_Pencere",
+   "type": "Plane",
+   "suppressed": false,
+   "props": {
+    "kind": "axisAngle",
+    "axis": "Z",
+    "angle": "pen_merkez-pen_aci/2",
+    "show": "0"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Pencere",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "OnPlane",
+     "faceRef": "",
+     "offset": "0",
+     "planeRef": "Dz_Pencere"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 3.4,
+      "y": -8.9
+     },
+     {
+      "id": 4,
+      "x": 4.39,
+      "y": -8.9
+     },
+     {
+      "id": 7,
+      "x": 4.39,
+      "y": -10.51
+     },
+     {
+      "id": 10,
+      "x": 3.4,
+      "y": -10.51
+     },
+     {
+      "id": 17,
+      "x": 3.4,
+      "y": -13.11
+     },
+     {
+      "id": 20,
+      "x": 4.39,
+      "y": -13.11
+     },
+     {
+      "id": 23,
+      "x": 4.39,
+      "y": -14.7
+     },
+     {
+      "id": 26,
+      "x": 3.4,
+      "y": -14.7
+     }
+    ],
+    "entities": [
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 15,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 16,
+      "type": "line",
+      "points": [
+       10,
+       1
+      ]
+     },
+     {
+      "id": 29,
+      "type": "line",
+      "points": [
+       17,
+       20
+      ]
+     },
+     {
+      "id": 30,
+      "type": "line",
+      "points": [
+       20,
+       23
+      ]
+     },
+     {
+      "id": 31,
+      "type": "line",
+      "points": [
+       23,
+       26
+      ]
+     },
+     {
+      "id": 32,
+      "type": "line",
+      "points": [
+       26,
+       17
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "3.40"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "-8.90"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "4.39"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "-8.90"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "4.39"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "-10.51-dLf/2"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "3.40"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "-10.51-dLf/2"
+     },
+     {
+      "id": 18,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       17
+      ],
+      "value": "3.40"
+     },
+     {
+      "id": 19,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       17
+      ],
+      "value": "-13.11-dLf/2"
+     },
+     {
+      "id": 21,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       20
+      ],
+      "value": "4.39"
+     },
+     {
+      "id": 22,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       20
+      ],
+      "value": "-13.11-dLf/2"
+     },
+     {
+      "id": 24,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       23
+      ],
+      "value": "4.39"
+     },
+     {
+      "id": 25,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       23
+      ],
+      "value": "-14.70-dLf"
+     },
+     {
+      "id": 27,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       26
+      ],
+      "value": "3.40"
+     },
+     {
+      "id": 28,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       26
+      ],
+      "value": "-14.70-dLf"
+     }
+    ],
+    "nextId": 33
+   }
+  },
+  {
+   "id": "Filtre_Pencere",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Pencere",
+    "axis": "V",
+    "angle": "pen_aci",
+    "op": "cut",
+    "targets": "Filtre"
+   },
+   "refs": []
+  },
+  {
+   "id": "Pencere_Cogalt",
+   "type": "Pattern",
+   "suppressed": false,
+   "props": {
+    "kind": "circular",
+    "source": "Filtre_Pencere",
+    "count": "n_pen",
+    "angle": "360",
+    "axis": "Z",
+    "targets": "Filtre"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Elek",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XZ",
+     "faceRef": "",
+     "offset": "0"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 4.74,
+      "y": -7.61
+     },
+     {
+      "id": 4,
+      "x": 4.84,
+      "y": -7.61
+     },
+     {
+      "id": 7,
+      "x": 4.84,
+      "y": -16.71
+     },
+     {
+      "id": 10,
+      "x": 4.74,
+      "y": -16.71
+     }
+    ],
+    "entities": [
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       1,
+       4
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       4,
+       7
+      ]
+     },
+     {
+      "id": 15,
+      "type": "line",
+      "points": [
+       7,
+       10
+      ]
+     },
+     {
+      "id": 16,
+      "type": "line",
+      "points": [
+       10,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 2,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 3,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       1
+      ],
+      "value": "-7.61"
+     },
+     {
+      "id": 5,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "D_dis/2+0.10"
+     },
+     {
+      "id": 6,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       4
+      ],
+      "value": "-7.61"
+     },
+     {
+      "id": 8,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "D_dis/2+0.10"
+     },
+     {
+      "id": 9,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       7
+      ],
+      "value": "-16.71-dLf"
+     },
+     {
+      "id": 11,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "D_dis/2"
+     },
+     {
+      "id": 12,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       10
+      ],
+      "value": "-16.71-dLf"
+     }
+    ],
+    "nextId": 17
+   }
+  },
+  {
+   "id": "Elek_Don",
+   "type": "Revolve",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Elek",
+    "axis": "V",
+    "angle": "360",
+    "op": "new",
+    "bodyName": "Elek"
+   },
+   "refs": []
+  },
+  {
+   "id": "Govde_DisYuvasi",
+   "type": "Combine",
+   "suppressed": false,
+   "props": {
+    "op": "cut",
+    "target": "Govde",
+    "tools": "TutmaVidasi,Filtre",
+    "keepTools": "1"
+   },
+   "refs": []
+  },
+  {
+   "id": "Ck_Kesit",
+   "type": "Sketch",
+   "suppressed": false,
+   "props": {},
+   "refs": [],
+   "sketch": {
+    "plane": {
+     "kind": "XY",
+     "faceRef": "",
+     "offset": "-L_zarf-1"
+    },
+    "points": [
+     {
+      "id": 0,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 1,
+      "x": 0.0,
+      "y": 0.0
+     },
+     {
+      "id": 2,
+      "x": 12.0,
+      "y": 0.0
+     },
+     {
+      "id": 5,
+      "x": 12.0,
+      "y": -12.0
+     },
+     {
+      "id": 8,
+      "x": 0.0,
+      "y": -12.0
+     }
+    ],
+    "entities": [
+     {
+      "id": 11,
+      "type": "line",
+      "points": [
+       1,
+       2
+      ]
+     },
+     {
+      "id": 12,
+      "type": "line",
+      "points": [
+       2,
+       5
+      ]
+     },
+     {
+      "id": 13,
+      "type": "line",
+      "points": [
+       5,
+       8
+      ]
+     },
+     {
+      "id": 14,
+      "type": "line",
+      "points": [
+       8,
+       1
+      ]
+     }
+    ],
+    "constraints": [
+     {
+      "id": 3,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       2
+      ],
+      "value": "12"
+     },
+     {
+      "id": 4,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       2
+      ],
+      "value": "0"
+     },
+     {
+      "id": 6,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       5
+      ],
+      "value": "12"
+     },
+     {
+      "id": 7,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       5
+      ],
+      "value": "-12"
+     },
+     {
+      "id": 9,
+      "type": "DistanceX",
+      "refs": [
+       0,
+       8
+      ],
+      "value": "0"
+     },
+     {
+      "id": 10,
+      "type": "DistanceY",
+      "refs": [
+       0,
+       8
+      ],
+      "value": "-12"
+     },
+     {
+      "id": 15,
+      "type": "Coincident",
+      "refs": [
+       0,
+       1
+      ]
+     }
+    ],
+    "nextId": 16
+   }
+  },
+  {
+   "id": "Kesit",
+   "type": "Extrude",
+   "suppressed": false,
+   "props": {
+    "sketch": "Ck_Kesit",
+    "distance": "40",
+    "direction": "normal",
+    "op": "cut",
+    "targets": "Govde,TutmaVidasi,Filtre,Elek"
+   },
+   "refs": []
+  }
+ ],
+ "mfg": {
+  "additive": {
+   "enabled": false,
+   "process": "LPBF_Metal",
+   "material": "316L",
+   "minWallThickness": 0.4,
+   "minFeatureSize": 0.3,
+   "minHoleDiameter": 0.5,
+   "maxSelfSupportingHoleDia": 8,
+   "minOverhangAngle": 45,
+   "minGap": 0.3,
+   "maxAspectRatio": 8,
+   "minEscapeHoleDia": 2,
+   "build": [
+    250,
+    250,
+    300
+   ],
+   "buildDir": [
+    0,
+    0,
+    1
+   ],
+   "layerThickness": 0.03
+  },
+  "conventional": {
+   "enabled": true,
+   "process": "CNC_Turning",
+   "material": "1.4005 (X12CrS13)",
+   "minToolDiameter": 0.1,
+   "maxToolLengthToDia": 6,
+   "maxHoleDepthToDia": 3,
+   "minWallThickness": 0.08,
+   "maxWallHeightToThickness": 15,
+   "minHoleDiameter": 0.15,
+   "preferStandardDrills": false,
+   "stock": [
+    20,
+    20,
+    60
+   ],
+   "toolAxis": [
+    0,
+    0,
+    1
+   ]
+  }
+ }
+}

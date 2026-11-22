@@ -1,0 +1,12 @@
+# OWNER: Agent E (app packaging). Add source files freely.
+add_library(pc_apppkg STATIC AppPackage.cpp AppLint.cpp pc/AppLint.h)
+target_include_directories(pc_apppkg PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(pc_apppkg PUBLIC pc_mfg pc_model pc_core)
+add_executable(pc_mkapp mkapp.cpp)
+target_link_libraries(pc_mkapp PRIVATE pc_apppkg)
+if(WIN32)
+  target_link_libraries(pc_mkapp PRIVATE shell32)
+endif()
+# verification helper: per-body planar section as JSON polylines (docs/enjektor/dogrulama)
+add_executable(pc_kesit kesit.cpp)
+target_link_libraries(pc_kesit PRIVATE pc_model pc_core)

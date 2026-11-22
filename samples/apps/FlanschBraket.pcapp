@@ -1,0 +1,591 @@
+{
+  "appName": "Flanş Braket",
+  "author": "PersistCAD",
+  "description": "Parametrik flanşlı braket konfigüratörü",
+  "document": {
+    "features": [
+      {
+        "id": "Sketch1",
+        "props": {},
+        "refs": [],
+        "sketch": {
+          "constraints": [
+            {
+              "id": 9,
+              "refs": [
+                5
+              ],
+              "type": "Horizontal"
+            },
+            {
+              "id": 10,
+              "refs": [
+                7
+              ],
+              "type": "Horizontal"
+            },
+            {
+              "id": 11,
+              "refs": [
+                6
+              ],
+              "type": "Vertical"
+            },
+            {
+              "id": 12,
+              "refs": [
+                8
+              ],
+              "type": "Vertical"
+            },
+            {
+              "id": 13,
+              "refs": [
+                0,
+                1
+              ],
+              "type": "DistanceX",
+              "value": "-W/2"
+            },
+            {
+              "id": 14,
+              "refs": [
+                0,
+                1
+              ],
+              "type": "DistanceY",
+              "value": "-D/2"
+            },
+            {
+              "id": 15,
+              "refs": [
+                5
+              ],
+              "type": "Length",
+              "value": "W"
+            },
+            {
+              "id": 16,
+              "refs": [
+                6
+              ],
+              "type": "Length",
+              "value": "D"
+            }
+          ],
+          "entities": [
+            {
+              "id": 5,
+              "points": [
+                1,
+                2
+              ],
+              "type": "line"
+            },
+            {
+              "id": 6,
+              "points": [
+                2,
+                3
+              ],
+              "type": "line"
+            },
+            {
+              "id": 7,
+              "points": [
+                3,
+                4
+              ],
+              "type": "line"
+            },
+            {
+              "id": 8,
+              "points": [
+                4,
+                1
+              ],
+              "type": "line"
+            }
+          ],
+          "nextId": 17,
+          "plane": {
+            "faceRef": "",
+            "kind": "XY",
+            "offset": "0"
+          },
+          "points": [
+            {
+              "id": 0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "id": 1,
+              "x": -40.0,
+              "y": -25.0
+            },
+            {
+              "id": 2,
+              "x": 40.0,
+              "y": -25.0
+            },
+            {
+              "id": 3,
+              "x": 40.0,
+              "y": 25.0
+            },
+            {
+              "id": 4,
+              "x": -40.0,
+              "y": 25.0
+            }
+          ]
+        },
+        "suppressed": false,
+        "type": "Sketch"
+      },
+      {
+        "id": "Extrude1",
+        "props": {
+          "direction": "normal",
+          "distance": "T",
+          "op": "new",
+          "sketch": "Sketch1"
+        },
+        "refs": [],
+        "suppressed": false,
+        "type": "Extrude"
+      },
+      {
+        "id": "Fillet1",
+        "props": {
+          "radius": "R"
+        },
+        "refs": [
+          "edge(Extrude1.side.e5|Extrude1.side.e6)",
+          "edge(Extrude1.side.e6|Extrude1.side.e7)",
+          "edge(Extrude1.side.e7|Extrude1.side.e8)",
+          "edge(Extrude1.side.e5|Extrude1.side.e8)"
+        ],
+        "suppressed": false,
+        "type": "Fillet"
+      },
+      {
+        "id": "Sketch2",
+        "props": {},
+        "refs": [],
+        "sketch": {
+          "constraints": [
+            {
+              "id": 5,
+              "refs": [
+                0,
+                1
+              ],
+              "type": "DistanceX",
+              "value": "-(W/2-E)"
+            },
+            {
+              "id": 6,
+              "refs": [
+                0,
+                1
+              ],
+              "type": "DistanceY",
+              "value": "-(D/2-E)"
+            },
+            {
+              "id": 7,
+              "refs": [
+                0,
+                2
+              ],
+              "type": "DistanceX",
+              "value": "W/2-E"
+            },
+            {
+              "id": 8,
+              "refs": [
+                0,
+                2
+              ],
+              "type": "DistanceY",
+              "value": "-(D/2-E)"
+            },
+            {
+              "id": 9,
+              "refs": [
+                0,
+                3
+              ],
+              "type": "DistanceX",
+              "value": "W/2-E"
+            },
+            {
+              "id": 10,
+              "refs": [
+                0,
+                3
+              ],
+              "type": "DistanceY",
+              "value": "D/2-E"
+            },
+            {
+              "id": 11,
+              "refs": [
+                0,
+                4
+              ],
+              "type": "DistanceX",
+              "value": "-(W/2-E)"
+            },
+            {
+              "id": 12,
+              "refs": [
+                0,
+                4
+              ],
+              "type": "DistanceY",
+              "value": "D/2-E"
+            }
+          ],
+          "entities": [],
+          "nextId": 13,
+          "plane": {
+            "faceRef": "Extrude1.end",
+            "kind": "OnFace",
+            "offset": "0"
+          },
+          "points": [
+            {
+              "id": 0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "id": 1,
+              "x": -30.0,
+              "y": -15.0
+            },
+            {
+              "id": 2,
+              "x": 30.0,
+              "y": -15.0
+            },
+            {
+              "id": 3,
+              "x": 30.0,
+              "y": 15.0
+            },
+            {
+              "id": 4,
+              "x": -30.0,
+              "y": 15.0
+            }
+          ]
+        },
+        "suppressed": false,
+        "type": "Sketch"
+      },
+      {
+        "id": "Hole1",
+        "props": {
+          "diameter": "Dh",
+          "kind": "simple",
+          "sketch": "Sketch2",
+          "through": "1"
+        },
+        "refs": [],
+        "suppressed": false,
+        "type": "Hole"
+      },
+      {
+        "id": "Sketch3",
+        "props": {},
+        "refs": [],
+        "sketch": {
+          "constraints": [
+            {
+              "id": 2,
+              "refs": [
+                1
+              ],
+              "type": "Diameter",
+              "value": "Db"
+            }
+          ],
+          "entities": [
+            {
+              "id": 1,
+              "points": [
+                0
+              ],
+              "radius": 12.0,
+              "type": "circle"
+            }
+          ],
+          "nextId": 3,
+          "plane": {
+            "faceRef": "Extrude1.end",
+            "kind": "OnFace",
+            "offset": "0"
+          },
+          "points": [
+            {
+              "id": 0,
+              "x": 0.0,
+              "y": 0.0
+            }
+          ]
+        },
+        "suppressed": false,
+        "type": "Sketch"
+      },
+      {
+        "id": "Extrude2",
+        "props": {
+          "direction": "normal",
+          "distance": "Hb",
+          "op": "join",
+          "sketch": "Sketch3"
+        },
+        "refs": [],
+        "suppressed": false,
+        "type": "Extrude"
+      },
+      {
+        "id": "Sketch4",
+        "props": {},
+        "refs": [],
+        "sketch": {
+          "constraints": [
+            {
+              "id": 2,
+              "refs": [
+                0,
+                1
+              ],
+              "type": "Coincident"
+            }
+          ],
+          "entities": [],
+          "nextId": 3,
+          "plane": {
+            "faceRef": "Extrude2.end",
+            "kind": "OnFace",
+            "offset": "0"
+          },
+          "points": [
+            {
+              "id": 0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "id": 1,
+              "x": 0.0,
+              "y": 0.0
+            }
+          ]
+        },
+        "suppressed": false,
+        "type": "Sketch"
+      },
+      {
+        "id": "Hole2",
+        "props": {
+          "depth": "Lbore",
+          "diameter": "Dbore",
+          "kind": "simple",
+          "sketch": "Sketch4",
+          "tipAngle": "118"
+        },
+        "refs": [],
+        "suppressed": false,
+        "type": "Hole"
+      }
+    ],
+    "mfg": {
+      "additive": {
+        "build": [
+          250.0,
+          250.0,
+          300.0
+        ],
+        "buildDir": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "enabled": true,
+        "layerThickness": 0.03,
+        "material": "Ti-6Al-4V",
+        "maxAspectRatio": 8.0,
+        "maxSelfSupportingHoleDia": 8.0,
+        "minEscapeHoleDia": 2.0,
+        "minFeatureSize": 0.3,
+        "minGap": 0.3,
+        "minHoleDiameter": 0.5,
+        "minOverhangAngle": 45.0,
+        "minWallThickness": 0.4,
+        "process": "LPBF_Metal"
+      },
+      "conventional": {
+        "enabled": true,
+        "material": "Al 7075",
+        "maxHoleDepthToDia": 10.0,
+        "maxToolLengthToDia": 4.0,
+        "maxWallHeightToThickness": 15.0,
+        "minHoleDiameter": 1.0,
+        "minToolDiameter": 3.0,
+        "minWallThickness": 0.8,
+        "preferStandardDrills": true,
+        "process": "CNC_Milling3Axis",
+        "stock": [
+          300.0,
+          300.0,
+          150.0
+        ],
+        "toolAxis": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "name": "FlanschBraket",
+    "parameters": [
+      {
+        "description": "Plaka genişliği",
+        "exposed": true,
+        "expr": "80",
+        "group": "Plaka",
+        "kind": "length",
+        "label": "Plaka genişliği W",
+        "max": 200.0,
+        "min": 30.0,
+        "name": "W",
+        "step": 1.0
+      },
+      {
+        "description": "Plaka derinliği",
+        "exposed": true,
+        "expr": "50",
+        "group": "Plaka",
+        "kind": "length",
+        "label": "Plaka derinliği D",
+        "max": 150.0,
+        "min": 20.0,
+        "name": "D",
+        "step": 1.0
+      },
+      {
+        "description": "Plaka kalınlığı",
+        "exposed": true,
+        "expr": "8",
+        "group": "Plaka",
+        "kind": "length",
+        "label": "Plaka kalınlığı T",
+        "max": 30.0,
+        "min": 0.2,
+        "name": "T",
+        "step": 0.5
+      },
+      {
+        "description": "Köşe radyüsü",
+        "exposed": true,
+        "expr": "5",
+        "group": "Plaka",
+        "kind": "length",
+        "label": "Köşe radyüsü R",
+        "max": 20.0,
+        "min": 0.5,
+        "name": "R",
+        "step": 0.5
+      },
+      {
+        "description": "Delik kenar mesafesi",
+        "exposed": false,
+        "expr": "10",
+        "group": "",
+        "kind": "length",
+        "label": "",
+        "max": 50.0,
+        "min": 3.0,
+        "name": "E",
+        "step": 0.0
+      },
+      {
+        "description": "Bağlantı deliği çapı (M6 boşluk)",
+        "exposed": true,
+        "expr": "6.6",
+        "group": "Delikler",
+        "kind": "length",
+        "label": "Bağlantı deliği Ø",
+        "max": 20.0,
+        "min": 0.2,
+        "name": "Dh",
+        "step": 0.1
+      },
+      {
+        "description": "Göbek çapı",
+        "exposed": true,
+        "expr": "24",
+        "group": "Göbek",
+        "kind": "length",
+        "label": "Göbek çapı Db",
+        "max": 60.0,
+        "min": 5.0,
+        "name": "Db",
+        "step": 1.0
+      },
+      {
+        "description": "Göbek yüksekliği",
+        "exposed": true,
+        "expr": "20",
+        "group": "Göbek",
+        "kind": "length",
+        "label": "Göbek yüksekliği Hb",
+        "max": 120.0,
+        "min": 2.0,
+        "name": "Hb",
+        "step": 1.0
+      },
+      {
+        "description": "Göbek iç deliği çapı",
+        "exposed": true,
+        "expr": "10",
+        "group": "Göbek",
+        "kind": "length",
+        "label": "İç delik Ø",
+        "max": 50.0,
+        "min": 1.0,
+        "name": "Dbore",
+        "step": 0.5
+      },
+      {
+        "description": "İç delik derinliği (kör)",
+        "exposed": false,
+        "expr": "Hb + T - 2",
+        "group": "",
+        "kind": "length",
+        "label": "",
+        "max": null,
+        "min": null,
+        "name": "Lbore",
+        "step": 0.0
+      }
+    ],
+    "schema": "persistcad/1"
+  },
+  "options": {
+    "allowExportSTEP": true,
+    "allowExportSTL": true,
+    "blockOnErrors": true,
+    "liveUpdate": true,
+    "showAdditiveChecks": true,
+    "showConventionalChecks": true
+  },
+  "schema": "persistcad-app/1",
+  "version": "1.0.0"
+}

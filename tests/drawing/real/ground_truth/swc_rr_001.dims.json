@@ -1,0 +1,332 @@
+{
+ "drawing": "radrad_swirler_SWC-RR-001.pdf",
+ "scale": "2:1",
+ "units": "mm",
+ "dims": [
+  {
+   "text": "Ø50",
+   "kind": "diameter",
+   "nominal": 50,
+   "view": "A-A",
+   "meaning": "cup outer diameter (x=0..19) / section B-B,C-C outer circle",
+   "param": "D_outer"
+  },
+  {
+   "text": "Ø10",
+   "kind": "diameter",
+   "nominal": 10,
+   "view": "A-A",
+   "meaning": "fuel nozzle bore at forward face (x=0..3)",
+   "param": "D_bore"
+  },
+  {
+   "text": "Ø17",
+   "kind": "diameter",
+   "nominal": 17,
+   "view": "A-A",
+   "meaning": "venturi exit inner diameter at lip x=21",
+   "param": "D_vent_exit"
+  },
+  {
+   "text": "Ø19",
+   "kind": "diameter",
+   "nominal": 19,
+   "view": "A-A",
+   "meaning": "venturi lip outer diameter at x=21",
+   "param": "D_lip"
+  },
+  {
+   "text": "Ø27 (D0)",
+   "kind": "diameter",
+   "nominal": 27,
+   "view": "A-A",
+   "meaning": "reference diameter D0: bore downstream of secondary chamber",
+   "param": "D0"
+  },
+  {
+   "text": "Ø43",
+   "kind": "diameter",
+   "nominal": 43,
+   "view": "A-A",
+   "meaning": "flare inner exit diameter at x=30",
+   "param": "D_flare_in"
+  },
+  {
+   "text": "Ø47",
+   "kind": "diameter",
+   "nominal": 47,
+   "view": "A-A",
+   "meaning": "flare outer exit diameter at x=30",
+   "param": "D_flare_out"
+  },
+  {
+   "text": "30",
+   "kind": "linear",
+   "nominal": 30,
+   "view": "A-A",
+   "meaning": "overall length",
+   "param": "L_total"
+  },
+  {
+   "text": "22",
+   "kind": "linear",
+   "nominal": 22,
+   "view": "A-A",
+   "meaning": "x of flare start (cumulative dim from x=0)",
+   "param": "x_flare"
+  },
+  {
+   "text": "8",
+   "kind": "linear",
+   "nominal": 8,
+   "view": "A-A",
+   "meaning": "flare axial length x=22..30"
+  },
+  {
+   "text": "3",
+   "kind": "linear",
+   "nominal": 3,
+   "view": "A-A",
+   "meaning": "chain: forward wall / bore length x=0..3",
+   "param": "x_pri0"
+  },
+  {
+   "text": "5",
+   "kind": "linear",
+   "nominal": 5,
+   "view": "A-A",
+   "meaning": "chain: primary slot length x=3..8",
+   "param": "L_pri"
+  },
+  {
+   "text": "2",
+   "kind": "linear",
+   "nominal": 2,
+   "view": "A-A",
+   "meaning": "chain: x=8..10 (venturi inlet cone end to secondary start)"
+  },
+  {
+   "text": "6",
+   "kind": "linear",
+   "nominal": 6,
+   "view": "A-A",
+   "meaning": "chain: secondary slot length x=10..16",
+   "param": "L_sec"
+  },
+  {
+   "text": "3",
+   "kind": "linear",
+   "nominal": 3,
+   "view": "A-A",
+   "meaning": "chain: x=16..19 (secondary chamber end to Ø50 rear face)"
+  },
+  {
+   "text": "11",
+   "kind": "linear",
+   "nominal": 11,
+   "view": "A-A",
+   "meaning": "chain: x=19..30 (hub + flare)"
+  },
+  {
+   "text": "5",
+   "kind": "linear",
+   "nominal": 5,
+   "view": "A-A",
+   "meaning": "top chain: venturi inlet cone length x=8..13"
+  },
+  {
+   "text": "2",
+   "kind": "linear",
+   "nominal": 2,
+   "view": "A-A",
+   "meaning": "top chain: throat length x=13..15",
+   "param": "L_throat"
+  },
+  {
+   "text": "6",
+   "kind": "linear",
+   "nominal": 6,
+   "view": "A-A",
+   "meaning": "top chain: venturi exit cone length x=15..21",
+   "param": "L_exit_cone"
+  },
+  {
+   "text": "3.5",
+   "kind": "linear",
+   "nominal": 3.5,
+   "view": "A-A",
+   "meaning": "hub groove width x=19..22.5",
+   "param": "w_groove"
+  },
+  {
+   "text": "Ø22 VENTURI ROOT O.D. AT x=10",
+   "kind": "diameter",
+   "nominal": 22,
+   "view": "A-A",
+   "meaning": "venturi outer diameter at root, x=10",
+   "param": "D_vent_root"
+  },
+  {
+   "text": "Ø32 HUB",
+   "kind": "diameter",
+   "nominal": 32,
+   "view": "A-A",
+   "meaning": "hub / groove floor diameter",
+   "param": "D_hub"
+  },
+  {
+   "text": "VENTURI INLET CONE 90° INCL.",
+   "kind": "angle",
+   "nominal": 90,
+   "view": "A-A",
+   "meaning": "venturi inlet cone included angle",
+   "param": "a_vent"
+  },
+  {
+   "text": "FLARE 90° INCL., WALL 2",
+   "kind": "angle",
+   "nominal": 90,
+   "view": "A-A",
+   "meaning": "flare included angle; wall 2 (2 = flare wall thickness)",
+   "param": "a_flare",
+   "extra": {
+    "wall": 2
+   }
+  },
+  {
+   "text": "Ø14 THROAT",
+   "kind": "diameter",
+   "nominal": 14,
+   "view": "B-B",
+   "meaning": "venturi throat",
+   "param": "D_throat"
+  },
+  {
+   "text": "Ø50",
+   "kind": "diameter",
+   "nominal": 50,
+   "view": "B-B",
+   "meaning": "outer circle of primary section"
+  },
+  {
+   "text": "Ø24",
+   "kind": "diameter",
+   "nominal": 24,
+   "view": "B-B",
+   "meaning": "primary chamber / venturi inlet diameter",
+   "param": "D_pri"
+  },
+  {
+   "text": "4",
+   "kind": "linear",
+   "nominal": 4,
+   "view": "B-B",
+   "meaning": "primary slot width",
+   "param": "w_pri"
+  },
+  {
+   "text": "6",
+   "kind": "linear",
+   "nominal": 6,
+   "view": "B-B",
+   "meaning": "axis to nearest slot wall (centreline offset 8 - 4/2)"
+  },
+  {
+   "text": "8x TANGENTIAL SLOTS 4 x 5, EQ. SP. 45° - CCW SWIRL",
+   "kind": "note",
+   "nominal": 8,
+   "view": "B-B",
+   "meaning": "8 primary slots 4 wide x 5 long, 45 deg pitch, CCW viewed from downstream",
+   "param": "n_pri",
+   "extra": {
+    "w": 4,
+    "L": 5,
+    "pitch": 45,
+    "swirl": "CCW"
+   }
+  },
+  {
+   "text": "Ø34",
+   "kind": "diameter",
+   "nominal": 34,
+   "view": "C-C",
+   "meaning": "secondary chamber diameter",
+   "param": "D_sec"
+  },
+  {
+   "text": "Ø50",
+   "kind": "diameter",
+   "nominal": 50,
+   "view": "C-C",
+   "meaning": "outer circle of secondary section"
+  },
+  {
+   "text": "9",
+   "kind": "linear",
+   "nominal": 9,
+   "view": "C-C",
+   "meaning": "axis to nearest slot wall (centreline offset 11 - 4/2)"
+  },
+  {
+   "text": "4",
+   "kind": "linear",
+   "nominal": 4,
+   "view": "C-C",
+   "meaning": "secondary slot width",
+   "param": "w_sec"
+  },
+  {
+   "text": "VENTURI",
+   "kind": "label",
+   "nominal": null,
+   "view": "C-C",
+   "meaning": "leader to the venturi ring (not a dimension)"
+  },
+  {
+   "text": "10x TANGENTIAL SLOTS 4 x 6, EQ. SP. 36° - CW SWIRL",
+   "kind": "note",
+   "nominal": 10,
+   "view": "C-C",
+   "meaning": "10 secondary slots 4 wide x 6 long, 36 deg pitch, CW viewed from downstream",
+   "param": "n_sec",
+   "extra": {
+    "w": 4,
+    "L": 6,
+    "pitch": 36,
+    "swirl": "CW"
+   }
+  },
+  {
+   "text": "B",
+   "kind": "label",
+   "nominal": null,
+   "view": "A-A",
+   "meaning": "section marker B (x=5.5)"
+  },
+  {
+   "text": "C",
+   "kind": "label",
+   "nominal": null,
+   "view": "A-A",
+   "meaning": "section marker C (x=13)"
+  },
+  {
+   "text": "A",
+   "kind": "label",
+   "nominal": null,
+   "view": "B-B / C-C",
+   "meaning": "section marker A-A cutting plane"
+  }
+ ],
+ "notes": [
+  "scale 2:1 (sheet A3, units mm)",
+  "x=0 at forward face, flow left to right",
+  "8 primary passages CCW, 10 secondary CW",
+  "reference diameter D0 = 27",
+  "slot centreline offset from axis: primary 8, secondary 11",
+  "flow areas: primary 160 mm2, secondary 240 mm2 (split 40/60); venturi throat 154 mm2",
+  "fuel nozzle bore Ø10; venturi inlet Ø24, throat Ø14 x 2 long, exit Ø17, lip Ø19 at x = 21",
+  "modelling: (a) revolve half profile 360; (b) cut 8 primary slots x = 3..8; (c) cut 10 secondary slots x = 10..16",
+  "DWG NO SWC-RR-001 REV A"
+ ]
+}

@@ -1,0 +1,193 @@
+{
+  "features": [
+    {
+      "id": "Sketch1",
+      "props": {},
+      "refs": [],
+      "sketch": {
+        "constraints": [
+          {
+            "id": 4,
+            "refs": [
+              3
+            ],
+            "type": "Vertical"
+          },
+          {
+            "id": 7,
+            "refs": [
+              6
+            ],
+            "type": "Horizontal"
+          },
+          {
+            "id": 10,
+            "refs": [
+              9
+            ],
+            "type": "Vertical"
+          }
+        ],
+        "entities": [
+          {
+            "id": 3,
+            "points": [
+              1,
+              2
+            ],
+            "type": "line"
+          },
+          {
+            "id": 6,
+            "points": [
+              2,
+              5
+            ],
+            "type": "line"
+          },
+          {
+            "id": 9,
+            "points": [
+              5,
+              8
+            ],
+            "type": "line"
+          },
+          {
+            "id": 11,
+            "points": [
+              8,
+              1
+            ],
+            "type": "line"
+          }
+        ],
+        "nextId": 12,
+        "plane": {
+          "faceRef": "",
+          "kind": "XY",
+          "offset": "0"
+        },
+        "points": [
+          {
+            "id": 0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "id": 1,
+            "x": -12.5,
+            "y": -3.5
+          },
+          {
+            "id": 2,
+            "x": -12.5,
+            "y": 1.5
+          },
+          {
+            "id": 5,
+            "x": -5.5,
+            "y": 1.5
+          },
+          {
+            "id": 8,
+            "x": -5.5,
+            "y": -6.5
+          }
+        ]
+      },
+      "suppressed": false,
+      "type": "Sketch"
+    },
+    {
+      "id": "Extrude1",
+      "props": {
+        "direction": "normal",
+        "distance": "10",
+        "draft": "0",
+        "op": "new",
+        "sketch": "Sketch1",
+        "through": "0"
+      },
+      "refs": [],
+      "suppressed": false,
+      "type": "Extrude"
+    }
+  ],
+  "mfg": {
+    "additive": {
+      "build": [
+        250.0,
+        250.0,
+        300.0
+      ],
+      "buildDir": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "enabled": true,
+      "layerThickness": 0.03,
+      "material": "Ti-6Al-4V",
+      "maxAspectRatio": 8.0,
+      "maxSelfSupportingHoleDia": 8.0,
+      "minEscapeHoleDia": 2.0,
+      "minFeatureSize": 0.3,
+      "minGap": 0.3,
+      "minHoleDiameter": 0.5,
+      "minOverhangAngle": 45.0,
+      "minWallThickness": 0.4,
+      "process": "LPBF_Metal"
+    },
+    "conventional": {
+      "enabled": true,
+      "material": "Al 7075",
+      "maxHoleDepthToDia": 10.0,
+      "maxToolLengthToDia": 4.0,
+      "maxWallHeightToThickness": 15.0,
+      "minHoleDiameter": 1.0,
+      "minToolDiameter": 3.0,
+      "minWallThickness": 0.8,
+      "preferStandardDrills": true,
+      "process": "CNC_Milling3Axis",
+      "stock": [
+        300.0,
+        300.0,
+        150.0
+      ],
+      "toolAxis": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "name": "Part1",
+  "parameters": [
+    {
+      "description": "",
+      "exposed": true,
+      "expr": "10",
+      "group": "",
+      "kind": "length",
+      "label": "P1",
+      "max": null,
+      "min": null,
+      "name": "P1",
+      "step": 0.0
+    },
+    {
+      "description": "",
+      "exposed": true,
+      "expr": "10",
+      "group": "",
+      "kind": "length",
+      "label": "P2",
+      "max": null,
+      "min": null,
+      "name": "P2",
+      "step": 0.0
+    }
+  ],
+  "schema": "persistcad/1"
+}

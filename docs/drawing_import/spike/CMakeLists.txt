@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.21)
+project(spike CXX)
+set(CMAKE_CXX_STANDARD 17)
+find_package(Qt6 REQUIRED COMPONENTS Gui Pdf)
+add_executable(qtpdfrender src/qtpdfrender.cpp)
+target_link_libraries(qtpdfrender Qt6::Gui Qt6::Pdf)

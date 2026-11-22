@@ -1,0 +1,4051 @@
+{
+ "attrs": {
+  "corpus.generator": "pc_drawing_corpus 1",
+  "corpus.sheet": "A3",
+  "raster.clean.png.dpi": "150",
+  "raster.photo_a.jpg": "dpi=100;tiltDeg=11.668108",
+  "raster.scan_a.jpg": "dpi=100;skewDeg=1.5699;blur=1.27462;jpegQ=43"
+ },
+ "caseName": "injector_00",
+ "dims": [
+  {
+   "driving": true,
+   "geomPrimIds": [
+    14,
+    10
+   ],
+   "kind": "Thread",
+   "nativeDimId": -1,
+   "nominal": 14.0,
+   "paramName": "Dt",
+   "text": "M14x1",
+   "textId": 34,
+   "tolMinus": null,
+   "tolPlus": null,
+   "tolTextIds": [],
+   "viewIndex": 0
+  },
+  {
+   "driving": true,
+   "geomPrimIds": [
+    13,
+    4
+   ],
+   "kind": "Diameter",
+   "nativeDimId": -1,
+   "nominal": 12.0,
+   "paramName": "Dd",
+   "text": "Ø12",
+   "textId": 38,
+   "tolMinus": null,
+   "tolPlus": null,
+   "tolTextIds": [],
+   "viewIndex": 0
+  },
+  {
+   "driving": true,
+   "geomPrimIds": [
+    11,
+    9
+   ],
+   "kind": "Linear",
+   "nativeDimId": -1,
+   "nominal": 10.0,
+   "paramName": "Lt",
+   "text": "10",
+   "textId": 44,
+   "tolMinus": null,
+   "tolPlus": null,
+   "tolTextIds": [],
+   "viewIndex": 0
+  },
+  {
+   "driving": true,
+   "geomPrimIds": [
+    9,
+    5
+   ],
+   "kind": "Linear",
+   "nativeDimId": -1,
+   "nominal": 7.0,
+   "paramName": "Lx",
+   "text": "7±0.5",
+   "textId": 50,
+   "tolMinus": -0.5,
+   "tolPlus": 0.5,
+   "tolTextIds": [],
+   "viewIndex": 0
+  },
+  {
+   "driving": true,
+   "geomPrimIds": [
+    5,
+    3
+   ],
+   "kind": "Linear",
+   "nativeDimId": -1,
+   "nominal": 9.0,
+   "paramName": "Ld",
+   "text": "9",
+   "textId": 56,
+   "tolMinus": null,
+   "tolPlus": null,
+   "tolTextIds": [],
+   "viewIndex": 0
+  },
+  {
+   "driving": true,
+   "geomPrimIds": [
+    11,
+    1
+   ],
+   "kind": "Linear",
+   "nativeDimId": -1,
+   "nominal": 29.0,
+   "paramName": "L",
+   "text": "29±0.2",
+   "textId": 62,
+   "tolMinus": -0.2,
+   "tolPlus": 0.2,
+   "tolTextIds": [],
+   "viewIndex": 0
+  },
+  {
+   "driving": true,
+   "geomPrimIds": [
+    21,
+    20
+   ],
+   "kind": "Linear",
+   "nativeDimId": -1,
+   "nominal": 18.0,
+   "paramName": "SW",
+   "text": "18",
+   "textId": 68,
+   "tolMinus": null,
+   "tolPlus": null,
+   "tolTextIds": [],
+   "viewIndex": 1
+  }
+ ],
+ "expectedStrategy": "MultiFeature",
+ "family": "injector",
+ "modelPath": "",
+ "params": [
+  {
+   "name": "Dt",
+   "tag": "FromDimension",
+   "value": 14.0
+  },
+  {
+   "name": "Dd",
+   "tag": "FromDimension",
+   "value": 12.0
+  },
+  {
+   "name": "Lt",
+   "tag": "FromDimension",
+   "value": 10.0
+  },
+  {
+   "name": "Lx",
+   "tag": "FromDimension",
+   "value": 7.0
+  },
+  {
+   "name": "Ld",
+   "tag": "FromDimension",
+   "value": 9.0
+  },
+  {
+   "name": "L",
+   "tag": "FromDimension",
+   "value": 29.0
+  },
+  {
+   "name": "SW",
+   "tag": "FromDimension",
+   "value": 18.0
+  }
+ ],
+ "projection": "FirstAngle",
+ "roles": [
+  [
+   1,
+   "Visible"
+  ],
+  [
+   2,
+   "Visible"
+  ],
+  [
+   3,
+   "Visible"
+  ],
+  [
+   4,
+   "Visible"
+  ],
+  [
+   5,
+   "Visible"
+  ],
+  [
+   6,
+   "Visible"
+  ],
+  [
+   7,
+   "Visible"
+  ],
+  [
+   8,
+   "Visible"
+  ],
+  [
+   9,
+   "Visible"
+  ],
+  [
+   10,
+   "Visible"
+  ],
+  [
+   11,
+   "Visible"
+  ],
+  [
+   12,
+   "Visible"
+  ],
+  [
+   13,
+   "Visible"
+  ],
+  [
+   14,
+   "Visible"
+  ],
+  [
+   15,
+   "Hidden"
+  ],
+  [
+   16,
+   "Hidden"
+  ],
+  [
+   17,
+   "Hidden"
+  ],
+  [
+   18,
+   "Visible"
+  ],
+  [
+   19,
+   "Visible"
+  ],
+  [
+   20,
+   "Visible"
+  ],
+  [
+   21,
+   "Visible"
+  ],
+  [
+   22,
+   "Visible"
+  ],
+  [
+   23,
+   "Visible"
+  ],
+  [
+   24,
+   "Visible"
+  ],
+  [
+   25,
+   "Visible"
+  ],
+  [
+   26,
+   "Hidden"
+  ],
+  [
+   27,
+   "Hidden"
+  ],
+  [
+   28,
+   "Center"
+  ],
+  [
+   29,
+   "Center"
+  ],
+  [
+   30,
+   "Center"
+  ],
+  [
+   31,
+   "Dimension"
+  ],
+  [
+   32,
+   "Dimension"
+  ],
+  [
+   33,
+   "Dimension"
+  ],
+  [
+   35,
+   "Dimension"
+  ],
+  [
+   36,
+   "Dimension"
+  ],
+  [
+   37,
+   "Dimension"
+  ],
+  [
+   39,
+   "Extension"
+  ],
+  [
+   40,
+   "Extension"
+  ],
+  [
+   41,
+   "Dimension"
+  ],
+  [
+   42,
+   "Dimension"
+  ],
+  [
+   43,
+   "Dimension"
+  ],
+  [
+   46,
+   "Extension"
+  ],
+  [
+   47,
+   "Dimension"
+  ],
+  [
+   48,
+   "Dimension"
+  ],
+  [
+   49,
+   "Dimension"
+  ],
+  [
+   52,
+   "Extension"
+  ],
+  [
+   53,
+   "Dimension"
+  ],
+  [
+   54,
+   "Dimension"
+  ],
+  [
+   55,
+   "Dimension"
+  ],
+  [
+   57,
+   "Extension"
+  ],
+  [
+   58,
+   "Extension"
+  ],
+  [
+   59,
+   "Dimension"
+  ],
+  [
+   60,
+   "Dimension"
+  ],
+  [
+   61,
+   "Dimension"
+  ],
+  [
+   63,
+   "Extension"
+  ],
+  [
+   64,
+   "Extension"
+  ],
+  [
+   65,
+   "Dimension"
+  ],
+  [
+   66,
+   "Dimension"
+  ],
+  [
+   67,
+   "Dimension"
+  ],
+  [
+   69,
+   "Border"
+  ],
+  [
+   70,
+   "Border"
+  ],
+  [
+   71,
+   "Border"
+  ],
+  [
+   72,
+   "Border"
+  ],
+  [
+   73,
+   "TitleBlock"
+  ],
+  [
+   74,
+   "TitleBlock"
+  ],
+  [
+   75,
+   "TitleBlock"
+  ],
+  [
+   76,
+   "TitleBlock"
+  ]
+ ],
+ "scale": {
+  "conf": 1.0,
+  "den": 1.0,
+  "evidence": "antet: ÖLÇEK 5:1",
+  "notToScale": false,
+  "num": 5.0
+ },
+ "schema": "pcdrw-gt/1",
+ "sheet": {
+  "attrs": {},
+  "diagnostics": [],
+  "file": "",
+  "fileSha256": "",
+  "layout": "",
+  "nativeDims": [],
+  "page": 0,
+  "prims": [
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 1,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     192.0,
+     230.0
+    ],
+    "p1": [
+     192.0,
+     200.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 2,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     177.0,
+     245.0
+    ],
+    "p1": [
+     192.0,
+     230.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 3,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     177.0,
+     245.0
+    ],
+    "p1": [
+     177.0,
+     185.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 4,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     132.0,
+     245.0
+    ],
+    "p1": [
+     177.0,
+     245.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 5,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     132.0,
+     260.0
+    ],
+    "p1": [
+     132.0,
+     170.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 6,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     97.0,
+     260.0
+    ],
+    "p1": [
+     132.0,
+     260.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 7,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     97.0,
+     170.0
+    ],
+    "p1": [
+     132.0,
+     170.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 8,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     97.0,
+     215.0
+    ],
+    "p1": [
+     132.0,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 9,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     97.0,
+     260.0
+    ],
+    "p1": [
+     97.0,
+     170.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 10,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     250.0
+    ],
+    "p1": [
+     97.0,
+     250.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 11,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     250.0
+    ],
+    "p1": [
+     47.0,
+     180.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 12,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     192.0,
+     200.0
+    ],
+    "p1": [
+     177.0,
+     185.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 13,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     132.0,
+     185.0
+    ],
+    "p1": [
+     177.0,
+     185.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 14,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     180.0
+    ],
+    "p1": [
+     97.0,
+     180.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 15,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     225.0
+    ],
+    "p1": [
+     184.5,
+     225.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [
+      3.0,
+      1.5
+     ],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 16,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     184.5,
+     225.0
+    ],
+    "p1": [
+     184.5,
+     205.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [
+      3.0,
+      1.5
+     ],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     47.0,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 17,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     205.0
+    ],
+    "p1": [
+     184.5,
+     205.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [
+      3.0,
+      1.5
+     ],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 18,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     237.0,
+     215.0
+    ],
+    "p1": [
+     262.98076211353316,
+     260.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 19,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     262.98076211353316,
+     170.0
+    ],
+    "p1": [
+     237.0,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 20,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     262.98076211353316,
+     260.0
+    ],
+    "p1": [
+     314.9422863405995,
+     260.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 21,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     314.9422863405995,
+     170.0
+    ],
+    "p1": [
+     262.98076211353316,
+     170.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 22,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     314.9422863405995,
+     260.0
+    ],
+    "p1": [
+     340.92304845413264,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 23,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     340.92304845413264,
+     215.0
+    ],
+    "p1": [
+     314.9422863405995,
+     170.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 24,
+    "kind": "Circle",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     288.9615242270663,
+     215.0
+    ],
+    "p1": [
+     288.9615242270663,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 35.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 25,
+    "kind": "Circle",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     288.9615242270663,
+     215.0
+    ],
+    "p1": [
+     288.9615242270663,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 10.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 26,
+    "kind": "Circle",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     288.9615242270663,
+     215.0
+    ],
+    "p1": [
+     288.9615242270663,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 15.000000000000002,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [
+      3.0,
+      1.5
+     ],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     288.9615242270663,
+     215.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 27,
+    "kind": "Circle",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     288.9615242270663,
+     215.0
+    ],
+    "p1": [
+     288.9615242270663,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 30.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [
+      3.0,
+      1.5
+     ],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 28,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     44.0,
+     215.0
+    ],
+    "p1": [
+     195.0,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [
+      8.0,
+      2.0,
+      1.0,
+      2.0
+     ],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 29,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     234.0,
+     215.0
+    ],
+    "p1": [
+     343.92304845413264,
+     215.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [
+      8.0,
+      2.0,
+      1.0,
+      2.0
+     ],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 30,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     288.9615242270663,
+     160.03847577293368
+    ],
+    "p1": [
+     288.9615242270663,
+     269.9615242270663
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [
+      8.0,
+      2.0,
+      1.0,
+      2.0
+     ],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 31,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     72.0,
+     180.0
+    ],
+    "p1": [
+     72.0,
+     250.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 32,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     72.0,
+     180.0
+    ],
+    "p1": [
+     72.0,
+     183.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 33,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     72.0,
+     250.0
+    ],
+    "p1": [
+     72.0,
+     247.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 35,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     154.5,
+     185.0
+    ],
+    "p1": [
+     154.5,
+     245.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 36,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     154.5,
+     185.0
+    ],
+    "p1": [
+     154.5,
+     188.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 37,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     154.5,
+     245.0
+    ],
+    "p1": [
+     154.5,
+     242.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 39,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     179.0
+    ],
+    "p1": [
+     47.0,
+     158.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 40,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     97.0,
+     169.0
+    ],
+    "p1": [
+     97.0,
+     158.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 41,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     160.0
+    ],
+    "p1": [
+     97.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 42,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     160.0
+    ],
+    "p1": [
+     50.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 43,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     97.0,
+     160.0
+    ],
+    "p1": [
+     94.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 46,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     132.0,
+     169.0
+    ],
+    "p1": [
+     132.0,
+     158.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 47,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     97.0,
+     160.0
+    ],
+    "p1": [
+     132.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 48,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     97.0,
+     160.0
+    ],
+    "p1": [
+     100.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 49,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     132.0,
+     160.0
+    ],
+    "p1": [
+     129.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 52,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     177.0,
+     184.0
+    ],
+    "p1": [
+     177.0,
+     158.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 53,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     132.0,
+     160.0
+    ],
+    "p1": [
+     177.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 54,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     132.0,
+     160.0
+    ],
+    "p1": [
+     135.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 55,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     177.0,
+     160.0
+    ],
+    "p1": [
+     174.0,
+     160.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 57,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     251.0
+    ],
+    "p1": [
+     47.0,
+     272.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 58,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     192.0,
+     216.0
+    ],
+    "p1": [
+     192.0,
+     272.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 59,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     270.0
+    ],
+    "p1": [
+     192.0,
+     270.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 60,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     47.0,
+     270.0
+    ],
+    "p1": [
+     50.0,
+     270.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 61,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     192.0,
+     270.0
+    ],
+    "p1": [
+     189.0,
+     270.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 63,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     315.9422863405995,
+     170.0
+    ],
+    "p1": [
+     352.92304845413264,
+     170.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 64,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     315.9422863405995,
+     260.0
+    ],
+    "p1": [
+     352.92304845413264,
+     260.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 65,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     350.92304845413264,
+     170.0
+    ],
+    "p1": [
+     350.92304845413264,
+     260.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.25
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 66,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     350.92304845413264,
+     170.0
+    ],
+    "p1": [
+     350.92304845413264,
+     173.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 67,
+    "kind": "Arrowhead",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     350.92304845413264,
+     260.0
+    ],
+    "p1": [
+     350.92304845413264,
+     257.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": true,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": false,
+     "width": 0.0
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 69,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     10.0,
+     10.0
+    ],
+    "p1": [
+     410.0,
+     10.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.7
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 70,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     410.0,
+     10.0
+    ],
+    "p1": [
+     410.0,
+     287.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.7
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 71,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     410.0,
+     287.0
+    ],
+    "p1": [
+     10.0,
+     287.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.7
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 72,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     10.0,
+     287.0
+    ],
+    "p1": [
+     10.0,
+     10.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.7
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 73,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     230.0,
+     10.0
+    ],
+    "p1": [
+     230.0,
+     50.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 74,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     230.0,
+     50.0
+    ],
+    "p1": [
+     410.0,
+     50.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.5
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 75,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     230.0,
+     30.0
+    ],
+    "p1": [
+     410.0,
+     30.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.35
+    }
+   },
+   {
+    "a0": 0.0,
+    "a1": 360.0,
+    "attrs": {},
+    "center": [
+     0.0,
+     0.0
+    ],
+    "clipped": false,
+    "closed": false,
+    "conf": 1.0,
+    "fromDimBlock": false,
+    "hatchAngleDeg": 0.0,
+    "hatchPitch": 0.0,
+    "id": 76,
+    "kind": "Line",
+    "mergedFrom": [],
+    "minorRatio": 1.0,
+    "p0": [
+     320.0,
+     10.0
+    ],
+    "p1": [
+     320.0,
+     50.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "pts": [],
+    "radius": 0.0,
+    "rotDeg": 0.0,
+    "style": {
+     "dash": [],
+     "dashPhase": 0.0,
+     "filled": false,
+     "layer": "",
+     "linetype": "",
+     "rgb": 0,
+     "stroked": true,
+     "width": 0.35
+    }
+   }
+  ],
+  "raster": null,
+  "sheet": {
+   "hi": [
+    420.0,
+    297.0
+   ],
+   "lo": [
+    0.0,
+    0.0
+   ]
+  },
+  "source": "VectorPdf",
+  "texts": [
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {
+     "corpus.dimPrims": "31,32,33",
+     "corpus.dxfDim": "0;90;72.000000,250.000000;72.000000,180.000000;72.000000,250.000000;0,0"
+    },
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 34,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     71.0,
+     206.93883775684932
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      71.0,
+      206.93883775684932
+     ],
+     [
+      71.0,
+      223.0611622431507
+     ],
+     [
+      67.5,
+      223.0611622431507
+     ],
+     [
+      67.5,
+      206.93883775684932
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 90.0,
+    "utf8": "M14x1"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {
+     "corpus.dimPrims": "35,36,37",
+     "corpus.dxfDim": "0;90;154.500000,245.000000;154.500000,185.000000;154.500000,245.000000;0,0"
+    },
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 38,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     153.5,
+     210.0635166952055
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      153.5,
+      210.0635166952055
+     ],
+     [
+      153.5,
+      219.93648330479454
+     ],
+     [
+      150.0,
+      219.93648330479454
+     ],
+     [
+      150.0,
+      210.0635166952055
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 90.0,
+    "utf8": "Ø12"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {
+     "corpus.dimPrims": "39,40,41,42,43",
+     "corpus.dxfDim": "0;0;97.000000,160.000000;47.000000,180.000000;97.000000,170.000000;0,0"
+    },
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 44,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     68.95023544520548,
+     161.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      68.95023544520548,
+      161.0
+     ],
+     [
+      75.04976455479452,
+      161.0
+     ],
+     [
+      75.04976455479452,
+      164.5
+     ],
+     [
+      68.95023544520548,
+      164.5
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 0.0,
+    "utf8": "10"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {
+     "corpus.dimPrims": "46,47,48,49",
+     "corpus.dxfDim": "0;0;132.000000,160.000000;97.000000,170.000000;132.000000,170.000000;0,0"
+    },
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 50,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     107.15501926369863,
+     161.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      107.15501926369863,
+      161.0
+     ],
+     [
+      121.84498073630138,
+      161.0
+     ],
+     [
+      121.84498073630138,
+      164.5
+     ],
+     [
+      107.15501926369863,
+      164.5
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 0.0,
+    "utf8": "7±0.5"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {
+     "corpus.dimPrims": "52,53,54,55",
+     "corpus.dxfDim": "0;0;177.000000,160.000000;132.000000,170.000000;177.000000,185.000000;0,0"
+    },
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 56,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     152.97511772260273,
+     161.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      152.97511772260273,
+      161.0
+     ],
+     [
+      156.02488227739724,
+      161.0
+     ],
+     [
+      156.02488227739724,
+      164.5
+     ],
+     [
+      152.97511772260273,
+      164.5
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 0.0,
+    "utf8": "9"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {
+     "corpus.dimPrims": "57,58,59,60,61",
+     "corpus.dxfDim": "0;0;192.000000,270.000000;47.000000,250.000000;192.000000,215.000000;0,0"
+    },
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 62,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     110.63013698630137,
+     271.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      110.63013698630137,
+      271.0
+     ],
+     [
+      128.36986301369862,
+      271.0
+     ],
+     [
+      128.36986301369862,
+      274.5
+     ],
+     [
+      110.63013698630137,
+      274.5
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 0.0,
+    "utf8": "29±0.2"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {
+     "corpus.dimPrims": "63,64,65,66,67",
+     "corpus.dxfDim": "0;90;350.923048,260.000000;314.942286,170.000000;314.942286,260.000000;0,0"
+    },
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 68,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     349.92304845413264,
+     211.9502354452055
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      349.92304845413264,
+      211.9502354452055
+     ],
+     [
+      349.92304845413264,
+      218.04976455479454
+     ],
+     [
+      346.42304845413264,
+      218.04976455479454
+     ],
+     [
+      346.42304845413264,
+      211.9502354452055
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 90.0,
+    "utf8": "18"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {},
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 77,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     234.0,
+     37.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      234.0,
+      37.0
+     ],
+     [
+      279.83486729452056,
+      37.0
+     ],
+     [
+      279.83486729452056,
+      40.5
+     ],
+     [
+      234.0,
+      40.5
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 0.0,
+    "utf8": "PARÇA: injector_00"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {},
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 78,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     234.0,
+     17.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      234.0,
+      17.0
+     ],
+     [
+      277.4758133561644,
+      17.0
+     ],
+     [
+      277.4758133561644,
+      20.5
+     ],
+     [
+      234.0,
+      20.5
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 0.0,
+    "utf8": "MALZEME: 1.4005"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {},
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 3.5,
+    "id": 79,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     324.0,
+     37.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      324.0,
+      37.0
+     ],
+     [
+      349.2019477739726,
+      37.0
+     ],
+     [
+      349.2019477739726,
+      40.5
+     ],
+     [
+      324.0,
+      40.5
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 0.0,
+    "utf8": "ÖLÇEK 5:1"
+   },
+   {
+    "alternatives": [],
+    "asOutlines": false,
+    "attrs": {},
+    "conf": 1.0,
+    "font": "DejaVu Sans",
+    "fromDimBlock": false,
+    "height": 2.5,
+    "id": 80,
+    "invisible": false,
+    "mergedFrom": [],
+    "origin": [
+     324.0,
+     17.0
+    ],
+    "prov": {
+     "page": 0,
+     "ref": "",
+     "source": "VectorPdf"
+    },
+    "quad": [
+     [
+      324.0,
+      17.0
+     ],
+     [
+      367.45890410958907,
+      17.0
+     ],
+     [
+      367.45890410958907,
+      19.5
+     ],
+     [
+      324.0,
+      19.5
+     ]
+    ],
+    "rgb": 0,
+    "rotDeg": 0.0,
+    "utf8": "RESİM NO: PC-injector-00"
+   }
+  ],
+  "unitToMm": 1.0
+ },
+ "views": [
+  {
+   "box": {
+    "hi": [
+     195.0,
+     263.0
+    ],
+    "lo": [
+     44.0,
+     167.0
+    ]
+   },
+   "label": "Front",
+   "role": "Front",
+   "sheetToView": [
+    0.2,
+    0.0,
+    0.0,
+    0.2,
+    -9.4,
+    -43.0
+   ]
+  },
+  {
+   "box": {
+    "hi": [
+     343.92304845413264,
+     263.0
+    ],
+    "lo": [
+     234.0,
+     167.0
+    ]
+   },
+   "label": "Left",
+   "role": "Left",
+   "sheetToView": [
+    0.2,
+    0.0,
+    0.0,
+    0.2,
+    -57.79230484541326,
+    -43.0
+   ]
+  }
+ ],
+ "volume": 4373.747181086477
+}

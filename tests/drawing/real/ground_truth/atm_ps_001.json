@@ -1,0 +1,173 @@
+{
+ "bbox": {
+  "max": [
+   4.0,
+   4.0,
+   10.0
+  ],
+  "min": [
+   -4.0,
+   -4.0,
+   0.0
+  ],
+  "sorted_extents": [
+   8.0,
+   8.0,
+   10.0
+  ]
+ },
+ "body_count": 2,
+ "body_names": [
+  "NozzleTip",
+  "SwirlerInsert"
+ ],
+ "body_volumes": [
+  364.27290417149254,
+  107.57192423555895
+ ],
+ "features": [
+  "Sketch:Ck_Tip",
+  "Revolve:Tip_Don",
+  "Sketch:Ck_Insert",
+  "Revolve:Insert_Don",
+  "Sketch:Ck_Slot",
+  "Extrude:Slot",
+  "Pattern:Slot_Cogalt",
+  "Sketch:Ck_Groove",
+  "Extrude:Groove",
+  "Pattern:Groove_Cogalt"
+ ],
+ "frame": "model Z = drawing axis x (x=0 at the forward / exit face)",
+ "key_values": [
+  0.8,
+  3.2,
+  5.0,
+  8.0,
+  2.0,
+  0.5,
+  0.6,
+  4.2,
+  5.8,
+  10.0,
+  1.35
+ ],
+ "name": "atm_ps_001",
+ "parameters": {
+  "Ap": {
+   "expr": "n_slot*slot_w*slot_d",
+   "value": 0.75
+  },
+  "D_bore": {
+   "expr": "5",
+   "value": 5.0
+  },
+  "D_exit": {
+   "expr": "2",
+   "value": 2.0
+  },
+  "D_out": {
+   "expr": "8",
+   "value": 8.0
+  },
+  "Ds": {
+   "expr": "3.2",
+   "value": 3.2
+  },
+  "K": {
+   "expr": "Ap/(Ds*d0)",
+   "value": 0.29296874999999994
+  },
+  "L_exit": {
+   "expr": "(D_exit-d0)/2/tan(a_exit/2)",
+   "value": 0.6000000000000001
+  },
+  "L_ins": {
+   "expr": "L_total-L_tip",
+   "value": 5.8
+  },
+  "L_tip": {
+   "expr": "4.2",
+   "value": 4.2
+  },
+  "L_total": {
+   "expr": "10",
+   "value": 10.0
+  },
+  "Ls": {
+   "expr": "L_tip-x_c0",
+   "value": 2.0
+  },
+  "a_cone": {
+   "expr": "90",
+   "value": 90.0
+  },
+  "a_exit": {
+   "expr": "90",
+   "value": 90.0
+  },
+  "chamfer": {
+   "expr": "0.5",
+   "value": 0.5
+  },
+  "d0": {
+   "expr": "0.8",
+   "value": 0.8
+  },
+  "groove_az": {
+   "expr": "37",
+   "value": 37.0
+  },
+  "groove_d": {
+   "expr": "0.5",
+   "value": 0.5
+  },
+  "groove_w": {
+   "expr": "0.6",
+   "value": 0.6
+  },
+  "lo": {
+   "expr": "0.4",
+   "value": 0.4
+  },
+  "n_slot": {
+   "expr": "3",
+   "value": 3.0
+  },
+  "slot_d": {
+   "expr": "0.5",
+   "value": 0.5
+  },
+  "slot_len": {
+   "expr": "1.9",
+   "value": 1.9
+  },
+  "slot_off": {
+   "expr": "Ds/2-slot_w/2",
+   "value": 1.35
+  },
+  "slot_w": {
+   "expr": "0.5",
+   "value": 0.5
+  },
+  "x_c0": {
+   "expr": "x_c1+(Ds-d0)/2/tan(a_cone/2)",
+   "value": 2.2
+  },
+  "x_c1": {
+   "expr": "L_exit+lo",
+   "value": 1.0
+  }
+ },
+ "pcad": "samples/ref_atm_ps_001.pcad",
+ "pdf": "tests/drawing/real/simplex_atomizer_ATM-PS-001.pdf",
+ "slot_pattern_counts": [
+  3,
+  3
+ ],
+ "tolerances": {
+  "bbox_rel": 0.02,
+  "volume_rel": 0.03
+ },
+ "units": "mm",
+ "volume": 471.84482840705135
+}

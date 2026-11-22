@@ -1,0 +1,10 @@
+import ezdxf, sys
+doc=ezdxf.new('R2010',setup=True); msp=doc.modelspace()
+doc.layers.add('CENTER',linetype='CENTER'); doc.layers.add('DIM')
+msp.add_lwpolyline([(0,0),(80,0),(80,40),(0,40)],close=True)
+msp.add_circle((40,20),10); msp.add_arc((80,20),5,270,90)
+msp.add_line((40,-5),(40,45),dxfattribs={'layer':'CENTER'})
+msp.add_linear_dim(base=(0,-10),p1=(0,0),p2=(80,0),dimstyle='EZDXF',dxfattribs={'layer':'DIM'}).render()
+msp.add_diameter_dim(center=(40,20),radius=10,angle=45,dimstyle='EZ_RADIUS',dxfattribs={'layer':'DIM'}).render()
+msp.add_text('ÖLÇEK 1:1',dxfattribs={'height':3.5}).set_placement((100,0))
+doc.saveas(sys.argv[1])

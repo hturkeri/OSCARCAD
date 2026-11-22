@@ -1,0 +1,411 @@
+#pragma once
+// =====================================================================================================================
+// PersistCAD — "Teknik resimden içe aktar" (drawing import): DrawingIR + stage interfaces.
+// DRAFT of src/drawing/pc/DrawingIR.h + src/drawing/pc/DrawingStages.h. FROZEN at the end of P0 (see SPEC.md §8).
+// Change requests: docs/CONTRACT_REQUESTS.md with prefix "DRW:"; both affected WPs approve, the owner applies.
+//
+// Rules every stage obeys (contract):
+//  * Coordinates: SHEET millimetres, origin = lower-left corner of the page/sheet, +x right, +y UP (PDF convention).
+//    Raster ingest converts pixels -> sheet mm with RasterInfo::pxToSheet (after deskew/perspective correction).
+//    DXF: drawing units -> mm via $INSUNITS (default mm); model-space and paper-space are separate "pages".
+//    VIEW-local coordinates (used from stage S5 on) = sheet mm transformed by ViewRegion::sheetToView and divided
+//    by the view scale, i.e. TRUE PART millimetres.
+//  * Angles in degrees, CCW positive. Arcs CCW from a0 to a1 (a1 > a0, may exceed 360 by < 360).
+//  * Every element has a unique int id within its container (single counter DrawingIR::nextId). Ids are never
+//    reused inside one IR; stages that replace elements record the replaced ids in `mergedFrom`.
+//  * Every recognised element carries `conf` in [0,1]: 1 = taken verbatim from a native CAD entity, 0.9+ = exact
+//    vector evidence, 0.6..0.9 = heuristic, < 0.6 = guess (wizard shows red, never auto-accepted in strict mode).
+//  * Stages are PURE: (const input IR, options) -> output written into the IR's own section; no globals, no Qt,
+//    deterministic (same input -> byte-identical JSON). Cancellation via ProgressSink::cancelled().
+//  * The library (pc_drawing) depends on: pc_core, pc_sketch (DOF check), nlohmann_json, libqpdf, OpenCV
+//    (core, imgproc, imgcodecs), Tesseract/Leptonica. NO Qt. (QtPdf rendering lives in pc_drawing_qt.)
+//  * JSON: every struct has to_json/from_json (nlohmann ADL) in src/drawing/IRJson.cpp. Schema id "pcdrw/1".
+// =====================================================================================================================
+#include "pc/Document.h"
+#include "pc/SketchData.h"
+#include <nlohmann/json_fwd.hpp>
+#include <array>
+#include <cstdint>
+#include <functional>
+#include <map>
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace pc::drawing {
+
+struct Vec2 { double x = 0, y = 0; };
+struct Box2 { Vec2 lo, hi; };                 // axis-aligned in the coordinate system of its owner
+
+// ------------------------------------------------------------------------------------------- provenance / source
+enum class SourceKind { VectorPdf, ScannedPdf, Dxf, RasterImage, Photo };
+
+struct Provenance {
+  SourceKind source = SourceKind::VectorPdf;
+  int page = 0;                     // 0-based page / DXF layout index
+  std::string ref;                  // free text: "obj 659 0", "DXF handle 2F", "LSD#1234", "tess word 17"
+};
+
+// ------------------------------------------------------------------------------------------- S1/S2: primitives
+enum class PrimKind {
+  Line,        // p0, p1
+  Arc,         // center, radius, a0, a1
+  Circle,      // center, radius
+  Ellipse,     // center, radius (major), minorRatio, rotDeg, a0, a1  (iso views / DXF; sketch module has no ellipse)
+  Polyline,    // pts (open/closed) — raw flattened curves before arc refit
+  Bezier,      // pts = 4*k control points (cubic chain)
+  Arrowhead,   // tip = p0, direction = unit(p1 - p0) (p1 = arrow base centre), size = |p1-p0|
+  HatchRegion, // pts = boundary polygon; hatchAngleDeg, hatchPitch (section material)
+  Image        // pts = 4 corners of a placed bitmap (scanned page, hatch tiles, logos)
+};
+
+struct LineStyle {
+  double width = 0;                 // stroke width, sheet mm (raster: measured stroke thickness)
+  std::vector<double> dash;         // on/off pattern, sheet mm; empty = continuous. Filled by S2 dash-chaining too.
+  uint32_t rgb = 0;                 // 0xRRGGBB
+  bool stroked = true, filled = false;
+  std::string layer;                // DXF layer / PDF optional-content group name ("" if none)
+  std::string linetype;             // DXF linetype name ("CENTER", "HIDDEN", "BYLAYER" resolved) or ""
+};
+
+struct Primitive {
+  int id = 0;
+  PrimKind kind = PrimKind::Line;
+  Vec2 p0, p1;                      // Line / Arrowhead
+  Vec2 center; double radius = 0; double a0 = 0, a1 = 360;  // Arc / Circle / Ellipse
+  double minorRatio = 1, rotDeg = 0;                         // Ellipse
+  std::vector<Vec2> pts; bool closed = false;                // Polyline / Bezier / HatchRegion / Image
+  double hatchAngleDeg = 0, hatchPitch = 0;                  // HatchRegion
+  LineStyle style;
+  float conf = 1.f;
+  Provenance prov;
+  std::vector<int> mergedFrom;      // S2: ids of raw primitives this one replaces (dash pieces, polyline -> arc ...)
+  bool fromDimBlock = false;        // DXF: part of a DIMENSION's anonymous block (*D..)
+};
+
+// Text as found. For vector PDF: one run per show-text op group AFTER S2 merging; raw per-glyph runs stay in raw.
+struct TextHypothesis { std::string utf8; float conf = 0; };
+struct TextRun {
+  int id = 0;
+  std::string utf8;                 // best reading, NFC, symbols normalised: Ø ± ° × ⌀->Ø, "%%c"->Ø, "%%p"->±, "%%d"->°
+  Vec2 origin;                      // baseline start
+  double height = 0;                // cap height, sheet mm
+  double rotDeg = 0;                // baseline direction
+  std::array<Vec2, 4> quad{};       // tight box, CCW from lower-left (in baseline frame)
+  std::string font;                 // PDF BaseFont / DXF style / "ocr"
+  std::vector<TextHypothesis> alternatives;  // OCR n-best or symbol-repair alternatives (best first, excl. utf8)
+  bool asOutlines = false;          // vector glyph outlines recognised (SHX / "text as geometry")
+  float conf = 1.f;
+  Provenance prov;
+  std::vector<int> mergedFrom;
+};
+
+// DXF-native dimension (DIMENSION entity). Measured value is COMPUTED from defpoints (group 42 is optional and
+// often absent — spike finding); textOverride "<>" means "measured value".
+enum class NativeDimKind { Linear, Aligned, Angular, Diameter, Radius, Angular3P, Ordinate, ArcLength, Unknown };
+struct NativeDimension {
+  int id = 0;
+  NativeDimKind kind = NativeDimKind::Unknown;
+  bool rotatedLinear = false; double rotDeg = 0;        // Linear: dimension line direction
+  std::array<Vec2, 5> defpts{};                         // DXF 10/13/14/15/16 (unused = 0)
+  Vec2 textMid;                                         // DXF 11
+  double measured = 0;                                  // computed (mm or deg)
+  std::string textOverride;                             // DXF 1, raw (MTEXT codes stripped)
+  std::string block;                                    // "*D12"
+  std::vector<int> blockPrimitiveIds;                   // primitives exploded from the block (fromDimBlock=true)
+  float conf = 1.f;
+  Provenance prov;
+};
+
+struct RasterInfo {                 // only for raster sources
+  int widthPx = 0, heightPx = 0;
+  double dpi = 0;                   // from file metadata or estimated (sheet size fit); 0 = unknown
+  double deskewDeg = 0;             // applied rotation
+  std::array<double, 9> homography{1,0,0, 0,1,0, 0,0,1};  // photo: original px -> rectified px
+  std::array<double, 6> pxToSheet{};                      // affine: rectified px -> sheet mm
+  std::string preprocessedImagePath; // optional debug artefact (binarized, rectified)
+};
+
+struct PrimitiveSheet {
+  SourceKind source = SourceKind::VectorPdf;
+  std::string file;                 // absolute path at import time
+  std::string fileSha256;
+  int page = 0;
+  Box2 sheet;                       // page box in sheet mm ({0,0}-{w,h})
+  std::vector<Primitive> prims;
+  std::vector<TextRun> texts;
+  std::vector<NativeDimension> nativeDims;
+  std::optional<RasterInfo> raster;
+  std::vector<std::string> diagnostics;   // "font R269: symbol font without ToUnicode, repaired via glyph names"
+};
+
+// ------------------------------------------------------------------------------------------- S3: layout
+enum class ProjectionMethod { Unknown, FirstAngle /*ISO E*/, ThirdAngle /*ISO A, US*/ };
+enum class ViewRole { Unknown, Front, Top, Bottom, Left, Right, Rear, Section, Detail, Auxiliary, Isometric, Ignore };
+
+struct Scale { double num = 1, den = 1; float conf = 0; std::string evidence; };   // drawing:part = num:den
+
+struct TitleBlock {
+  Box2 box; float conf = 0;
+  std::map<std::string, std::string> fields;  // normalised keys: "scale","material","drawingNo","title","units",
+                                              // "sheet","revision","projection","generalTolerance" (ISO 2768-m)
+  Scale scale;
+  ProjectionMethod projection = ProjectionMethod::Unknown;
+};
+
+struct ViewRegion {
+  int id = 0;
+  Box2 box;                         // sheet mm
+  ViewRole role = ViewRole::Unknown; float roleConf = 0;
+  std::string label;                // "A-A", "B", "DETAY C (5:1)"
+  Scale scale;                      // = title block scale unless the view label overrides it
+  int sectionOfView = -1;           // Section: view carrying the cutting-plane line
+  int cuttingLinePrim = -1;
+  std::vector<int> primIds, textIds;
+  std::array<double, 6> sheetToView{1,0,0,1,0,0};   // affine (sheet mm -> part mm), set in S5
+};
+
+struct SheetLayout {
+  Box2 border; float borderConf = 0;
+  TitleBlock title;
+  std::vector<Box2> noteBlocks; std::vector<int> noteTextIds;
+  std::vector<ViewRegion> views;
+};
+
+// ------------------------------------------------------------------------------------------- S4: annotation
+enum class LineRole { Unknown, Visible, Hidden, Center, Dimension, Extension, Leader, Hatch, Cutting, Thread,
+                      Border, TitleBlock, Symbol, Phantom };
+
+enum class DimKind { Linear, Aligned, Diameter, Radius, Angle, Chamfer, Thread, Ordinate, Count, Note, Unknown };
+
+// Parsed dimension text (ISO 129-1 / ASME Y14.5 conventions). Produced by parseDimText().
+struct DimText {
+  std::string raw;
+  bool valid = false;
+  DimKind kind = DimKind::Unknown;  // implied by the text alone (Ø -> Diameter, R -> Radius, ° -> Angle, M -> Thread)
+  int count = 1;                    // "4x", "4X", "4 adet", "4 DELİK"
+  double nominal = 0;               // mm or deg
+  std::optional<double> tolPlus, tolMinus;   // signed deviations: "+0.05/-0" -> +0.05, 0 ; "±0.1" -> +0.1,-0.1
+  std::string fitClass;             // "H7", "g6"
+  bool isMax = false, isMin = false;          // "max", "min", "maks."
+  bool reference = false;           // "(12)"
+  bool basic = false;               // boxed (vector: surrounding rectangle)
+  bool spherical = false;           // SØ / SR
+  bool squareSym = false;           // □
+  double chamferAngle = 0;          // "2x45°" -> nominal 2, chamferAngle 45 ; "C2" -> 2,45
+  std::string threadSpec;           // "M8x1.25-6H", "3/8\"-40UNS", "G1/4"
+  double threadMajor = 0, threadPitch = 0;
+  float conf = 0;                   // grammar confidence (penalised by confusion-set corrections)
+  std::vector<std::string> corrections;  // "0->Ø (circle context)", "+->± (symmetric tol)"
+};
+
+struct Dimension {
+  int id = 0;
+  int viewId = -1;
+  DimText text;
+  int textId = -1;                  // TextRun
+  int nativeDimId = -1;             // NativeDimension (DXF)
+  std::vector<int> dimLineIds, extLineIds, arrowIds, leaderIds;
+  // Geometry the dimension constrains (view-local after S5). Anchors are points ON measured geometry.
+  std::vector<int> geomPrimIds;     // e.g. two edges, a circle, an arc, two lines (angle)
+  std::array<Vec2, 2> anchors{};    // measurement points (sheet mm)
+  Vec2 direction{1, 0};             // measurement direction for Linear (unit)
+  double measuredSheet = 0;         // from geometry, sheet mm (or deg)
+  double measuredPart = 0;          // measuredSheet / scale
+  double residual = 0;              // measuredPart - text.nominal (or vs tolerance midpoint, see SPEC §2.8)
+  bool driving = true;              // false for reference "(..)", redundant, max/min envelope dims
+  float conf = 0;
+};
+
+struct Annotation {
+  std::map<int, LineRole> roles;    // primitive id -> role
+  std::map<int, float> roleConf;
+  std::vector<Dimension> dims;
+  std::vector<int> centerlineIds;   // axis candidates (symmetry axes of views)
+};
+
+// ------------------------------------------------------------------------------------------- S5: views
+enum class Adjacency { None, RightOf, LeftOf, Above, Below };   // relative sheet placement
+struct ViewRelation { int a = -1, b = -1; Adjacency adj = Adjacency::None; double alignErr = 0; float conf = 0; };
+
+struct ViewGraph {
+  ProjectionMethod projection = ProjectionMethod::Unknown; float projectionConf = 0;
+  std::vector<ViewRelation> relations;
+  int primaryView = -1;             // most informative view (profile candidate)
+  std::map<int, int> axisOfView;    // view id -> centerline primitive id (rotational symmetry axis)
+  std::map<int, double> symmetryScore;  // view id -> mirror-match score about its axis (0..1)
+};
+
+// ------------------------------------------------------------------------------------------- S6: sketches
+enum class ParamTag { FromDimension /*[D]*/, Measured /*[Ö]*/, Assumed /*[V]*/, Derived /*[T]*/ };
+
+struct ParamProposal {
+  pc::Parameter param;              // name, expression (nominal), kind, description ("[D] Ø16 +0/-0.5, görünüş A")
+  ParamTag tag = ParamTag::FromDimension;
+  int dimensionId = -1;
+  std::optional<double> tolPlus, tolMinus;
+  double tolMidValue = 0;           // nominal + (tolPlus+tolMinus)/2 — offered as alternative value
+};
+
+struct SketchCandidate {
+  int id = 0;
+  int viewId = -1;
+  std::string purpose;              // "revolve-half-profile", "extrude-profile", "cut-profile", "hole-pattern"
+  pc::SketchPlaneKind plane = pc::SketchPlaneKind::XY;
+  pc::Sketch sketch;                // ids in sketch are local; mapping below
+  std::vector<ParamProposal> params;
+  std::map<int, int> constraintToDimension;   // sketch constraint id -> Dimension id
+  std::map<int, int> entityToPrimitive;       // sketch entity id -> Primitive id
+  int axisEntity = -1;              // construction line used as revolve axis (or -1 -> axis U/V)
+  int dof = -1;                     // after pc::sketch::solve
+  std::vector<int> conflicting;     // constraint ids
+  double maxGeomDeviation = 0;      // solved sketch vs drawing geometry, part mm
+  float conf = 0;
+};
+
+// ------------------------------------------------------------------------------------------- S7: 3D synthesis
+enum class Strategy { Revolve, ExtrudeTwoView, ExtrudeSingleView /*depth from text, e.g. "t=5"*/, SectionRevolve,
+                      MultiFeature, SketchOnly };
+
+struct SynthesisCandidate {
+  int id = 0;
+  Strategy strategy = Strategy::SketchOnly;
+  float score = 0;                  // ranking 0..1
+  std::string explanation;          // Turkish, shown in wizard: "Ön görünüşte eksen + ayna simetrisi %97 -> döndürme"
+  pc::Document fragment;            // params + features (Sketch*, Revolve/Extrude/Hole/Chamfer/Fillet/Pattern)
+  std::vector<std::string> warnings;
+  // Verification against the drawing (filled by S7 using pc::model::regenerate + HLR re-projection):
+  double reprojectionError = -1;    // mean distance (part mm) of re-projected model edges to Visible prims
+  double volume = 0;
+};
+
+// ------------------------------------------------------------------------------------------- whole IR
+enum class Stage { Ingest = 1, Normalize, Layout, Annotate, Views, Sketch, Synthesize };
+
+struct UserEdit {                   // wizard edits are replayable (tests + "rerun from stage")
+  Stage stage = Stage::Ingest;
+  std::string op;                   // "deletePrim","setRole","setText","setViewRole","setScale","setParamName",...
+  std::string payload;              // JSON text (kept as text so the header needs only json_fwd)
+};
+
+struct DrawingIR {
+  std::string schema = "pcdrw/1";
+  int nextId = 1;
+  PrimitiveSheet raw;               // S1 output (never modified afterwards)
+  PrimitiveSheet norm;              // S2 output
+  SheetLayout layout;               // S3
+  Annotation annot;                 // S4
+  ViewGraph views;                  // S5
+  std::vector<SketchCandidate> sketches;        // S6
+  std::vector<SynthesisCandidate> synthesis;    // S7 (sorted by score desc)
+  std::vector<UserEdit> edits;
+  std::map<Stage, std::string> stageVersion;    // "pc_drawing 0.1 / normalize v3" (cache invalidation)
+};
+
+nlohmann::json toJson(const DrawingIR& ir);
+DrawingIR drawingIRFromJson(const nlohmann::json& j);         // throws std::runtime_error
+bool saveIR(const DrawingIR& ir, const std::string& path, std::string* err = nullptr);   // *.pcdrw.json
+bool loadIR(DrawingIR& ir, const std::string& path, std::string* err = nullptr);
+
+// =====================================================================================================================
+// Stage interfaces (src/drawing/pc/DrawingStages.h). Owners in brackets.
+// =====================================================================================================================
+struct ProgressSink {
+  std::function<void(double /*0..1*/, const std::string& /*Turkish status*/)> progress;
+  std::function<bool()> cancelled;  // polled; stage returns StageResult{ok=false, message="İptal edildi"}
+};
+
+struct StageResult { bool ok = false; std::string message; std::vector<std::string> warnings; };
+
+// ---- S0: routing [WP-1]
+struct SniffResult {
+  SourceKind kind = SourceKind::VectorPdf;
+  int pageCount = 1;
+  double vectorScore = 0;           // PDF: stroked-path + text density vs page-covering images (scanned => ~0)
+  std::string message;
+};
+SniffResult sniff(const std::string& path);
+
+// ---- S1: ingest [WP-1: PDF vector, DXF] [WP-2: raster]
+struct IngestOptions {
+  int page = 0;
+  bool explodeDxfDimBlocks = true;
+  std::string dxfLayout;            // "" = model space
+  double rasterDpiOverride = 0;     // 0 = from file / estimate
+  bool rasterIsPhoto = false;       // enables perspective rectification
+  std::string tessdataDir;          // "" = <app>/share/persistcad/tessdata (offline, shipped)
+  std::vector<std::string> ocrLanguages{"eng", "tur"};   // + "pcdim" (fine-tuned) when present
+};
+StageResult ingestPdfVector(const std::string& path, const IngestOptions&, PrimitiveSheet& out, ProgressSink* = nullptr); // WP-1
+StageResult ingestDxf(const std::string& path, const IngestOptions&, PrimitiveSheet& out, ProgressSink* = nullptr);       // WP-1
+
+// Raster: an 8-bit grayscale or BGR buffer (owned by caller). PNG/JPG/TIFF via loadRasterFile (OpenCV imgcodecs);
+// scanned-PDF pages via extractPdfPageImage (qpdf: DCT/Flate/CCITT? see SPEC) or pc_drawing_qt::renderPdfPage (QtPdf).
+struct RasterImage { int width = 0, height = 0, channels = 1; size_t stride = 0; std::vector<uint8_t> data; double dpi = 0; };
+bool loadRasterFile(const std::string& path, RasterImage& out, std::string* err = nullptr);                     // WP-2
+bool extractPdfPageImage(const std::string& path, int page, RasterImage& out, std::string* err = nullptr);      // WP-1
+StageResult ingestRaster(const RasterImage& img, const IngestOptions&, PrimitiveSheet& out, ProgressSink* = nullptr); // WP-2
+
+// ---- S2: normalize [WP-1] — shared by all sources: unit/scale-free cleanup in SHEET mm
+struct NormalizeOptions {
+  double snapTol = 0.05;            // mm; raster: max(0.05, 1.5 px)
+  double angleTolDeg = 0.3;         // raster: 1.0
+  double arcFitTol = 0.02;          // polyline -> arc max deviation (mm); raster 0.25
+  bool chainDashes = true;          // PScript-style split dashes -> one styled line (spike: 0 'd' operators)
+  bool mergeGlyphRuns = true;       // per-glyph runs -> words on a common baseline (spike: rotated text per glyph)
+  bool repairSymbolFonts = true;    // glyph-name tables (grave->±, n->Ø, asciitilde->° ...) see SPEC §2.2
+  bool detectVectorArrowheads = true;
+};
+StageResult normalize(const PrimitiveSheet& raw, const NormalizeOptions&, PrimitiveSheet& out, int& nextId);
+
+// ---- dimension text grammar [WP-2] (used by WP-2 OCR re-ranking and WP-3 S4)
+struct DimTextContext {             // geometric context biases confusion-set corrections
+  bool nearCircleOrCylinder = false; bool nearArc = false; bool betweenParallelLines = false; bool angular = false;
+};
+DimText parseDimText(const std::string& text, const DimTextContext& ctx = {});
+// Pick the best hypothesis among OCR alternatives with the grammar (returns index into hyps).
+int rankDimTextHypotheses(const std::vector<TextHypothesis>& hyps, const DimTextContext& ctx, DimText* best = nullptr);
+
+// ---- S3..S7 [WP-3]
+struct InterpretOptions {
+  ProjectionMethod defaultProjection = ProjectionMethod::FirstAngle;   // TS/ISO 128 practice
+  bool strict = false;              // strict: elements with conf < 0.6 are not used without user confirmation
+  double tolMatchFactor = 1.0;      // dim vs geometry acceptance = max(abs tol band, 0.5 % nominal, snap) * factor
+  bool preferTolMid = false;        // use tolerance midpoint as parameter value (enjektor lesson, SPEC §2.8)
+};
+StageResult analyzeLayout(DrawingIR& ir, const InterpretOptions&, ProgressSink* = nullptr);      // S3: norm -> layout
+StageResult annotate(DrawingIR& ir, const InterpretOptions&, ProgressSink* = nullptr);           // S4: roles + dims
+StageResult buildViews(DrawingIR& ir, const InterpretOptions&, ProgressSink* = nullptr);         // S5
+StageResult reconstructSketches(DrawingIR& ir, const InterpretOptions&, ProgressSink* = nullptr);// S6 (uses pc::sketch)
+StageResult synthesize(DrawingIR& ir, const InterpretOptions&, ProgressSink* = nullptr);         // S7 (uses pc::model)
+
+// Pipeline driver [WP-3]: runs stages [from, to]; re-applies ir.edits belonging to those stages after each stage.
+struct PipelineOptions { IngestOptions ingest; NormalizeOptions norm; InterpretOptions interp; };
+StageResult runPipeline(const std::string& path, DrawingIR& ir, Stage from, Stage to,
+                        const PipelineOptions&, ProgressSink* = nullptr);
+
+// Merge a chosen synthesis candidate into an existing document (feature id / parameter name clash resolution:
+// suffix "_2", ...). Returns ids of added features. Undo is the caller's (designer) business.
+std::vector<std::string> mergeIntoDocument(const SynthesisCandidate& c, pc::Document& doc, std::string* err = nullptr);
+
+// ---- evaluation [WP-1 owns harness; metric definitions SPEC §6]
+struct GroundTruth;                 // tests/drawing/GroundTruth.h (corpus generator output, *.gt.json)
+struct Metrics { std::map<std::string, double> values; };   // "geom.recall", "dim.valueAcc", "solid.volErr", ...
+Metrics evaluate(const DrawingIR& ir, const GroundTruth& gt);
+
+} // namespace pc::drawing
+
+// ---------------------------------------------------------------------------------------------------------------------
+// pc_drawing_qt (separate small target, Qt6::Gui + Qt6::Pdf; owner WP-2):
+//   namespace pc::drawing::qt {
+//     bool renderPdfPage(const QString& path, int page, double dpi, RasterImage& out, QString* err);   // QtPdf/PDFium
+//     QImage toQImage(const RasterImage&);
+//   }
+// Designer UI (src/designer/drawing_import/, Qt Widgets):
+//   OverlayView (QGraphicsView: background raster/vector render + IR layers + confidence colours)  — owner WP-2
+//   ImportWizard (QWizard pages S0..S7) + menu/ribbon hook                                         — owner WP-3
+//   Single entry point used by MainWindowShell (one line, coordinated with the designer owner):
+//     void installDrawingImportAction(QMainWindow* mw, QMenu* fileMenu,
+//                                     std::function<pc::Document()> currentDoc,
+//                                     std::function<void(const pc::Document&, const QString& undoText)> commit);
+// ---------------------------------------------------------------------------------------------------------------------

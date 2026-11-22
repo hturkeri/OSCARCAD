@@ -1,0 +1,54 @@
+{
+  "schema": "persistcad/1",
+  "name": "Flans",
+  "parameters": [
+    {"name": "Do", "expr": "100", "kind": "length", "min": 60, "max": 300, "description": "Flanş dış çapı", "exposed": true, "label": "Dış çap Do", "step": 1, "group": "Flanş"},
+    {"name": "Di", "expr": "40", "kind": "length", "min": 5, "max": 150, "description": "İç delik çapı", "exposed": true, "label": "İç çap Di", "step": 1, "group": "Flanş"},
+    {"name": "H", "expr": "12", "kind": "length", "min": 3, "max": 50, "description": "Flanş kalınlığı", "exposed": true, "label": "Kalınlık H", "step": 0.5, "group": "Flanş"},
+    {"name": "Dhub", "expr": "60", "kind": "length", "min": 10, "max": 200, "description": "Göbek çapı", "exposed": true, "label": "Göbek çapı", "step": 1, "group": "Göbek"},
+    {"name": "Hhub", "expr": "20", "kind": "length", "min": 2, "max": 100, "description": "Göbek yüksekliği", "exposed": true, "label": "Göbek yüksekliği", "step": 1, "group": "Göbek"},
+    {"name": "N", "expr": "6", "kind": "count", "min": 2, "max": 24, "description": "Cıvata sayısı", "exposed": true, "label": "Cıvata sayısı", "step": 1, "group": "Cıvatalar"},
+    {"name": "Dbc", "expr": "80", "kind": "length", "min": 20, "max": 280, "description": "Cıvata dairesi çapı", "exposed": true, "label": "Cıvata dairesi", "step": 1, "group": "Cıvatalar"},
+    {"name": "Dh", "expr": "9", "kind": "length", "min": 2, "max": 30, "description": "Cıvata deliği çapı", "exposed": true, "label": "Delik Ø", "step": 0.5, "group": "Cıvatalar"},
+    {"name": "Dcb", "expr": "15", "kind": "length", "min": 3, "max": 40, "description": "Havşa (cb) çapı", "exposed": false, "label": "", "step": 0, "group": ""},
+    {"name": "Hcb", "expr": "5", "kind": "length", "min": 0.5, "max": 30, "description": "Havşa (cb) derinliği", "exposed": false, "label": "", "step": 0, "group": ""},
+    {"name": "C", "expr": "1.5", "kind": "length", "min": 0.2, "max": 5, "description": "Pah", "exposed": true, "label": "Pah C", "step": 0.1, "group": "Flanş"}
+  ],
+  "features": [
+    {"id": "Sketch1", "type": "Sketch", "suppressed": false, "props": {}, "refs": [],
+     "sketch": {
+       "plane": {"kind": "XY", "faceRef": "", "offset": "0"},
+       "points": [{"id": 0, "x": 0, "y": 0}],
+       "entities": [{"id": 1, "type": "circle", "points": [0], "radius": 50}, {"id": 2, "type": "circle", "points": [0], "radius": 20}],
+       "constraints": [{"id": 3, "type": "Diameter", "refs": [1], "value": "Do"}, {"id": 4, "type": "Diameter", "refs": [2], "value": "Di"}],
+       "nextId": 5}},
+    {"id": "Extrude1", "type": "Extrude", "suppressed": false, "props": {"sketch": "Sketch1", "distance": "H", "direction": "normal", "op": "new"}, "refs": []},
+    {"id": "Sketch2", "type": "Sketch", "suppressed": false, "props": {}, "refs": [],
+     "sketch": {
+       "plane": {"kind": "OnFace", "faceRef": "Extrude1.end", "offset": "0"},
+       "points": [{"id": 0, "x": 0, "y": 0}],
+       "entities": [{"id": 1, "type": "circle", "points": [0], "radius": 30}, {"id": 2, "type": "circle", "points": [0], "radius": 20}],
+       "constraints": [{"id": 3, "type": "Diameter", "refs": [1], "value": "Dhub"}, {"id": 4, "type": "Diameter", "refs": [2], "value": "Di"}],
+       "nextId": 5}},
+    {"id": "Extrude2", "type": "Extrude", "suppressed": false, "props": {"sketch": "Sketch2", "distance": "Hhub", "direction": "normal", "op": "join"}, "refs": []},
+    {"id": "Sketch3", "type": "Sketch", "suppressed": false, "props": {}, "refs": [],
+     "sketch": {
+       "plane": {"kind": "OnFace", "faceRef": "Extrude1.end", "offset": "0"},
+       "points": [{"id": 0, "x": 0, "y": 0}, {"id": 1, "x": 40, "y": 0}],
+       "entities": [],
+       "constraints": [{"id": 2, "type": "DistanceX", "refs": [0, 1], "value": "Dbc/2"}, {"id": 3, "type": "DistanceY", "refs": [0, 1], "value": "0"}],
+       "nextId": 4}},
+    {"id": "Hole1", "type": "Hole", "suppressed": false, "props": {"sketch": "Sketch3", "diameter": "Dh", "through": "1", "kind": "counterbore", "cbDiameter": "Dcb", "cbDepth": "Hcb"}, "refs": []},
+    {"id": "Pattern1", "type": "Pattern", "suppressed": false, "props": {"kind": "circular", "source": "Hole1", "count": "N", "angle": "360", "axis": "Z"}, "refs": []},
+    {"id": "Chamfer1", "type": "Chamfer", "suppressed": false, "props": {"distance": "C"},
+     "refs": ["edge(Extrude1.side.e1|Extrude1.start)", "edge(Extrude2.end|Extrude2.side.e1)"]}
+  ],
+  "mfg": {
+    "additive": {"enabled": true, "process": "LPBF_Metal", "material": "Ti-6Al-4V", "minWallThickness": 0.4, "minFeatureSize": 0.3,
+                 "minHoleDiameter": 0.5, "maxSelfSupportingHoleDia": 8, "minOverhangAngle": 45, "minGap": 0.3, "maxAspectRatio": 8,
+                 "minEscapeHoleDia": 2, "build": [250, 250, 300], "buildDir": [0, 0, 1], "layerThickness": 0.03},
+    "conventional": {"enabled": true, "process": "CNC_Milling3Axis", "material": "Al 7075", "minToolDiameter": 3, "maxToolLengthToDia": 4,
+                     "maxHoleDepthToDia": 10, "minWallThickness": 0.8, "maxWallHeightToThickness": 15, "minHoleDiameter": 1,
+                     "preferStandardDrills": true, "stock": [300, 300, 150], "toolAxis": [0, 0, 1]}
+  }
+}
