@@ -1,0 +1,101 @@
+# PersistCAD: Windows'ta derle -> dist paketle -> bağımlılık denetimi -> NSIS kurulum exe'si
+#  - Her main push'unda ve elle (Actions > "Kurulum" > Run workflow) çalışır; exe "artifact" olarak indirilir.
+#  - v* etiketi itildiğinde (ör. git tag v0.1.1 && git push origin v0.1.1) exe GitHub Release'e eklenir.
+name: Kurulum
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths-ignore: ['docs/**', '**/*.md']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kurulum-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: CLANG64
+          update: true
+          install: binutils python
+
+      - name: Bağımlılıkları kur (scripts/windows/kurulum.sh)
+        run: bash scripts/windows/kurulum.sh
+
+      - name: Derle (Release, testler kapalı)
+        run: |
+          export PATH=$MINGW_PREFIX/bin:$PATH
+          cmake -S . -B build-clang64 -G Ninja -DCMAKE_BUILD_TYPE=Release \
+                -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DPC_BUILD_TESTS=OFF
+          ninja -C build-clang64 -j"$(nproc)"
+
+      - name: Paketle (scripts/windows/paketle.sh -> dist)
+        run: PC_DIST=dist bash scripts/windows/paketle.sh
+
+      - name: Bağımlılık denetimi (statik, tüm exe/dll)
+        run: OBJDUMP=/usr/bin/objdump python installer/check_deps.py dist
+
+      - name: Temiz ortam testi (PATH'te yalnız Windows)
+        shell: pwsh
+        run: |
+          $env:PATH = "$env:SystemRoot\system32;$env:SystemRoot;$env:SystemRoot\System32\Wbem"
+          $ok = $true
+          foreach ($t in @(
+              @('dist\FlansBraket_App.exe', '--validate-only', '--text'),
+              @('dist\Enjektor_09DB01_App.exe', '--validate-only', '--text'),
+              @('dist\BraketKulak_App.exe', '--validate-only', '--text'))) {
+            $exe = $t[0]; $args_ = $t[1..($t.Length-1)]
+            $p = Start-Process -FilePath $exe -ArgumentList $args_ -NoNewWindow -Wait -PassThru `
+                   -RedirectStandardOutput out.txt -RedirectStandardError err.txt
+            Get-Content out.txt -Tail 3
+            # 0xC0000135 = DLL bulunamadı, 0xC0000139 = giriş noktası yok
+            if ($p.ExitCode -in @(-1073741515, -1073741511) -or $p.ExitCode -notin @(0, 2)) {
+              Write-Host "HATA: $exe çıkış kodu $($p.ExitCode)"; Get-Content err.txt; $ok = $false
+            } else { Write-Host "OK: $exe ($($p.ExitCode))" }
+          }
+          if (-not $ok) { exit 1 }
+
+      - name: Sürüm
+        id: ver
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then v="${GITHUB_REF#refs/tags/v}"
+          else v="$(grep -oP 'project\(PersistCAD VERSION \K[0-9.]+' CMakeLists.txt)"; fi
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+
+      - name: NSIS kurulum exe'si
+        shell: pwsh
+        run: |
+          $mk = (Get-Command makensis -ErrorAction SilentlyContinue).Source
+          if (-not $mk) { $mk = "${env:ProgramFiles(x86)}\NSIS\makensis.exe" }
+          if (-not (Test-Path $mk)) { choco install nsis -y --no-progress | Out-Null; $mk = "${env:ProgramFiles(x86)}\NSIS\makensis.exe" }
+          & $mk /V3 "/DSRC=$env:GITHUB_WORKSPACE\dist" "/DVERSION=${{ steps.ver.outputs.version }}" installer\PersistCAD.nsi
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          Get-Item installer\PersistCAD_Kurulum_*.exe | Format-Table Name, Length
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PersistCAD_Kurulum_${{ steps.ver.outputs.version }}
+          path: installer/PersistCAD_Kurulum_*.exe
+          retention-days: 30
+
+      - name: GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: installer/PersistCAD_Kurulum_*.exe
+          generate_release_notes: true

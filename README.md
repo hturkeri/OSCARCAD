@@ -297,3 +297,23 @@ değişikliğinin korunması). Uçtan uca betik: `tests/e2e.sh`.
 `tests/runner_v2_cli.sh [derleme-dizini]` (varsayılan `build-e2`) çok gövdeli örneği `pc_mkapp` ile paketler
 ve `--validate-only` çıktısındaki `bodies` ve `body` alanlarını denetler. Bu betik ctest'te değildir,
 elle çalıştırılır.
+
+
+## Kurulum exe'si (Windows, admin gerektirmez)
+
+`installer/PersistCAD.nsi` bir NSIS kurulum betiğidir. Kurulum `%LOCALAPPDATA%\Programs\PersistCAD`
+klasörüne yapılır, UAC/admin istemez; masaüstü ve Başlat menüsü kısayolları, `.pcad`/`.pcapp`
+ilişkilendirmesi ve "Uygulamalar ve özellikler" kaydı kullanıcıya özeldir. Tüm DLL'ler ve Qt
+eklentileri pakete gömülür.
+
+- **Otomatik:** `.github/workflows/kurulum.yml` her `main` push'unda Windows'ta derler, `dist`
+  paketler, `installer/check_deps.py` ile eksik DLL denetimi yapar, uygulamayı yalnız Windows
+  sistem PATH'iyle çalıştırarak test eder ve `PersistCAD_Kurulum_<sürüm>.exe` üretir
+  (Actions > Kurulum > Artifacts). `v*` etiketi itilirse exe GitHub Release'e eklenir.
+- **Elle (MSYS2 CLANG64):**
+  ```
+  pacman -S --needed mingw-w64-clang-x86_64-nsis
+  PC_DIST=dist bash scripts/windows/paketle.sh
+  python installer/check_deps.py dist
+  makensis -DSRC=$PWD/dist installer/PersistCAD.nsi
+  ```
