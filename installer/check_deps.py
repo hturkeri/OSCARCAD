@@ -23,6 +23,8 @@ hid.dll avrt.dll ksuser.dll propsys.dll api-ms-win-core-synch-l1-2-0.dll
 msvcrt.dll ucrtbase.dll cabinet.dll wintrust.dll imagehlp.dll vfw32.dll msacm32.dll
 mscms.dll d3dcompiler_47.dll dcomp.dll windowscodecs.dll mfcore.dll ncrypt.dll
 bcryptprimitives.dll sspicli.dll wsock32.dll credui.dll netutils.dll dhcpcsvc.dll
+gdiplus.dll xmllite.dll oleacc.dll pdh.dll wevtapi.dll shfolder.dll mswsock.dll dxcore.dll
+d3d10.dll d3d10_1.dll cryptnet.dll uiautomationcore.dll winusb.dll msi.dll dbgcore.dll
 """.split()}
 files = {}
 for dp, _, fs in os.walk(root):
