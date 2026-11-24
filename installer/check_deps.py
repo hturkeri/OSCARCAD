@@ -1,6 +1,10 @@
 """Dağıtım klasöründeki tüm PE dosyalarının import ettiği DLL'leri tarar,
 klasörde olmayan ve Windows sistem DLL'i olmayanları raporlar."""
 import os, re, shutil, subprocess, sys
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 root = sys.argv[1]
 OBJDUMP = os.environ.get('OBJDUMP') or next(
     (t for t in ('x86_64-w64-mingw32-objdump', 'llvm-objdump', 'objdump') if shutil.which(t)), None)

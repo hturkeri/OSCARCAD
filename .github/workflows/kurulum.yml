@@ -49,7 +49,7 @@ jobs:
         run: PC_DIST=dist bash scripts/windows/paketle.sh
 
       - name: Bağımlılık denetimi (statik, tüm exe/dll)
-        run: OBJDUMP=/usr/bin/objdump python installer/check_deps.py dist
+        run: PYTHONUTF8=1 OBJDUMP=/usr/bin/objdump python installer/check_deps.py dist
 
       - name: Temiz ortam testi (PATH'te yalnız Windows)
         shell: pwsh
